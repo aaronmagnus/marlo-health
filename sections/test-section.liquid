@@ -1,0 +1,194 @@
+{%- comment -%}
+  Test Section - Prototype for custom section development
+  - Demonstrates section settings, blocks, and CSS scoping patterns
+{%- endcomment -%}
+
+{%- assign background_rgb = section.settings.background_color | color_to_rgb -%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --test-section-bg: {{ section.settings.background_color }};
+    {% else %}
+      --test-section-bg: #f5f5f5;
+    {% endif %}
+    --test-section-padding: {{ section.settings.padding }}px;
+    --test-section-margin-top: {{ section.settings.margin_top }}px;
+    --test-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  [data-section-id="{{ section.id }}"] .test-section {
+    background-color: var(--test-section-bg);
+    padding: var(--test-section-padding);
+    margin-top: var(--test-section-margin-top);
+    margin-bottom: var(--test-section-margin-bottom);
+  }
+
+  [data-section-id="{{ section.id }}"] .test-section__container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  [data-section-id="{{ section.id }}"] .test-section__row {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'row' %}
+        {%- assign row_bg_rgb = block.settings.background_color | color_to_rgb -%}
+        [data-block-id="{{ block.id }}"] {
+          {% if row_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+            background-color: {{ block.settings.background_color }};
+          {% else %}
+            background-color: #e0e0e0;
+          {% endif %}
+          {% if block.settings.text_color != blank %}
+            color: {{ block.settings.text_color }};
+          {% endif %}
+        }
+    {% endcase %}
+  {% endfor %}
+</style>
+
+<div data-section-id="{{ section.id }}">
+  <div class="test-section">
+    <div class="test-section__container">
+      {% if section.blocks.size == 0 %}
+        <p style="text-align: center; color: #666;">Add row blocks using the theme editor</p>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'row' %}
+            <div class="test-section__row" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+              {% if block.settings.text != blank %}
+                {{ block.settings.text }}
+              {% else %}
+                Row {{ forloop.index }}
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Test Section",
+  "tag": "section",
+  "class": "test-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Container Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max Width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "default": 1200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Sample row text"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background Color",
+          "default": "#e0e0e0"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#333333"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Test Section",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "text": "First row - customize me!",
+            "background_color": "#4a90d9",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "text": "Second row - add more!",
+            "background_color": "#50c878",
+            "text_color": "#ffffff"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
