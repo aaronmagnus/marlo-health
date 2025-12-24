@@ -1,7 +1,7 @@
 {%- comment -%}
   Card Carousel Section
   - Horizontal scrolling cards with infinite loop
-  - Portrait image cards with blurred content overlay
+  - Portrait image cards with content below
   - Navigation arrows and drag-to-scroll support
 {%- endcomment -%}
 
@@ -34,12 +34,21 @@
     padding-right: 1.5rem;
   }
 
+  [data-section-id="{{ section.id }}"] .swiper-slide {
+    width: {{ section.settings.card_width }}px;
+  }
+
   [data-section-id="{{ section.id }}"] .card-carousel__card {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     border-radius: var(--card-carousel-radius);
     overflow: hidden;
-    aspect-ratio: 3 / 4;
     background-color: #f0f0f0;
+  }
+
+  [data-section-id="{{ section.id }}"] .card-carousel__image-wrapper {
+    position: relative;
+    aspect-ratio: 3 / 4;
   }
 
   [data-section-id="{{ section.id }}"] .card-carousel__image {
@@ -51,11 +60,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .card-carousel__content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -134,21 +139,12 @@
     margin-right: 0;
   }
 
-  /* Block-level styles for content overlay */
+  /* Block-level styles for content */
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'card' %}
-        {%- assign content_bg_rgb = block.settings.content_background | color_to_rgb -%}
         [data-block-id="{{ block.id }}"] .card-carousel__content {
-          {% if content_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
-            background: {{ block.settings.content_background | color_modify: 'alpha', 0.7 }};
-            backdrop-filter: blur({{ section.settings.blur_amount }}px);
-            -webkit-backdrop-filter: blur({{ section.settings.blur_amount }}px);
-          {% else %}
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur({{ section.settings.blur_amount }}px);
-            -webkit-backdrop-filter: blur({{ section.settings.blur_amount }}px);
-          {% endif %}
+          background: {{ block.settings.content_background }};
           color: {{ block.settings.text_color }};
         }
     {% endcase %}
@@ -175,24 +171,26 @@
                     {{ block.shopify_attributes }}
                   >
                     <div class="card-carousel__card">
-                      {% if block.settings.image != blank %}
-                        <img
-                          class="card-carousel__image"
-                          src="{{ block.settings.image | image_url: width: 600 }}"
-                          srcset="
-                            {{ block.settings.image | image_url: width: 400 }} 400w,
-                            {{ block.settings.image | image_url: width: 600 }} 600w,
-                            {{ block.settings.image | image_url: width: 800 }} 800w
-                          "
-                          sizes="(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
-                          alt="{{ block.settings.image.alt | escape }}"
-                          loading="lazy"
-                          width="{{ block.settings.image.width }}"
-                          height="{{ block.settings.image.height }}"
-                        >
-                      {% else %}
-                        {{ 'image' | placeholder_svg_tag: 'card-carousel__image placeholder-svg' }}
-                      {% endif %}
+                      <div class="card-carousel__image-wrapper">
+                        {% if block.settings.image != blank %}
+                          <img
+                            class="card-carousel__image"
+                            src="{{ block.settings.image | image_url: width: 600 }}"
+                            srcset="
+                              {{ block.settings.image | image_url: width: 400 }} 400w,
+                              {{ block.settings.image | image_url: width: 600 }} 600w,
+                              {{ block.settings.image | image_url: width: 800 }} 800w
+                            "
+                            sizes="(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
+                            alt="{{ block.settings.image.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.image.width }}"
+                            height="{{ block.settings.image.height }}"
+                          >
+                        {% else %}
+                          {{ 'image' | placeholder_svg_tag: 'card-carousel__image placeholder-svg' }}
+                        {% endif %}
+                      </div>
                       <div class="card-carousel__content">
                         {% if block.settings.title != blank %}
                           <h3 class="card-carousel__title">{{ block.settings.title }}</h3>
@@ -219,25 +217,13 @@
 
         <script data-swiper-configuration type="text/json">
           {
-            "slidesPerView": 1.15,
+            "slidesPerView": "auto",
             "spaceBetween": {{ section.settings.gap }},
             "grabCursor": true,
             "enableOnMedia": "(min-width: 0px)",
             {% if section.blocks.size > 1 %}
               "loop": true,
             {% endif %}
-            "breakpoints": {
-              "600": {
-                "slidesPerView": 2.15
-              },
-              "900": {
-                "slidesPerView": 3.15
-              },
-              "1200": {
-                "slidesPerView": {{ section.settings.cards_per_view }},
-                "spaceBetween": {{ section.settings.gap }}
-              }
-            },
             "navigation": {
               "nextEl": ".card-carousel__nav-next",
               "prevEl": ".card-carousel__nav-prev"
@@ -261,12 +247,13 @@
     },
     {
       "type": "range",
-      "id": "cards_per_view",
-      "label": "Cards per view (desktop)",
-      "min": 2.5,
-      "max": 5,
-      "step": 0.5,
-      "default": 3.5
+      "id": "card_width",
+      "label": "Card width",
+      "min": 200,
+      "max": 400,
+      "step": 10,
+      "default": 280,
+      "unit": "px"
     },
     {
       "type": "range",
@@ -286,16 +273,6 @@
       "max": 32,
       "step": 2,
       "default": 12,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "blur_amount",
-      "label": "Content blur amount",
-      "min": 0,
-      "max": 20,
-      "step": 2,
-      "default": 10,
       "unit": "px"
     },
     {
