@@ -1,243 +1,255 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{% assign background_rgb = section.settings.background_color | color_to_rgb %}
+{% assign text_rgb = section.settings['color-body-text'] | color_to_rgb %}
 
-{%- liquid
-  assign social_icons = true
-  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-    assign social_icons = false
-  endif
-  if section.settings.enable_country_selector or section.settings.enable_language_selector
-    assign language_country_selector = true
-  endif
-  if section.blocks.size > 0
-    assign announcement_bar = true
-  endif
--%}
+<style>
+  .wt-announcement {
+      {% if background_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-background: {{ section.settings.background_color }};
+      {% endif %}
 
-{% if social_icons %}
-  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
-{% endif %}
+      {% if text_rgb != 'rgba(0, 0, 0, 0.0)' %}
+        --color-text: {{ section.settings.color-body-text }};
+      {% endif %}
+  }
+</style>
 
-<div
-  class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
->
-  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
-    {%- if section.settings.show_social and social_icons -%}
-      {%- render 'social-icons' -%}
-    {%- endif -%}
-    {%- if section.blocks.size == 1 -%}
-      <div
-        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
-        role="region"
-        aria-label="{{ 'sections.header.announcement' | t }}"
-        {{ section.blocks.first.shopify_attributes }}
-      >
-        {%- if section.blocks.first.settings.text != blank -%}
-          {%- if section.blocks.first.settings.link != blank -%}
-            <a
-              href="{{ section.blocks.first.settings.link }}"
-              class="announcement-bar__link link link--text focus-inset animate-arrow"
+<script src="{{ 'announcement-bar.js' | asset_url }}" defer="defer"></script>
+
+<announcement-bar class="wt-announcement-bar">
+  <script>
+    (() => {
+      const isHidden = localStorage.getItem("wt-announcement-hidden");
+      const announcementCount = Number({{ section.blocks.size }}) ;
+
+      if ((!isHidden || new Date().getTime() > Number(isHidden)) && announcementCount > 0) {
+        document.querySelector('.wt-announcement-bar').style.display = 'block';
+      }
+    })();
+  </script>
+
+  <div
+    data-section-id="{{ section.id }}"
+    data-announcements-count="{{ section.blocks.size }}"
+    id="wt-announcement__container"
+    class="{% if section.settings.checkbox_enable_animation == true %} wt-announcement__container--animated{% endif %} wt-announcement__container wt-announcement__container--{{ section.blocks.size }}col{% if section.settings.marquee == true %} wt-announcement__container--marquee{% endif %}"
+    {% if section.settings.marquee == true %}
+      style="--time:{{ section.settings.animation_speed }}s"
+    {% endif %}
+  >
+    {% liquid
+      if section.settings.checkbox_enable_animation and section.blocks.size > 1
+        assign multiply = 20
+      else
+        assign multiply = 1
+      endif
+    %}
+    {% liquid
+      if section.settings.marquee == true
+        assign multiply = 5
+      endif
+    %}
+
+    {% if section.settings.marquee == true %}<div class="wt-announcement__marquee">{% endif %}
+    {% assign original = true %}
+    {% for i in (1..multiply) %}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'announcement' -%}
+            <div
+              class="wt-announcement__body wt-announcement__text"
+              role="region"
+              aria-label="{{ 'sections.header.announcement' | t }}"
+              {{ block.shopify_attributes }}
             >
-          {%- endif -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            {%- endif -%}
-          </p>
-          {%- if section.blocks.first.settings.link != blank -%}
-            </a>
-          {%- endif -%}
-        {%- endif -%}
-      </div>
-    {%- elsif section.blocks.size > 1 -%}
-      <slideshow-component
-        class="announcement-bar"
-        role="region"
-        aria-roledescription="{{ 'sections.announcements.carousel' | t }}"
-        aria-label="{{ 'sections.announcements.announcement_bar' | t }}"
-      >
-        <div class="announcement-bar-slider slider-buttons">
-          <button
-            type="button"
-            class="slider-button slider-button--prev"
-            name="previous"
-            aria-label="{{ 'sections.announcements.previous_announcement' | t }}"
-            aria-controls="Slider-{{ section.id }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-          <div
-            class="grid grid--1-col slider slider--everywhere"
-            id="Slider-{{ section.id }}"
-            aria-live="polite"
-            aria-atomic="true"
-            data-autoplay="{{ section.settings.auto_rotate }}"
-            data-speed="{{ section.settings.change_slides_speed }}"
-          >
-            {%- for block in section.blocks -%}
-              <div
-                class="slideshow__slide slider__slide grid__item grid--1-col"
-                id="Slide-{{ section.id }}-{{ forloop.index }}"
-                {{ block.shopify_attributes }}
-                role="group"
-                aria-roledescription="{{ 'sections.announcements.announcement' | t }}"
-                aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-                tabindex="-1"
-              >
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a
+                    href="{{ block.settings.link }}"
+                    tabindex="{% if section.settings.marquee %}-1{% else %}0{% endif %}"
+                  >
+                {%- endif -%}
+                {{ block.settings.text | escape }}
+                {%- if block.settings.link != blank -%}
+                  {% render 'icons', id: 'arrow-right' %}
+                  </a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+      {% assign original = false %}
+    {% endfor %}
+    {% if section.settings.marquee == true %}</div>{% endif %}
+
+    {% if section.settings.marquee == true %}
+      <div class="wt-announcement__marquee">
+        {% for i in (1..multiply) %}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'announcement' -%}
                 <div
-                  class="announcement-bar__announcement"
+                  class="wt-announcement__body wt-announcement__text"
                   role="region"
                   aria-label="{{ 'sections.header.announcement' | t }}"
+                  {{ block.shopify_attributes }}
                 >
                   {%- if block.settings.text != blank -%}
                     {%- if block.settings.link != blank -%}
-                      <a
-                        href="{{ block.settings.link }}"
-                        class="announcement-bar__link link link--text focus-inset animate-arrow"
-                      >
+                      <a href="{{ block.settings.link }}" tabindex="-1">
                     {%- endif -%}
-                    <p class="announcement-bar__message h5">
-                      <span>{{ block.settings.text | escape }}</span>
-                      {%- if block.settings.link != blank -%}
-                        {{- 'icon-arrow.svg' | inline_asset_content -}}
-                      {%- endif -%}
-                    </p>
+                    {{ block.settings.text | escape }}
                     {%- if block.settings.link != blank -%}
+                      {% render 'icons', id: 'arrow-right' %}
                       </a>
                     {%- endif -%}
                   {%- endif -%}
                 </div>
-              </div>
-            {%- endfor -%}
-          </div>
-          <button
-            type="button"
-            class="slider-button slider-button--next"
-            name="next"
-            aria-label="{{ 'sections.announcements.next_announcement' | t }}"
-            aria-controls="Slider-{{ section.id }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-        </div>
-      </slideshow-component>
-      {%- if request.design_mode -%}
-        <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-        <style>
-          /* theme editor power preview fix */
-          .announcement-bar-slider .slider__slide[aria-hidden='true'] {
-            visibility: hidden;
-          }
-        </style>
-      {%- endif -%}
-    {%- endif -%}
-    <div class="localization-wrapper">
-      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-        <localization-form class="small-hide medium-hide">
-          {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
-            <div>
-              <h2 class="visually-hidden" id="AnnouncementCountryLabel">{{ 'localization.country_label' | t }}</h2>
-              {%- render 'country-localization', localPosition: 'AnnouncementCountry' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {% endif %}
-
-      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-        <localization-form class="small-hide medium-hide">
-          {%- form 'localization', id: 'AnnouncementLanguageForm', class: 'localization-form' -%}
-            <div>
-              <h2 class="visually-hidden" id="AnnouncementLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-              {%- render 'language-localization', localPosition: 'AnnouncementLanguage' -%}
-            </div>
-          {%- endform -%}
-        </localization-form>
-      {%- endif -%}
-    </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
-</div>
+  {% if section.settings.checkbox_close_announcement == true %}
+    <button
+      aria-label="{{ 'aria-label.announcement-bar' | t }}"
+      class="wt-announcement__close"
+      tabindex="0"
+    >
+      {% render 'icons', id: 'close', icon_id: 'wt-announcement__close', icon_class: 'wt-announcement__close__icon' %}
+    </button>
+  {% endif %}
+</announcement-bar>
+
+{% if section.settings.marquee != true %}
+  <script>
+    function setAnimationDuration(announcementList, speed) {
+      const totalWidth = Array.from(announcementList.children).reduce((acc, li) => {
+        const liStyles = getComputedStyle(li);
+        const liWidth = li.offsetWidth + parseInt(liStyles.marginLeft) + parseInt(liStyles.marginRight);
+        return acc + liWidth;
+      }, 0);
+      const containerWidth = announcementList.parentElement.offsetWidth;
+      const duration = (totalWidth / 1000) * speed;
+      announcementList.parentElement.style.setProperty('--animation-duration', `${duration}s`);
+    }
+
+    function closeAnnouncement() {
+      const announcementBar = document.getElementById('shopify-section-announcement-bar');
+      announcementBar.style.display = 'none';
+    }
+
+    function initializeAnimation(speed) {
+      if (window.innerWidth < 900) {
+        document.querySelectorAll('.wt-announcement__container').forEach((element) => {
+          if (element.dataset.announcements - count > 1) element.classList.add('wt-announcement__container--animated');
+        });
+      }
+      document
+        .querySelectorAll('.wt-announcement__container--animated')
+        .forEach((announcementList) => setAnimationDuration(announcementList, speed));
+    }
+
+    function attachCloseListener() {
+      const close = document.getElementById('wt-announcement__close');
+      close?.addEventListener('click', closeAnnouncement);
+    }
+
+    function initializeSection() {
+      const speed = 20;
+      initializeAnimation(speed);
+      attachCloseListener();
+    }
+
+    function handleSectionReinit() {
+      document.removeEventListener('shopify:section:load', handleSectionReinit);
+      initializeSection();
+      document.addEventListener('shopify:section:load', handleSectionReinit);
+    }
+
+    window.addEventListener('load', () => {
+      if (window.innerWidth > 900) {
+        initializeSection();
+        document.addEventListener('shopify:section:load', handleSectionReinit);
+      }
+    });
+  </script>
+{% endif %}
 
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
-  "max_blocks": 12,
-  "class": "announcement-bar-section",
-  "enabled_on": {
-    "groups": ["header"]
-  },
+  "tag": "section",
+  "class": "wt-announcement",
   "settings": [
     {
+      "type": "header",
+      "content": "t:sections.announcement-bar.settings.behavior.content"
+    },
+    {
       "type": "checkbox",
-      "id": "auto_rotate",
-      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
+      "id": "marquee",
+      "label": "t:sections.announcement-bar.settings.enable-animation.label",
       "default": false
     },
     {
-      "type": "range",
-      "id": "change_slides_speed",
-      "min": 3,
-      "max": 10,
-      "step": 1,
-      "unit": "s",
-      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
-      "default": 5
-    },    
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-4"
-    },  
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "type": "select",
+      "id": "animation_speed",
+      "options": [
+        {
+          "value": "150",
+          "label": "t:sections.announcement-bar.settings.animation-speed.options.slow.label"
+        },
+        {
+          "value": "100",
+          "label": "t:sections.announcement-bar.settings.animation-speed.options.normal.label"
+        },
+        {
+          "value": "50",
+          "label": "t:sections.announcement-bar.settings.animation-speed.options.fast.label"
+        }
+      ],
+      "label": "t:sections.announcement-bar.settings.animation-speed.label",
+      "default": "100"
     },
     {
       "type": "header",
-      "content": "t:sections.announcement-bar.settings.heading_utilities.content"
-    },
-    {
-      "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.show_social.label",
-      "info": "t:sections.announcement-bar.settings.show_social.info"
+      "content": "t:sections.global.general"
     },
     {
       "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_country_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_country_selector.info"
+      "id": "checkbox_close_announcement",
+      "default": true,
+      "label": "t:sections.announcement-bar.blocks.announcement.settings.checkbox_close_announcement.label"
     },
     {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
+      "type": "header",
+      "content": "t:sections.global.colors",
+      "info": "t:sections.global.colors-info"
+    },
+    {
+      "type": "color",
+      "id": "color-body-text",
+      "default": "transparent",
+      "label": "t:sections.settings.settings.text-color.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "default": "transparent",
+      "label": "t:sections.settings.settings.background-color.label"
     }
   ],
   "blocks": [
     {
       "type": "announcement",
       "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "limit": 3,
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
+          "default": "Announce something here",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
         },
         {
@@ -248,15 +260,12 @@
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "t:sections.announcement-bar.presets.name",
-      "blocks": [
-        {
-          "type": "announcement"
-        }
-      ]
-    }
-  ]
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
 }
 {% endschema %}

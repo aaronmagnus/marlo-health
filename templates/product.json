@@ -9,100 +9,1065 @@
  */
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "main-breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "full-width-enabled": true,
+        "text_color": "#ffffff",
+        "background_color": "#ff9900",
+        "margin-top": 12,
+        "margin-bottom": 12
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+            "brand": "",
+            "enable_vendor_link": false,
+            "size_text": 300,
+            "size_text_mobile": 160
+          }
+        },
+        "feature_tags_ktxUht": {
+          "type": "feature_tags",
+          "settings": {
+            "metafield": "shopify.detailed-ingredients",
+            "limit": 4,
+            "text_color": "rgba(0,0,0,0)",
+            "border_color": "rgba(0,0,0,0)"
+          }
+        },
+        "separator_reBrRK": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#000000",
+            "margin-top": 8,
+            "margin-bottom": 8
+          }
+        },
+        "text_LQ6bM9": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "content": "{{ product.description }}",
+            "page": ""
+          }
+        },
+        "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#ffffff",
+            "margin-top": 8,
+            "margin-bottom": 0
+          }
+        },
+        "product_variations_7LBAAU": {
+          "type": "product_variations",
+          "disabled": true,
+          "settings": {
+            "option_name": "Choose Supplement",
+            "picker_type": "swatch",
+            "swatch_size": 36,
+            "radius": "default",
+            "border_radius": 0,
+            "option_value_metafield": "custom.color",
+            "products": []
+          }
+        },
+        "variant_picker_WQEbez": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "color_swatch_names": "",
+            "variant_picture_swatch_names": "",
+            "thumb_size": 60,
+            "radius": "default",
+            "border_radius": 0,
+            "dropdown_swatch_names": "",
+            "margin-top": 8,
+            "margin-bottom": 8,
+            "size_icon": "check_mark",
+            "size_link": "",
+            "variant_name": "",
+            "size_content": "",
+            "metafield": "",
+            "enable-striped-rows": true
+          }
+        },
+        "separator_QjENkk": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#000000",
+            "margin-top": 8,
+            "margin-bottom": 4
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "show_tax_included": true,
+            "show_shipping_policy": true,
+            "size_text": 140,
+            "size_text_mobile": 140
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
+        "separator_xgqTJM": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#000000",
+            "margin-top": 8,
+            "margin-bottom": 4
+          }
+        },
+        "forms_inline_azMdww": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "786560",
+            "text_color": "#151515",
+            "button_background_color": "#ff9900",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "left",
+            "form_alignment": "flex-start",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        },
+        "separator_YTDia8": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#000000",
+            "margin-top": 8,
+            "margin-bottom": 4
+          }
+        },
+        "appstle_bundles_appstle_volume_discount_bundle_UgAx96": {
+          "type": "shopify://apps/appstle-bundles/blocks/appstle-volume-discount-bundle/8909921b-2d24-4d68-9b12-9d045d3dcb0a",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
+          "disabled": true,
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false,
+            "show_qty_selector": false,
+            "text_color": "#ffffff",
+            "background_color": "#151515"
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
+        "promo_wBVFy3": {
+          "type": "promo",
+          "disabled": true,
           "settings": {
-            "share_label": "Share"
+            "content": "<p>Free shipping on UK orders</p>",
+            "text_alignment": "center",
+            "color-body-text": "#ffffff",
+            "background_color": "#eb9a00"
+          }
+        },
+        "collapsible_tab_Q7UFgL": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "DESCRIPTION",
+            "content": "<p>PetLab Co.’s joint supplement for dogs have been formulated to support joint flexibility and strength, giving your dog the confidence to live the happy, active life they deserve. Each chew is packed with beneficial ingredients, including Green Lipped Mussel, Salmon Oil, and Glucosamine HCl. Plus, they can simultaneously support young pup’s joint health in key stages of development, while helping to maintain older dog’s mobility.      </p><ul><li>Designed to help maintain joint flexibility </li><li>Beneficial, research-driven ingredients  </li><li>Contributes to normal mobility and strength for active lifestyles </li><li>Provides daily joint nutrients </li></ul>",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "separator_gDwzxi": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#151515",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "collapsible_tab_3rErRt": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "HOW TO TAKE",
+            "content": "",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "specification_iyWYnH": {
+          "type": "specification",
+          "settings": {
+            "is_open": false,
+            "icon": "none",
+            "heading": "HOW TO TAKE",
+            "metafield": "custom.specification_table",
+            "color-background-odd": "#f4f4f4",
+            "color-text-odd": "#000000",
+            "color-text-left-opacity": 100
+          }
+        },
+        "separator_pEEMHg": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#151515",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "collapsible_tab_cAT6Ne": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "INGREDIENTS",
+            "content": "<p>Active ingredients: </p><ul><li>Collagen (Beef Broth)</li><li>Glucosamine (Shellfish)</li><li>Chondroitin (Porcine)</li><li>Prebiotic Fiber (Pumpkin)</li><li>Taurine</li><li>Docosahexaenoic Acid (DHA)</li><li>Cranberry Extract</li><li>L-Carnitine</li><li>Vitamin C (Ascorbic Acid)</li><li>Zinc</li><li>Beta Carotene</li><li>Probiotic Blend (Bacillus subtilis, Enterococcus faecium)<br/></li></ul><p>Inactive Ingredient: Goat's Milk Powder</p>",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "separator_teAXQX": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": true,
+            "color-background": "#151515",
+            "margin-top": 0,
+            "margin-bottom": 0
+          }
+        },
+        "video_reels_cJKbXC": {
+          "type": "video_reels",
+          "disabled": true,
+          "settings": {
+            "heading": "Enhance Your Daily Routine",
+            "show_play_pause": true,
+            "show_unmute": false,
+            "auto_advanced": true,
+            "enable_quick_add": false,
+            "hide_brand": true,
+            "video_reels_1": "shopify://files/videos/test-video.mp4",
+            "video_reels_1_product": "hip-joint",
+            "video_reels_2": "shopify://files/videos/test-video.mp4",
+            "video_reels_2_product": "hip-joint",
+            "video_reels_3": "shopify://files/videos/test-video.mp4",
+            "video_reels_3_product": "hip-joint",
+            "video_reels_4": "shopify://files/videos/test-video.mp4",
+            "video_reels_4_product": "hip-joint",
+            "video_reels_5_product": "boost-energy-capsules",
+            "video_reels_6_product": ""
+          }
+        },
+        "collapsible_tab_t6nyCM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "INGREDIENTS WE REFUSE",
+            "content": "<ul><li>No fillers or additives</li><li>No artificial flavors</li><li>No grains</li><li>No artificial preservatives</li><li>No palm oil</li><li>No peas or legumes</li><li>No artificial colors or dyes</li><li>No potatoes</li><li>No flaxseed</li><li>No corn</li><li>No wheat</li></ul>",
+            "metafield_variables": "",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "separator_VUiFa6": {
+          "type": "separator",
+          "settings": {
+            "show-separator-line": false,
+            "color-background": "#151515",
+            "margin-top": 12,
+            "margin-bottom": 16
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
+        "feature_tags_ktxUht",
+        "separator_reBrRK",
+        "text_LQ6bM9",
+        "c1ba8695-94d2-40ad-ac06-93ec3b8cf38e",
+        "product_variations_7LBAAU",
+        "variant_picker_WQEbez",
+        "separator_QjENkk",
         "price",
-        "variant_picker",
-        "quantity_selector",
+        "separator_xgqTJM",
+        "forms_inline_azMdww",
+        "separator_YTDia8",
+        "appstle_bundles_appstle_volume_discount_bundle_UgAx96",
         "buy_buttons",
-        "description",
-        "share"
+        "promo_wBVFy3",
+        "collapsible_tab_Q7UFgL",
+        "separator_gDwzxi",
+        "collapsible_tab_3rErRt",
+        "specification_iyWYnH",
+        "separator_pEEMHg",
+        "collapsible_tab_cAT6Ne",
+        "separator_teAXQX",
+        "video_reels_cJKbXC",
+        "collapsible_tab_t6nyCM",
+        "separator_VUiFa6"
+      ],
+      "custom_css": [
+        ".rte p:first-child,.rte ul:first-child,.rte li:first-child,.rte ol:first-child {margin-block-start: 0;}"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "enable_sticky_buy_button": false,
+        "full-width-enabled": false,
+        "desktop-media-size": "normal",
+        "desktop-layout": "carousel-vertical",
+        "desktop-image-ratio": "square",
+        "enable_video_looping": true,
+        "video_controls": false,
+        "video_custom_play_controls": false,
+        "video_custom_mute_controls": false,
+        "enable-preselected-variant": true,
+        "enable-image-zoom": true,
+        "mobile-image": "small",
+        "show-thumbnails-mobile": false,
+        "text_color": "#151515",
+        "background_color": "#fbfaf6",
+        "margin-top": 24,
+        "margin-bottom": 24
       }
     },
-    "related-products": {
-      "type": "related-products",
+    "features_banner_wiKkaQ": {
+      "type": "features-banner",
+      "blocks": {
+        "image_ftDTyE": {
+          "type": "image",
+          "settings": {
+            "select_icon": "plus",
+            "heading": "Natural ingredients",
+            "text": "",
+            "link": ""
+          }
+        },
+        "image_m7jjzm": {
+          "type": "image",
+          "settings": {
+            "select_icon": "user",
+            "heading": "Hypoallergenic",
+            "text": "",
+            "link": ""
+          }
+        },
+        "image_AkKWrq": {
+          "type": "image",
+          "settings": {
+            "select_icon": "plus",
+            "heading": "No fillers or additives",
+            "text": "",
+            "link": ""
+          }
+        },
+        "image_XPgaAR": {
+          "type": "image",
+          "settings": {
+            "select_icon": "star",
+            "heading": "Made in the UK",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_ftDTyE",
+        "image_m7jjzm",
+        "image_AkKWrq",
+        "image_XPgaAR"
+      ],
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
+        "heading": "",
+        "size_heading_mobile": 80,
+        "size_heading": 80,
+        "icon_width_mobile": 24,
+        "icon_width_desktop": 28,
+        "icon_layout": "center",
+        "columns_desktop": "4",
+        "icon_layout_mobile": "grid",
+        "color_body_icon": "rgba(0,0,0,0)",
+        "color_background_icon": "rgba(0,0,0,0)",
+        "color_body_text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 24,
+        "margin-bottom": 24
+      }
+    },
+    "ss_tabs_2_djdxNW": {
+      "type": "ss-tabs-2",
+      "blocks": {
+        "caption_cxMG8F": {
+          "type": "caption",
+          "settings": {
+            "caption": "<p>HOW IT WORKS</p>",
+            "caption_custom": false,
+            "caption_font": "josefin_sans_n4",
+            "caption_size": 12,
+            "caption_size_mobile": 12,
+            "caption_advanced": false,
+            "caption_height": 150,
+            "caption_mt": 0,
+            "caption_mt_mobile": 0,
+            "caption_color": "#121212"
+          }
+        },
+        "heading_iCYN9E": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>One daily scoop.</h2><h2>A lifetime of health.</h2>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_size": 36,
+            "heading_size_mobile": 36,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 12,
+            "heading_mt_mobile": 12,
+            "heading_color": "#121212"
+          }
+        },
+        "tab_czVdLD": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Gut & Digestions",
+            "tab_text": "<p>Because nobody likes runny poops or upset tummies! The Daily features our proprietary probiotic formula and pumpkin to help aid digestion, regulate bacteria, and support healthy bowel movements.</p>"
+          }
+        },
+        "tab_Kngxqp": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Skin health",
+            "tab_text": "<p>Probiotic and pumpkin help to support healthy skin from within. These power-packed ingredients let your pup shine with a glowing, healthy coat and soothe itchy, dry skin.</p>"
+          }
+        },
+        "tab_3cLbwz": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Allergies",
+            "tab_text": "<p>A powerful blend of DHA and zinc helps curb itching, sneezing, and wheezing throughout allergy season and beyond.</p>"
+          }
+        },
+        "tab_q4wJXN": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Mobility & Joints",
+            "tab_text": "<p>Active pups benefit from powerful ingredients, like glucosamine and chondroitin, that help support healthy joints, mobility, and flexibility.</p>"
+          }
+        },
+        "tab_wEiGdG": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Immunity",
+            "tab_text": "<p>Vitamin C and beta-carotene help to support your dog’s immune response, protecting from infections, illness, sickness, and harmful germs.</p>"
+          }
+        },
+        "tab_wVwh4X": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Heart health",
+            "tab_text": "<p>A healthy heart means more adventures and more years with your pup. DHA Gold, Taurine, and L-Carnitine support your dog’s cardiovascular system.</p>"
+          }
+        },
+        "tab_XQrgxz": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Cognitive function",
+            "tab_text": "<p>Powerful ingredients like DHA, vitamin C, and L-Carnitine support cognitive function, behavior, and brain health.</p>"
+          }
+        },
+        "tab_WfXWq9": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Bladder",
+            "tab_text": "<p>Cranberry extract helps support a healthy urinary tract with bacteria-fighting antioxidants.</p>"
+          }
+        },
+        "tab_3chVrR": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Energy utilisation",
+            "tab_text": "<p>Keep that puppy energy going way into their adult years with key ingredients like L-carnitine that boost metabolism and help support energy production.</p>"
+          }
+        },
+        "tab_UeE7aF": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Inflammatory response",
+            "tab_text": "<p>Inflammation can be a healthy response to illness and injury but for some dogs it can be painful and not normal. The Daily contains DHA, which helps regulate inflammation.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_cxMG8F",
+        "heading_iCYN9E",
+        "tab_czVdLD",
+        "tab_Kngxqp",
+        "tab_3cLbwz",
+        "tab_q4wJXN",
+        "tab_wEiGdG",
+        "tab_wVwh4X",
+        "tab_XQrgxz",
+        "tab_WfXWq9",
+        "tab_3chVrR",
+        "tab_UeE7aF"
+      ],
+      "name": "SS - Tabs #2",
+      "settings": {
+        "media_type": "image",
+        "video_url": "",
+        "media_position": "left",
+        "media_position_mobile": "top",
+        "layout_advanced": false,
+        "content_gap": 80,
+        "content_gap_mobile": 40,
+        "media_radius": 0,
+        "media_border_thickness": 0,
+        "media_ratio": "square",
+        "media_ratio_mobile": "square",
+        "use_controls": true,
+        "use_custom_buttons": false,
+        "custom_play_icon_size": 40,
+        "custom_play_icon_size_mobile": 40,
+        "play_icon_size": 16,
+        "play_icon_size_mobile": 16,
+        "play_padding": 12,
+        "play_padding_mobile": 12,
+        "play_radius": 100,
+        "play_border_thickness": 0,
+        "tab_content_advanced": false,
+        "tab_content_padding_horizontal": 0,
+        "tab_content_padding_horizontal_mobile": 0,
+        "tab_content_padding_vertical": 0,
+        "tab_content_padding_vertical_mobile": 0,
+        "content_align": "left",
+        "content_align_mobile": "left",
+        "tabs_advanced": false,
+        "tabs_gap": 0,
+        "tabs_gap_mobile": 0,
+        "tabs_mt": 32,
+        "tabs_mt_mobile": 24,
+        "tab_advanced": false,
+        "tab_padding_horizontal": 0,
+        "tab_padding_horizontal_mobile": 0,
+        "tab_padding_vertical": 16,
+        "tab_padding_vertical_mobile": 16,
+        "tab_border_thickness": 1,
+        "autoclose": true,
+        "tab_title_custom": false,
+        "tab_title_font": "josefin_sans_n4",
+        "tab_title_size": 24,
+        "tab_title_size_mobile": 20,
+        "tab_title_advanced": false,
+        "tab_title_height": 130,
+        "use_checkmark": true,
+        "open_icon_size": 26,
+        "open_icon_size_mobile": 26,
+        "tab_text_custom": false,
+        "tab_text_font": "josefin_sans_n4",
+        "tab_text_size": 18,
+        "tab_text_size_mobile": 18,
+        "tab_text_advanced": false,
+        "tab_text_height": 150,
+        "tab_text_padding_top": 16,
+        "features_advanced": false,
+        "features_gap": 8,
+        "features_gap_mobile": 8,
+        "features_mt": 32,
+        "features_mt_mobile": 24,
+        "feature_advanced": false,
+        "feature_padding_horizontal": 12,
+        "feature_padding_horizontal_mobile": 12,
+        "feature_padding_vertical": 8,
+        "feature_padding_vertical_mobile": 8,
+        "feature_radius": 8,
+        "feature_border_thickness": 1,
+        "feature_title_custom": false,
+        "feature_title_font": "josefin_sans_n4",
+        "feature_title_size": 16,
+        "feature_title_size_mobile": 16,
+        "feature_title_advanced": false,
+        "feature_title_height": 130,
+        "feature_text_custom": false,
+        "feature_text_font": "josefin_sans_n4",
+        "feature_text_size": 10,
+        "feature_text_size_mobile": 10,
+        "feature_text_advanced": false,
+        "feature_text_height": 150,
+        "feature_icon_size": 40,
+        "feature_icon_size_mobile": 24,
+        "media_border_color": "#121212",
+        "play_color": "#121212",
+        "play_hover_color": "#121212",
+        "play_bg_color": "#ffffff",
+        "play_bg_hover_color": "#f3f3f3",
+        "play_border_color": "#121212",
+        "play_border_hover_color": "#121212",
+        "tab_title_color": "#121212",
+        "tab_text_color": "#121212",
+        "open_icon_color": "#121212",
+        "tab_border_color": "#e0e0e0",
+        "feature_title_color": "#121212",
+        "feature_text_color": "#121212",
+        "feature_icon_color": "#121212",
+        "feature_bg_color": "#ffffff",
+        "feature_border_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#ffffff",
+        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "page",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "rich_text_with_image_fPiLLX": {
+      "type": "rich-text-with-image",
+      "blocks": {
+        "text_TDgxty": {
+          "type": "text",
+          "settings": {
+            "text": "Type PICTURE1 to insert the first icon – place it where you want a visual cue. Insert PICTURE2 by typing it where a second visual element is needed. Use PICTURE3 for adding a third icon – ensure it has its own space.",
+            "font_uppercase": "none",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100,
+            "line_height": 1.5,
+            "button_link1": "",
+            "button_link2": "",
+            "button_link3": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_TDgxty"
+      ],
+      "name": "t:sections.rich-text-with-image.presets.name",
+      "settings": {
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "image_with_text_GqeJWM": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_9TCPM6": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "subheading": "Tell you story",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_3r3AGj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Daily use for optimal results",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        },
+        "text_qYF83x": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        },
+        "button_i7McTA": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Button label",
+            "button_link": "/",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_9TCPM6",
+        "heading_3r3AGj",
+        "text_qYF83x",
+        "button_i7McTA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": false,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "ss_scrolling_features_4_HzTWpe": {
+      "type": "ss-scrolling-features-4",
+      "blocks": {
+        "slide_6hnrBa": {
+          "type": "slide",
+          "settings": {
+            "title": "Glucosamine (Shellfish)",
+            "text": "<p>Helps maintain normal joint function and supports healthy cartilage to keep dogs active</p>"
+          }
+        },
+        "slide_txbqKF": {
+          "type": "slide",
+          "settings": {
+            "title": "Chondroitin (Porcine)",
+            "text": "<p>Supports cartilage integrity and joint structure to promote everyday mobility</p>"
+          }
+        },
+        "slide_geMj8A": {
+          "type": "slide",
+          "settings": {
+            "title": "Prebiotic Fiber (Pumpkin)",
+            "text": "<p>A soluble fiber that strengthens your dog's stool by aiding the absorption of H20</p>"
+          }
+        },
+        "slide_BNcaeE": {
+          "type": "slide",
+          "settings": {
+            "title": "Taurine",
+            "text": "<p>Improves heart health, regulates blood flow, and supports healthy brain and cognitive function</p>"
+          }
+        },
+        "slide_Ea3wth": {
+          "type": "slide",
+          "settings": {
+            "title": "Docosahexaenoic Acid (DHA)",
+            "text": "<p>A powerful omega-3 fatty acid that is essential to brain development and cognition</p>"
+          }
+        },
+        "slide_aaK4KV": {
+          "type": "slide",
+          "settings": {
+            "title": "Cranberry Extract",
+            "text": "<p>Helps maintain normal urinary tract health and supports a healthy bladder environment</p>"
+          }
+        },
+        "slide_PEKAc6": {
+          "type": "slide",
+          "settings": {
+            "title": "L-Carnitine",
+            "text": "<p>Aids fat metabolism and promotes lean muscle for a healthy, strong body composition</p>"
+          }
+        },
+        "slide_8LJDDg": {
+          "type": "slide",
+          "settings": {
+            "title": "Vitamin C (Ascorbic Acid)",
+            "text": "<p>Supports a healthy immune response and helps protect cells from everyday oxidative stress</p>"
+          }
+        },
+        "slide_fAMYjr": {
+          "type": "slide",
+          "settings": {
+            "title": "Zinc",
+            "text": "<p>Supports healthy skin and contributes to normal thyroid and cognitive function</p>"
+          }
+        },
+        "slide_tQT7Tb": {
+          "type": "slide",
+          "settings": {
+            "title": "Beta Carotene",
+            "text": "<p>Converts into vitamin A, a powerful antioxidant that is essential to healthy skin, vision, and blood vessels</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_6hnrBa",
+        "slide_txbqKF",
+        "slide_geMj8A",
+        "slide_BNcaeE",
+        "slide_Ea3wth",
+        "slide_aaK4KV",
+        "slide_PEKAc6",
+        "slide_8LJDDg",
+        "slide_fAMYjr",
+        "slide_tQT7Tb"
+      ],
+      "name": "SS - Scrolling features #4",
+      "settings": {
+        "content_align": "center",
+        "content_align_mobile": "center",
+        "heading": "<h2>Research-backed <em>active</em> ingredients</h2>",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 32,
+        "heading_size_mobile": 24,
+        "heading_height": 130,
+        "text": "",
+        "text_custom": false,
+        "text_font": "josefin_sans_n4",
+        "text_size": 16,
+        "text_size_mobile": 13,
+        "text_height": 150,
+        "text_mt": 8,
+        "text_mt_mobile": 8,
+        "slider_gap": 30,
+        "slider_gap_mobile": 20,
+        "slider_view": 3.5,
+        "slider_view_mobile": 1.4,
+        "slider_mt": 32,
+        "slider_mt_mobile": 40,
+        "scrolling_speed": 0.8,
+        "scrolling_speed_mobile": 0.8,
+        "use_autoscroll": false,
+        "use_autoscroll_mobile": false,
+        "image_radius": 10,
+        "image_border_thickness": 0,
+        "image_ratio": "square",
+        "image_ratio_mobile": "square",
+        "slide_content_padding_horizontal": 30,
+        "slide_content_padding_horizontal_mobile": 20,
+        "slide_content_padding_vertical": 16,
+        "slide_content_padding_vertical_mobile": 16,
+        "slide_content_radius": 0,
+        "slide_content_border_thickness": 0,
+        "slide_content_mt": 16,
+        "slide_content_mt_mobile": 16,
+        "slide_content_align": "center",
+        "slide_content_align_mobile": "center",
+        "title_custom": false,
+        "title_font": "josefin_sans_n4",
+        "title_size": 24,
+        "title_size_mobile": 24,
+        "title_height": 150,
+        "slide_text_custom": false,
+        "slide_text_font": "josefin_sans_n4",
+        "slide_text_size": 16,
+        "slide_text_size_mobile": 13,
+        "slide_text_height": 150,
+        "slide_text_mt": 16,
+        "slide_text_mt_mobile": 16,
+        "navigation_mt": 16,
+        "navigation_mt_mobile": 16,
+        "navigation_align": "center",
+        "navigation_align_mobile": "center",
+        "arrow_size": 48,
+        "arrow_size_mobile": 38,
+        "arrow_icon_size": 10,
+        "arrow_icon_size_mobile": 8,
+        "arrow_border_thickness": 1,
+        "arrow_radius": 100,
+        "arrow_hover_effect": "color",
+        "arrow_show_desktop": true,
+        "arrow_show_mobile": true,
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "image_border_color": "#000000",
+        "title_color": "#000000",
+        "slide_text_color": "#000000",
+        "slide_content_bg_color": "",
+        "slide_content_border_color": "#000000",
+        "arrow_color": "#000000",
+        "arrow_hover_color": "#4d4d4d",
+        "arrow_bg_color": "",
+        "arrow_bg_hover_color": "",
+        "arrow_border_color": "#c7c7c7",
+        "arrow_border_hover_color": "#c7c7c7",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "border_color": "#000000",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "scrolling_text_banner_wcVbRd": {
+      "type": "scrolling-text-banner",
+      "blocks": {
+        "heading_FPpXkp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Glow from Within – Strengthen with Collagen!",
+            "size_heading": 700,
+            "size_heading_mobile": 240
+          }
+        }
+      },
+      "block_order": [
+        "heading_FPpXkp"
+      ],
+      "settings": {
+        "heading": "",
+        "full-width-enabled": true,
+        "animation_speed": 1,
+        "slide_height": "fixed_height",
+        "desktop_fixed_height": 280,
+        "mobile_fixed_height": 280,
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "center",
+        "mobile_text_vertical_position": "center",
+        "mobile_text_horizontal_position": "center",
+        "color-heading": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "#ffffff",
+        "text-container-color": "#000000",
+        "color-overlay-opacity": 20,
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "separator_y6xcTk": {
+      "type": "separator",
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": true,
+        "full-width-line": true,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "rich_text_YecVJk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LFctxD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Frequently Asked Questions",
+            "disable_on_mobile": false,
+            "size_heading": 100,
+            "size_heading_mobile": 100
+          }
+        }
+      },
+      "block_order": [
+        "heading_LFctxD"
+      ],
+      "settings": {
+        "section_width": "regular",
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ffffff",
+        "margin-top": 40,
+        "margin-bottom": 0
+      }
+    },
+    "collapsible_menu_WraA7j": {
+      "type": "collapsible_menu",
+      "blocks": {
+        "collapsible_tab_ndLBg3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Are Wellness supplements safe to use?",
+            "content": "<p>Absolutely! All our products are manufactured in certified facilities and meet strict safety and quality standards. We recommend consulting your healthcare provider if you have specific health conditions or are taking medications.This is the demo store.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_74pBFd": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How should I store my supplements?",
+            "content": "<p>To ensure the freshness and effectiveness of our products, store them in a cool, dry place away from direct sunlight. Always keep them out of reach of children.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_ijR4af": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Do you offer international shipping?",
+            "content": "<p>Yes, we ship worldwide! Shipping costs and delivery times may vary depending on your location. You can find more details on our Shipping Policy page.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        },
+        "collapsible_tab_nExPEQ": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "What is your return policy?",
+            "content": "<p>We offer a 30-day satisfaction guarantee. If you're not completely happy with your purchase, you can return it for a refund or exchange. Please visit our Return Policy page for more details.</p>",
+            "page": "",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_ndLBg3",
+        "collapsible_tab_74pBFd",
+        "collapsible_tab_ijR4af",
+        "collapsible_tab_nExPEQ"
+      ],
+      "settings": {
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "#ffffff",
+        "compact-size-enabled": true,
+        "margin-top": 0,
+        "margin-bottom": 48
       }
     }
   },
   "order": [
+    "breadcrumbs",
     "main",
-    "related-products"
+    "features_banner_wiKkaQ",
+    "ss_tabs_2_djdxNW",
+    "rich_text_with_image_fPiLLX",
+    "image_with_text_GqeJWM",
+    "ss_scrolling_features_4_HzTWpe",
+    "scrolling_text_banner_wcVbRd",
+    "separator_y6xcTk",
+    "rich_text_YecVJk",
+    "collapsible_menu_WraA7j"
   ]
 }

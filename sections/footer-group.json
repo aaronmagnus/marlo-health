@@ -8,24 +8,66 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "t:sections.footer.name",
   "type": "footer",
+  "name": "Footer Group",
   "sections": {
     "footer": {
-      "type": "footer",
+      "type": "page-footer",
+      "blocks": {
+        "menu_bB7XxG": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "heading_links": "Products",
+            "links": ""
+          }
+        },
+        "menu_FVzkic": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "heading_links": "info",
+            "links": ""
+          }
+        },
+        "menu_ja9mLY": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "heading_links": "Social",
+            "links": ""
+          }
+        },
+        "text_dLzjfY": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "heading_text": "About Wonder",
+            "text": "<p>With <strong>18 years of experience</strong> and a passion for helping our customers succeed, we’re here to ensure your journey with Wonder Theme is seamless and enjoyable. Got ideas or questions about sections? Need a tweak to make it just perfect?</p><p><strong>Reach out to us!</strong> Our friendly support team is ready to bring your vision to life.  🌿 This is demo store. Wellness brand was designed in Nethype.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "menu_bB7XxG",
+        "menu_FVzkic",
+        "menu_ja9mLY",
+        "text_dLzjfY"
+      ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show-scroll-effect": false,
+        "show-social-media-icons": false,
+        "show_country_selector": false,
+        "show_country_selector_label": false,
+        "show_country_selector_flag": false,
+        "show_language_selector": false,
+        "enable_follow_on_shop": false,
+        "show-payments-icons": false,
+        "show-copyright": false,
+        "text": "© 2025 Marlo",
+        "big-logo": "shopify://shop_images/marlo-logo-satsuma.svg",
+        "big-logo-width": 40,
+        "margin-top": 0,
+        "margin-bottom": 0
       }
     }
   },

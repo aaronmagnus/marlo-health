@@ -22,11 +22,12 @@
     "social": {
       "alt_text": {
         "share_on_facebook": "Bagikan di Facebook",
-        "share_on_twitter": "Bagikan di X",
-        "share_on_pinterest": "Pin di Pinterest"
+        "share_on_twitter": "Tweet di Twitter",
+        "share_on_pinterest": "Pin di Pinterest",
+        "share_on_tumblr": "Bagikan di Tumblr"
       },
       "links": {
-        "twitter": "X (Twitter)",
+        "twitter": "Twitter",
         "facebook": "Facebook",
         "pinterest": "Pinterest",
         "instagram": "Instagram",
@@ -45,29 +46,33 @@
       "previous": "Halaman sebelumnya"
     },
     "search": {
-      "search": "Cari",
-      "reset": "Hapus kata kunci pencarian"
+      "search": "Cari"
     },
     "cart": {
-      "view": "Lihat keranjang ({{ count }})",
-      "item_added": "Item ditambahkan ke keranjang Anda",
-      "view_empty_cart": "Lihat keranjang"
+      "view": "Lihat keranjang saya ({{ count }})",
+      "item_added": "Item ditambahkan ke keranjang Anda"
     },
     "share": {
       "copy_to_clipboard": "Salin tautan",
       "share_url": "Tautan",
-      "success_message": "Tautan disalin ke clipboard",
-      "close": "Tutup bagikan"
+      "success_message": "Tautan disalin ke clipboard!",
+      "close": "Tutup berbagi"
+    },
+    "quick_add": {
+      "view_all_details": "Lihat semua detail"
+    },
+    "icons": {
+      "icon_title": ""
     },
     "slider": {
       "of": "dari",
-      "next_slide": "Geser kanan",
-      "previous_slide": "Geser kiri",
-      "name": "Slider"
+      "next_slide": "Geser ke kanan",
+      "previous_slide": "Geser ke kiri",
+      "name": "Penggeser"
     }
   },
   "newsletter": {
-    "label": "Email",
+    "label": "Email Anda",
     "success": "Terima kasih sudah berlangganan",
     "button_label": "Berlangganan"
   },
@@ -84,15 +89,19 @@
     },
     "loading": "Memuat...",
     "skip_to_product_info": "Langsung ke informasi produk",
-    "total_reviews": "ulasan keseluruhan",
+    "select_option": "Pilih sebuah opsi",
+    "play": "Main",
+    "total_reviews": "ulasan",
     "star_reviews_info": "{{ rating_value }} dari {{ rating_max }} bintang",
-    "collapsible_content_title": "Konten yang dapat ditutup",
-    "complementary_products": "Produk pelengkap"
+    "collapsible_content_title": "Konten yang dapat dilipat",
+    "complementary_products": "Produk pelengkap",
+    "searching": "Pencarian sedang berlangsung..."
   },
   "blogs": {
     "article": {
       "blog": "Blog",
       "read_more_title": "Baca selengkapnya: {{ title }}",
+      "read_more": "Baca selengkapnya",
       "comments": {
         "one": "{{ count }} komentar",
         "other": "{{ count }} komentar"
@@ -123,15 +132,7 @@
         "label": "Jumlah",
         "input_label": "Jumlah untuk {{ product }}",
         "increase": "Tambah jumlah untuk {{ product }}",
-        "decrease": "Kurangi jumlah untuk {{ product }}",
-        "minimum_of": "Minimum {{ quantity }}",
-        "maximum_of": "Maksimum {{ quantity }}",
-        "multiples_of": "Nilai peningkatan {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> di keranjang",
-        "note": "Lihat aturan kuantitas",
-        "min_of": "Min. {{ quantity }}",
-        "max_of": "Maks. {{ quantity }}",
-        "in_cart_aria_label": "Jumlah ({{ quantity }} di keranjang)"
+        "decrease": "Kurangi jumlah untuk {{ product }}"
       },
       "price": {
         "from_price_html": "Dari {{ price }}",
@@ -156,55 +157,56 @@
         "refresh": "Muat ulang"
       },
       "media": {
-        "open_media": "Buka media {{ index }} di modal",
+        "open_featured_media": "Buka media unggulan di tampilan galeri",
+        "open_media": "Buka media {{ index }} di tampilan galeri",
         "play_model": "Putar Penampil 3D",
         "play_video": "Putar video",
         "gallery_viewer": "Penampil Galeri",
-        "load_image": "Muat gambar {{ index }} di tampilan galeri",
-        "load_model": "Muat Model 3D {{ index }} di tampilan galeri",
-        "load_video": "Putar video {{ index }} di tampilan galeri",
-        "image_available": "Gambar {{ index }} kini tersedia di tampilan galeri"
+        "load_image": "Muat gambar {{ index }} dalam tampilan galeri",
+        "load_model": "Muat Model 3D {{ index }} dalam tampilan galeri",
+        "load_video": "Putar video {{ index }} dalam tampilan galeri",
+        "image_available": "Gambar {{ index }} kini tersedia dalam tampilan galeri"
       },
-      "nested_label": "{{ title }} untuk {{ parent_title }}",
-      "view_full_details": "Lihat detail lengkap",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Biaya pengiriman</a> dihitung saat checkout.",
       "choose_options": "Pilih opsi",
+      "choose_option": "Pilih opsi",
       "choose_product_options": "Pilih opsi untuk {{ product_name }}",
-      "value_unavailable": "{{ option_value }} - Tidak tersedia",
-      "variant_sold_out_or_unavailable": "Varian terjual habis atau tidak tersedia",
-      "inventory_in_stock": "Tersedia",
-      "inventory_in_stock_show_count": "{{ quantity }} tersedia",
-      "inventory_low_stock": "Stok sedikit",
-      "inventory_low_stock_show_count": "Stok sedikit: {{ quantity }} tersisa",
-      "inventory_out_of_stock": "Habis",
-      "inventory_out_of_stock_continue_selling": "Tersedia",
+      "inventory_in_stock": "Stok tersedia",
+      "inventory_in_stock_show_count": "{{ quantity }} stok tersedia",
+      "inventory_low_stock": "Stok rendah",
+      "inventory_low_stock_show_count": "Stok rendah: {{ quantity }} tersisa",
+      "inventory_out_of_stock": "Stok habis",
+      "inventory_out_of_stock_continue_selling": "Stok tersedia",
       "sku": "SKU",
+      "value_unavailable": "{{ option_value }} [Tidak Tersedia]",
+      "variant_sold_out_or_unavailable": "Varian habis terjual atau tidak tersedia",
+      "view_full_details": "Lihat detail lengkap",
+      "include_taxes": "Termasuk pajak.",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Pengiriman</a> dihitung saat checkout.",
       "volume_pricing": {
-        "title": "Harga Volume",
-        "note": "Harga volume tersedia",
-        "minimum": "{{ quantity }}+",
-        "price_range": "{{ minimum }} - {{ maximum }}",
-        "price_at_each_html": "di {{ price }}/satuan"
+        "note": "TODO",
+        "price_range": "TODO"
       },
-      "taxes_included": "Termasuk pajak.",
-      "duties_included": "Termasuk bea cukai.",
-      "duties_and_taxes_included": "Termasuk bea cukai dan pajak."
+      "select_option": "Pilih opsi",
+      "select_options": "Pilih opsi"
     },
     "modal": {
       "label": "Galeri media"
     },
     "facets": {
-      "apply": "Pakai",
-      "clear": "Hapus",
+      "apply": "Terapkan",
+      "clear": "Kosongkan",
       "clear_all": "Hapus semua",
       "from": "Dari",
       "filter_and_sort": "Filter dan urutkan",
-      "filter_by_label": "Filter:",
+      "filter_by_label": "Filter",
       "filter_button": "Filter",
       "filters_selected": {
-        "one": "{{ count }} dipilih",
-        "other": "{{ count }} dipilih"
+        "one": "{{ count }} terpilih",
+        "other": "{{ count }} terpilih"
       },
+      "filter_selected_accessibility": "{{ type }} ({{ count }} filter dipilih)",
+      "show_more": "Tampilkan lebih banyak",
+      "show_less": "Tampilkan lebih sedikit",
       "max_price": "Harga tertinggi adalah {{ price }}",
       "product_count": {
         "one": "{{ product_count }} dari {{ count }} produk",
@@ -214,46 +216,37 @@
         "one": "{{ count }} produk",
         "other": "{{ count }} produk"
       },
-      "reset": "Reset",
+      "reset": "Atur Ulang",
       "sort_button": "Urutkan",
       "sort_by_label": "Urutkan berdasarkan:",
-      "to": "Sampai",
-      "clear_filter": "Hapus filter",
-      "filter_selected_accessibility": "{{ type }} ({{ count }} filter dipilih)",
-      "show_more": "Selengkapnya",
-      "show_less": "Sembunyikan lainnya",
-      "filter_and_operator_subtitle": "Cocokkan semua"
+      "to": "Ke",
+      "clear_filter": "Hapus filter"
     }
   },
   "templates": {
     "search": {
       "no_results": "Tidak ada hasil ditemukan untuk “{{ terms }}”. Periksa ejaan atau gunakan kata atau frasa yang berbeda.",
       "results_with_count": {
-        "one": "{{ count }} hasil",
-        "other": "{{ count }} hasil"
-      },
-      "title": "Hasil pencarian",
-      "page": "Halaman",
-      "products": "Produk",
-      "search_for": "Cari “{{ terms }}”",
-      "results_with_count_and_term": {
         "one": "{{ count }} hasil ditemukan untuk “{{ terms }}”",
         "other": "{{ count }} hasil ditemukan untuk “{{ terms }}”"
       },
-      "results_pages_with_count": {
-        "one": "{{ count }} halaman",
-        "other": "{{ count }} halaman"
+      "title": "Hasil pencarian",
+      "page": "Halaman",
+      "no_products_results": "Tidak ada produk yang ditemukan untuk \"{{ terms }}\". Periksa ejaannya atau gunakan kata atau frasa yang berbeda.",
+      "no_articles_results": "Tidak ada artikel yang ditemukan untuk \"{{ terms }}\". Periksa ejaannya atau gunakan kata atau frasa yang berbeda.",
+      "no_pages_results": "Tidak ditemukan halaman untuk \"{{ terms }}\". Periksa ejaannya atau gunakan kata atau frasa yang berbeda.",
+      "results_with_count_and_term": {
+        "one": "Ditemukan {{ count }} hasil untuk \"{{ terms }}\"",
+        "other": "{{ count }} hasil ditemukan untuk \"{{ terms }}\""
       },
-      "results_products_with_count": {
-        "one": "{{ count }} produk",
-        "other": "{{ count }} produk"
+      "titles": {
+        "collections": "Koleksi",
+        "products": "Produk",
+        "pages": "Halaman",
+        "articles": "Artikel",
+        "suggestions": "Saran"
       },
-      "suggestions": "Saran",
-      "pages": "Halaman",
-      "results_suggestions_with_count": {
-        "one": "{{ count }} saran",
-        "other": "{{ count }} saran"
-      }
+      "search_for": "Lihat semua untuk \"{{ terms }}\""
     },
     "cart": {
       "cart": "Keranjang"
@@ -288,11 +281,17 @@
       "title": "Keranjang Anda",
       "caption": "Item di keranjang",
       "remove_title": "Hapus {{ title }}",
+      "subtotal": "Subtotal",
+      "new_subtotal": "Subtotal baru",
       "note": "Instruksi khusus pesanan",
       "checkout": "Check out",
       "empty": "Keranjang Anda kosong",
       "cart_error": "Terjadi kesalahan saat memperbarui keranjang. Silakan coba lagi.",
-      "cart_quantity_error_html": "Hanya dapat menambahkan {{ quantity }} item ini ke keranjang Anda.",
+      "cart_quantity_error_html": "Hanya dapat menambahkan [quantity] item ini ke keranjang Anda.",
+      "taxes_and_shipping_policy_at_checkout_html": "Pajak dan <a class=\"policy-link\" href=\"{{ link }}\" tabindex=\"{{ tabindex }}\">biaya pengiriman</a> dihitung saat checkout",
+      "taxes_included_but_shipping_at_checkout": "Termasuk pajak dan biaya pengiriman dihitung saat checkout",
+      "taxes_included_and_shipping_policy_html": "Termasuk pajak. <a class=\"policy-link\" href=\"{{ link }}\" tabindex=\"{{ tabindex }}\">Biaya pengiriman</a> dihitung saat checkout.",
+      "taxes_and_shipping_at_checkout": "Pajak dan biaya pengiriman dihitung saat checkout",
       "headings": {
         "product": "Produk",
         "price": "Harga",
@@ -301,23 +300,19 @@
         "image": "Gambar produk"
       },
       "update": "Perbarui",
+      "edit_note": "Edit catatan pesanan",
+      "note_placeholder": "Bagaimana kami dapat membantu Anda?",
+      "note-tax_id": "ID Pajak",
       "login": {
-        "title": "Sudah punya akun?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Login</a> untuk checkout lebih cepat."
+        "title": "Sudah memiliki akun?",
+        "paragraph_html": "<a href=\"{{ link }}\" tabindex=\"-1\" class=\"link underlined-link\">Masuk</a> untuk checkout lebih cepat."
       },
-      "estimated_total": "Estimasi total",
-      "new_estimated_total": "Estimasi total baru",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Termasuk bea cukai dan pajak. Diskon dan <a href=\"{{ link }}\">biaya pengiriman</a> dihitung saat checkout.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Termasuk bea cukai dan pajak. Diskon dan biaya pengiriman dihitung saat checkout.",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Termasuk pajak. Diskon dan <a href=\"{{ link }}\">biaya pengiriman</a> dihitung saat checkout.",
-      "taxes_included_shipping_at_checkout_without_policy": "Termasuk pajak. Diskon dan biaya pengiriman dihitung saat checkout.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Termasuk bea cukai. Pajak, diskon, dan <a href=\"{{ link }}\">biaya pengiriman</a> dihitung saat checkout.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Termasuk bea cukai. Pajak, diskon, dan biaya pengiriman dihitung saat checkout.",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Pajak, diskon, dan <a href=\"{{ link }}\">biaya pengiriman</a> dihitung saat checkout.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Pajak, diskon, dan biaya pengiriman dihitung saat checkout."
+      "view_cart": "Lihat keranjang",
+      "checkbox": "Bungkus sebagai hadiah"
     },
     "footer": {
-      "payment": "Metode pembayaran"
+      "payment": "Metode pembayaran",
+      "share": "Bagikan"
     },
     "featured_blog": {
       "view_all": "Lihat semua",
@@ -326,10 +321,12 @@
     },
     "featured_collection": {
       "view_all": "Lihat semua",
-      "view_all_label": "Lihat semua produk dalam koleksi {{ collection_name }}"
+      "view_all_label": "Lihat semua produk dalam koleksi {{ collection_name }}",
+      "slider": "Penggeser"
     },
     "collection_list": {
-      "view_all": "Lihat semua"
+      "view_all": "Lihat semua",
+      "default_title": "Nama koleksi Anda"
     },
     "collection_template": {
       "title": "Koleksi",
@@ -342,56 +339,58 @@
     "slideshow": {
       "load_slide": "Muat slide",
       "previous_slideshow": "Slide sebelumnya",
-      "next_slideshow": "Slide berikutnya",
-      "pause_slideshow": "Jeda slideshow",
+      "next_slideshow": "Slide selanjutnya",
+      "pause_slideshow": "Jeda tayangan slide",
       "play_slideshow": "Putar slideshow",
-      "carousel": "Carousel",
+      "carousel": "Karusel",
       "slide": "Geser"
     },
     "page": {
       "title": "Judul halaman"
     },
-    "announcements": {
-      "previous_announcement": "Pengumuman sebelumnya",
-      "next_announcement": "Pengumuman selanjutnya",
-      "carousel": "Carousel",
-      "announcement": "Pengumuman",
-      "announcement_bar": "Bilah pengumuman"
+    "card": {
+      "placeholder_title": "Judul Anda"
     },
-    "quick_order_list": {
-      "product_total": "Subtotal produk",
-      "view_cart": "Lihat keranjang",
-      "each": "{{ money }}/satuan",
-      "product": "Produk",
-      "variant": "Varian",
-      "variant_total": "Total varian",
-      "items_added": {
-        "one": "{{ quantity }} item ditambahkan",
-        "other": "{{ quantity }} item ditambahkan"
+    "countdown_timer": {
+      "counter_labels": {
+        "days": {
+          "short": "d",
+          "long": "hari"
+        },
+        "hours": {
+          "short": "h",
+          "long": "jam"
+        },
+        "minutes": {
+          "short": "m",
+          "long": "menit"
+        },
+        "seconds": {
+          "short": "s",
+          "long": "det"
+        }
       },
-      "items_removed": {
-        "one": "{{ quantity }} item dihapus",
-        "other": "{{ quantity }} item dihapus"
-      },
-      "product_variants": "Varian produk",
-      "total_items": "Total item",
-      "remove_all_items_confirmation": "Hapus semua item yang berjumlah {{ quantity }} dari keranjang Anda?",
-      "remove_all": "Hapus semuanya",
-      "cancel": "Batalkan",
-      "remove_all_single_item_confirmation": "Hapus 1 item dari keranjang Anda?",
-      "min_error": "Item ini memiliki minimal {{ min }}",
-      "max_error": "Item ini memiliki maksimum {{ max }}",
-      "step_error": "Anda hanya dapat menambahkan item ini secara inkremental sebesar {{ step }}"
+      "error": {
+        "invalid_format": "Format tanggal tidak valid. Silakan masukkan tanggal dan waktu dalam format YYYY-MM-DD HH:MM."
+      }
+    },
+    "localization_drawer": {
+      "title": "Lokalisasi",
+      "country_label": "Negara/wilayah",
+      "language_label": "Bahasa",
+      "drawer_title": "Opsi lokalitas",
+      "current_country_info": "Anda sedang mengirim ke {{ countryName }} dan pesanan Anda akan dibayar dalam {{ currencyIso }} {{ currencySymbol }}.",
+      "search_location": {
+        "label": "Cari lokasi",
+        "placeholder": "Cari lokasi..."
+      }
     }
   },
   "localization": {
     "country_label": "Negara/Wilayah",
     "language_label": "Bahasa",
     "update_language": "Perbarui bahasa",
-    "update_country": "Perbarui negara/wilayah",
-    "search": "Cari",
-    "popular_countries_regions": "Negara/wilayah populer",
-    "country_results_count": "{{ count }} negara/wilayah ditemukan"
+    "update_country": "Perbarui negara/wilayah"
   },
   "customer": {
     "account": {
@@ -444,8 +443,7 @@
       "password": "Sandi",
       "title": "Login",
       "sign_in": "Masuk",
-      "submit": "Kirim",
-      "alternate_provider_separator": "atau"
+      "submit": "Kirim"
     },
     "orders": {
       "title": "Riwayat pesanan",
@@ -472,7 +470,7 @@
     },
     "reset_password": {
       "title": "Reset sandi akun",
-      "subtext": "Masukkan sandi baru",
+      "subtext": "Masukkan sandi baru untuk {{ email }}",
       "password": "Sandi",
       "password_confirm": "Konfirmasi sandi",
       "submit": "Reset sandi"
@@ -500,40 +498,101 @@
       "tracking_company": "Kurir",
       "tracking_number": "Nomor pelacakan",
       "subtotal": "Subtotal",
-      "total_duties": "Bea cukai",
-      "total_refunded": "Dana dikembalikan"
+      "total_duties": "Bea Cukai"
     }
   },
   "gift_cards": {
     "issued": {
-      "title": "Ini dia voucher senilai {{ value }} Anda untuk {{ shop }}!",
+      "title": "Ini dia voucher Anda, senilai {{ value }} untuk {{ shop }}!",
       "subtext": "Voucher Anda",
       "gift_card_code": "Kode voucher",
-      "shop_link": "Kunjungi toko online",
+      "shop_link": "Lanjutkan belanja",
+      "remaining_html": "Sisa {{ balance }}",
       "add_to_apple_wallet": "Tambahkan ke Apple Wallet",
       "qr_image_alt": "Kode QR — pindai untuk menukarkan voucher",
-      "copy_code": "Salin kode voucher",
+      "copy_code": "Salin kode",
       "expired": "Kedaluwarsa",
       "copy_code_success": "Kode berhasil disalin",
-      "how_to_use_gift_card": "Gunakan kode voucher secara online atau kode QR di toko",
-      "expiration_date": "Kedaluwarsa pada {{ expires_on }}"
+      "print_gift_card": "Cetak"
     }
+  },
+  "homepage": "Beranda",
+  "all": "Semua",
+  "no_reviews": "Tidak ada ulasan",
+  "select": "Pilih",
+  "selected": "Terpilih",
+  "you_save": "Anda hemat",
+  "save": "Simpan",
+  "yes": "Ya",
+  "need_invoice": "Perlu faktur?",
+  "shoppable_image": {
+    "brand": "Merek",
+    "title": "Judul"
   },
   "recipient": {
     "form": {
       "checkbox": "Saya ingin mengirim ini sebagai hadiah",
+      "expanded": "Formulir penerima kartu hadiah diperluas",
+      "collapsed": "Formulir penerima kartu hadiah ditutup",
       "email_label": "Email penerima",
-      "email": "Email",
-      "name_label": "Nama penerima (opsional)",
-      "name": "Nama",
-      "message_label": "Pesan (opsional)",
-      "message": "Pesan",
-      "max_characters": "Maksimum {{ max_chars }} karakter",
       "email_label_optional_for_no_js_behavior": "Email penerima (opsional)",
+      "email": "Email Penerima",
+      "name_label": "Nama penerima (opsional)",
+      "name": "Nama Penerima (opsional)",
+      "message_label": "Pesan (opsional)",
+      "message": "Pesan (opsional)",
+      "max_characters": "{{ max_chars }} karakter maksimal",
       "send_on": "TTTT-BB-HH",
-      "send_on_label": "Kirim pada (opsional)",
-      "expanded": "Formulir penerima voucher dibuka",
-      "collapsed": "Formulir penerima voucher ditutup"
+      "send_on_label": "Kirim pada (opsional)"
     }
+  },
+  "aria-label": {
+    "announcement-bar": "Tutup bilah pengumuman",
+    "contact-form": "Kirim",
+    "featured-collection": "Lihat semua",
+    "featured-product-3d-model": "Lihat model 3D",
+    "main-product-video": "Putar video",
+    "main-product-3d-model": "Lihat model 3D",
+    "main-product-add-to-cart": "Tambah ke keranjang",
+    "main-product-select-option": "Pilih opsi",
+    "main-product-add": "Tambah",
+    "main-search-products": "Produk",
+    "main-search-articles": "Artikel",
+    "main-search-pages": "Halaman",
+    "page-header-toggle-menu": "Alihkan menu",
+    "page-header-remove-all": "Hapus semua",
+    "page-header-search": "Cari",
+    "page-header-close-search": "Tutup pencarian",
+    "video-reels-toggle-sound": "Alihkan suara",
+    "cart-note-close": "Tutup",
+    "component-counter-counter-decrease": "Pengurangan jumlah",
+    "component-counter-counter-quantity": "Jumlah penghitung",
+    "component-counter-counter-increase": "Peningkatan jumlah",
+    "play-pause-button": "Tombol mainkan/jeda",
+    "featured-product-yt": "Video eksternal dari YouTube",
+    "featured-product-vimeo": "Video eksternal dari Vimeo",
+    "main-product-yt": "Video eksternal dari YouTube",
+    "main-product-vimeo": "Video eksternal dari Vimeo",
+    "page-header-open-search": "Buka pencarian",
+    "video-section-vimeo": "Video eksternal dari Vimeo",
+    "video-section-yt": "Video eksternal dari YouTube",
+    "facets-close": "Tutup laci filter",
+    "hero-yt": "Video eksternal dari YouTube",
+    "hero-vimeo": "Video eksternal dari Vimeo",
+    "card-url": "Buka halaman produk",
+    "brands-url": "Buka tautan merek",
+    "close-button": "Tutup",
+    "back-button": "Kembali",
+    "price-from": "Harga mulai dari",
+    "price-to": "Harga sampai",
+    "remove-price-range": "Hapus filter rentang harga",
+    "sort-options": "Opsi pengurutan",
+    "lookbook-button": "Lihat detail"
+  },
+  "placeholder": {
+    "select_option": "Pilih sebuah opsi"
+  },
+  "cross_sell": {
+    "empty_msg": "Tidak ada produk yang tersedia untuk ditampilkan. Blok ini tidak akan terlihat oleh pelanggan di toko online."
   }
 }

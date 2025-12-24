@@ -9,76 +9,293 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "separator_aVXGVH": {
+      "type": "separator",
+      "disabled": true,
+      "settings": {
+        "advanced_heading": false,
+        "heading": "",
+        "heading_richtext": "<h2>Separator</h2>",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "show-separator-line": true,
+        "full-width-line": true,
+        "color-background": "#000000",
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-section-background": "#ffffff",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "background_video_ybJhVR": {
+      "type": "background-video",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "subheading_8q7kHq": {
+          "type": "subheading",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "subheading": "Meet MH1. Coming Spring 2026",
+            "subheading_disable_on_mobile": false
           }
         },
-        "button": {
-          "type": "buttons",
+        "heading_WmWUfj": {
+          "type": "heading",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "heading": "Clean, human-grade, science-backed supplements for dogs with sensitive digestion",
+            "disable_on_mobile": false,
+            "size_heading": 240,
+            "size_heading_mobile": 240
+          }
+        },
+        "text_dN3Fxp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Developed with vets. Made in the UK.</p>",
+            "disable_on_mobile": false
+          }
+        },
+        "button_8B8RNE": {
+          "type": "button",
+          "settings": {
+            "button_select": "primary",
+            "button_label": "Join the waitlist",
+            "disable_on_mobile": false,
+            "button_link": "shopify://products/daily",
+            "second_button_select": "primary",
+            "second_button_label": "Button label",
+            "second_disable_on_mobile": false,
+            "second_button_link": ""
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "subheading_8q7kHq",
+        "heading_WmWUfj",
+        "text_dN3Fxp",
+        "button_8B8RNE"
       ],
+      "name": "t:sections.background-video.presets.name",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "heading": "",
+        "full-width-enabled": true,
+        "video_hosted": "shopify://files/videos/Video_Revision_For_Text_Legibility.mp4",
+        "autoplay": true,
+        "video_controls": false,
+        "video_custom_play_controls": false,
+        "video_custom_mute_controls": false,
+        "video_url": "",
+        "original_ratio": "fixed_height",
+        "desktop_fixed_height": 640,
+        "mobile_fixed_height": 460,
+        "color-body-heading": "#fbfaf6",
+        "color-overlay": "rgba(0,0,0,0)",
+        "color-overlay-opacity": 100,
+        "color-body-text": "#fbfaf6",
+        "desktop_text_vertical_position": "bottom",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_vertical_position": "bottom",
+        "mobile_text_horizontal_position": "left",
+        "margin-top": 0,
+        "margin-bottom": 0
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "rich_text_with_image_d9iPb9": {
+      "type": "rich-text-with-image",
+      "blocks": {
+        "text_yXHg9h": {
+          "type": "text",
+          "settings": {
+            "text": "MH1 supports your dog's daily nutrition PICTURE1 each scoop combines 17 vet-selected ingredients PICTURE2  to keep your dog happy and healthy",
+            "font_uppercase": "none",
+            "disable_on_mobile": false,
+            "size_heading": 160,
+            "size_heading_mobile": 120,
+            "line_height": 1.5,
+            "picture1": "shopify://shop_images/IMG_4805_copy.heic",
+            "button_link1": "",
+            "picture2": "shopify://shop_images/Gemini_Generated_Image_vf12z9vf12z9vf12.png",
+            "button_link2": "",
+            "button_link3": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_yXHg9h"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "desktop_text_horizontal_position": "center",
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 0,
+        "margin-bottom": 0
+      }
+    },
+    "card_carousel_PwkVdN": {
+      "type": "card-carousel",
+      "blocks": {
+        "card_DJHrD3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_meap8cmeap8cmeap.png",
+            "title": "Healthier digestion",
+            "description": "Two clinically-backed prebiotic fibres and dual-strain probiotics working in sync. Because good health starts in the gut.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_m86ezy": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
+            "title": "Stronger joints",
+            "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel at doses that actually work. For walks that go the distance.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_mFJxHE": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_xmc1bvxmc1bvxmc1.png",
+            "title": "Balanced energy",
+            "description": "MCT powder from coconuts and L-Carnitine to fuel steady, sustained energy throughout the day. No spikes. No crashes.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_dY6YRa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_jfm0v4jfm0v4jfm0.png",
+            "title": "Ongoing vitality",
+            "description": "Astaxanthin, blueberry, and spirulina—nature's most potent antioxidants—to support long-term wellness from the inside out.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_bENU4R": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
+            "title": "Heart support",
+            "description": "Taurine at every dose. The amino acid vets recommend most for breeds prone to cardiac concerns.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_6EXmxB": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
+            "title": "Daily nutrition",
+            "description": "17 ingredients. One scoop. The gaps in your dog's diet, filled.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        },
+        "card_VMK7ef": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
+            "title": "One Scoop, Two Formats",
+            "description": "Sprinkle or stir. As a powder or a warm collagen broth. Built to fit your routine, not the other way around.",
+            "content_background": "#1a1a1a",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "card_DJHrD3",
+        "card_m86ezy",
+        "card_mFJxHE",
+        "card_dY6YRa",
+        "card_bENU4R",
+        "card_6EXmxB",
+        "card_VMK7ef"
+      ],
+      "name": "MH - Card Carousel",
+      "settings": {
+        "cards_per_view": 4,
+        "gap": 24,
+        "card_radius": 12,
+        "blur_amount": 10,
+        "title_font_size": 2.4,
+        "description_font_size": 1.5,
+        "background_color": "rgba(0,0,0,0)",
+        "arrow_color": "#333333",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_BNnxzt": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_3aVmpN": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "our mission",
+            "subheading_disable_on_mobile": false
+          }
+        },
+        "heading_hQwmXw": {
+          "type": "heading",
+          "settings": {
+            "heading": "There’s a science to the science.",
+            "disable_on_mobile": false,
+            "size_heading": 280,
+            "size_heading_mobile": 160
+          }
+        },
+        "text_qwc3Pd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We have worked tirelessly, refining countless formulations, processes, and tests to ensure that each supplement and mint we create fulfills our promise of helping you achieve the right state of mind at the perfect moment.</p>",
+            "text_style": "body",
+            "disable_on_mobile": false
+          }
+        },
+        "button_Ypx3ee": {
+          "type": "button",
+          "settings": {
+            "button_select": "link",
+            "button_label": "read more",
+            "button_link": "/",
+            "disable_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_3aVmpN",
+        "heading_hQwmXw",
+        "text_qwc3Pd",
+        "button_Ypx3ee"
+      ],
+      "settings": {
+        "title": "",
+        "layout": "text_first",
+        "desktop-percentage-image-width": 50,
+        "full-width-enabled": true,
+        "slide_height": "adapt_to_first_image",
+        "desktop_fixed_height": 320,
+        "mobile_fixed_height": 460,
+        "section-color-body-text": "rgba(0,0,0,0)",
+        "section-color-overlay": "rgba(0,0,0,0)",
+        "section-color-overlay-opacity": 100,
+        "color-body-text": "rgba(0,0,0,0)",
+        "color-overlay": "#ffffff",
+        "color-overlay-opacity": 100,
+        "desktop_text_vertical_position": "center",
+        "desktop_text_horizontal_position": "left",
+        "mobile_text_horizontal_position": "center",
+        "margin-top": 0,
+        "margin-bottom": 0
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "separator_aVXGVH",
+    "background_video_ybJhVR",
+    "rich_text_with_image_d9iPb9",
+    "card_carousel_PwkVdN",
+    "image_with_text_BNnxzt"
   ]
 }

@@ -15,6 +15,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
+CLAUDE.md
 
 # Node modules (if using any build tools)
 node_modules/

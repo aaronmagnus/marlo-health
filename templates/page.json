@@ -12,8 +12,10 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "size_heading": 140,
+        "size_heading_mobile": 100,
+        "margin-top": 40,
+        "margin-bottom": 0
       }
     }
   },
