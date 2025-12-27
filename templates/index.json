@@ -57,7 +57,7 @@
           "type": "button",
           "settings": {
             "button_select": "primary",
-            "button_label": "Join the waitlist",
+            "button_label": "Preorder now",
             "disable_on_mobile": false,
             "button_link": "shopify://products/daily",
             "second_button_select": "primary",
@@ -138,8 +138,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_meap8cmeap8cmeap.png",
             "title": "Healthier digestion",
             "description": "Two clinically-backed prebiotic fibres and dual-strain probiotics working in sync. Because good health starts in the gut.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
         "card_m86ezy": {
@@ -148,8 +148,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
             "title": "Stronger joints",
             "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel at doses that actually work. For walks that go the distance.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
         "card_mFJxHE": {
@@ -158,8 +158,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_xmc1bvxmc1bvxmc1.png",
             "title": "Balanced energy",
             "description": "MCT powder from coconuts and L-Carnitine to fuel steady, sustained energy throughout the day. No spikes. No crashes.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
         "card_dY6YRa": {
@@ -168,8 +168,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_jfm0v4jfm0v4jfm0.png",
             "title": "Ongoing vitality",
             "description": "Astaxanthin, blueberry, and spirulina—nature's most potent antioxidants—to support long-term wellness from the inside out.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
         "card_bENU4R": {
@@ -178,8 +178,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
             "title": "Heart support",
             "description": "Taurine at every dose. The amino acid vets recommend most for breeds prone to cardiac concerns.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
         "card_6EXmxB": {
@@ -188,8 +188,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
             "title": "Daily nutrition",
             "description": "17 ingredients. One scoop. The gaps in your dog's diet, filled.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
         "card_VMK7ef": {
@@ -198,8 +198,8 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
             "title": "One Scoop, Two Formats",
             "description": "Sprinkle or stir. As a powder or a warm collagen broth. Built to fit your routine, not the other way around.",
-            "content_background": "#1a1a1a",
-            "text_color": "#ffffff"
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         }
       },
@@ -214,10 +214,11 @@
       ],
       "name": "MH - Card Carousel",
       "settings": {
-        "cards_per_view": 4,
+        "card_width": 280,
         "gap": 24,
         "card_radius": 12,
-        "blur_amount": 10,
+        "blur_amount": 0,
+        "content_overlay": false,
         "title_font_size": 2.4,
         "description_font_size": 1.5,
         "background_color": "rgba(0,0,0,0)",
@@ -226,20 +227,143 @@
         "padding_bottom": 40
       }
     },
+    "card_carousel_3LyVBy": {
+      "type": "card-carousel",
+      "blocks": {
+        "card_yQDjdf": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_k76oh5k76oh5k76o.png",
+            "title": "Quote",
+            "description": "Lovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quote",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_hBWBH6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_dstb8kdstb8kdstb.png",
+            "title": "Quote",
+            "description": "Lovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quote",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_GF9nTG": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_vfdqoavfdqoavfdq.png",
+            "title": "Quote",
+            "description": "Lovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quote",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
+          }
+        }
+      },
+      "block_order": [
+        "card_yQDjdf",
+        "card_hBWBH6",
+        "card_GF9nTG"
+      ],
+      "name": "MH - Card Carousel",
+      "settings": {
+        "card_width": 400,
+        "gap": 24,
+        "card_radius": 12,
+        "blur_amount": 10,
+        "content_overlay": true,
+        "title_font_size": 2.4,
+        "description_font_size": 1.5,
+        "background_color": "#fdfdfb",
+        "arrow_color": "#161513",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "multicolumn_zyhX9M": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8EziCn": {
+          "type": "column",
+          "settings": {
+            "heading": "Step 1: Scoop",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png"
+          }
+        },
+        "column_dw8EM9": {
+          "type": "column",
+          "settings": {
+            "heading": "Step 2: Topper or broth",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png"
+          }
+        },
+        "column_E4ey8w": {
+          "type": "column",
+          "settings": {
+            "heading": "Step 3: Thrive",
+            "heading_disable_on_mobile": false,
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_disable_on_mobile": false,
+            "button_select": "primary",
+            "button_label": "",
+            "button_disable_on_mobile": false,
+            "button_link": "",
+            "button_link_in_new_window": false,
+            "desktop_image": "shopify://shop_images/IMG_4805_copy.heic"
+          }
+        }
+      },
+      "block_order": [
+        "column_8EziCn",
+        "column_dw8EM9",
+        "column_E4ey8w"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "heading": "How it works",
+        "swipe_on_mobile": true,
+        "full-width-enabled": false,
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "size_heading": 100,
+        "size_heading_mobile": 100,
+        "color-body-text": "transparent",
+        "background_color": "transparent",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
     "image_with_text_BNnxzt": {
       "type": "image-with-text",
       "blocks": {
         "subheading_3aVmpN": {
           "type": "subheading",
           "settings": {
-            "subheading": "our mission",
+            "subheading": "Coming Spring 2026",
             "subheading_disable_on_mobile": false
           }
         },
         "heading_hQwmXw": {
           "type": "heading",
           "settings": {
-            "heading": "There’s a science to the science.",
+            "heading": "Founders Bundle",
             "disable_on_mobile": false,
             "size_heading": 280,
             "size_heading_mobile": 160
@@ -257,8 +381,8 @@
           "type": "button",
           "settings": {
             "button_select": "link",
-            "button_label": "read more",
-            "button_link": "/",
+            "button_label": "Preorder now",
+            "button_link": "shopify://products/daily",
             "disable_on_mobile": false
           }
         }
@@ -272,7 +396,7 @@
       "settings": {
         "title": "",
         "layout": "text_first",
-        "desktop-percentage-image-width": 50,
+        "desktop-percentage-image-width": 40,
         "full-width-enabled": true,
         "slide_height": "adapt_to_first_image",
         "desktop_fixed_height": 320,
@@ -280,9 +404,10 @@
         "section-color-body-text": "rgba(0,0,0,0)",
         "section-color-overlay": "rgba(0,0,0,0)",
         "section-color-overlay-opacity": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-overlay": "#ffffff",
+        "color-body-text": "#161513",
+        "color-overlay": "rgba(0,0,0,0)",
         "color-overlay-opacity": 100,
+        "desktop_image": "shopify://shop_images/3d4b65d77183a5a8c4f32662741ebbcd5824f95d-3240x3240.avif",
         "desktop_text_vertical_position": "center",
         "desktop_text_horizontal_position": "left",
         "mobile_text_horizontal_position": "center",
@@ -296,6 +421,8 @@
     "background_video_ybJhVR",
     "rich_text_with_image_d9iPb9",
     "card_carousel_PwkVdN",
+    "card_carousel_3LyVBy",
+    "multicolumn_zyhX9M",
     "image_with_text_BNnxzt"
   ]
 }

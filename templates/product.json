@@ -343,401 +343,102 @@
         "margin-bottom": 24
       }
     },
-    "features_banner_wiKkaQ": {
-      "type": "features-banner",
+    "card_carousel_z4hRDR": {
+      "type": "card-carousel",
       "blocks": {
-        "image_ftDTyE": {
-          "type": "image",
+        "card_aEdhKF": {
+          "type": "card",
           "settings": {
-            "select_icon": "plus",
-            "heading": "Natural ingredients",
-            "text": "",
-            "link": ""
+            "image": "shopify://shop_images/Gemini_Generated_Image_meap8cmeap8cmeap.png",
+            "title": "Healthier digestion",
+            "description": "Two clinically-backed prebiotic fibres and dual-strain probiotics working in sync. Because good health starts in the gut.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
-        "image_m7jjzm": {
-          "type": "image",
+        "card_bYmDc8": {
+          "type": "card",
           "settings": {
-            "select_icon": "user",
-            "heading": "Hypoallergenic",
-            "text": "",
-            "link": ""
+            "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
+            "title": "Stronger joints",
+            "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel at doses that actually work. For walks that go the distance.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
-        "image_AkKWrq": {
-          "type": "image",
+        "card_Jf6RTM": {
+          "type": "card",
           "settings": {
-            "select_icon": "plus",
-            "heading": "No fillers or additives",
-            "text": "",
-            "link": ""
+            "image": "shopify://shop_images/Gemini_Generated_Image_xmc1bvxmc1bvxmc1.png",
+            "title": "Balanced energy",
+            "description": "MCT powder from coconuts and L-Carnitine to fuel steady, sustained energy throughout the day. No spikes. No crashes.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         },
-        "image_XPgaAR": {
-          "type": "image",
+        "card_3pYq6j": {
+          "type": "card",
           "settings": {
-            "select_icon": "star",
-            "heading": "Made in the UK",
-            "text": "",
-            "link": ""
+            "image": "shopify://shop_images/Gemini_Generated_Image_jfm0v4jfm0v4jfm0.png",
+            "title": "Ongoing vitality",
+            "description": "Astaxanthin, blueberry, and spirulina—nature's most potent antioxidants—to support long-term wellness from the inside out.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_Lr6kwQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
+            "title": "Heart support",
+            "description": "Taurine at every dose. The amino acid vets recommend most for breeds prone to cardiac concerns.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_9cqH9d": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
+            "title": "Daily nutrition",
+            "description": "17 ingredients. One scoop. The gaps in your dog's diet, filled.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_8AVdBH": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
+            "title": "One Scoop, Two Formats",
+            "description": "Sprinkle or stir. As a powder or a warm collagen broth. Built to fit your routine, not the other way around.",
+            "content_background": "#161513",
+            "text_color": "#fdfdfb"
           }
         }
       },
       "block_order": [
-        "image_ftDTyE",
-        "image_m7jjzm",
-        "image_AkKWrq",
-        "image_XPgaAR"
+        "card_aEdhKF",
+        "card_bYmDc8",
+        "card_Jf6RTM",
+        "card_3pYq6j",
+        "card_Lr6kwQ",
+        "card_9cqH9d",
+        "card_8AVdBH"
       ],
+      "name": "MH - Card Carousel",
       "settings": {
-        "heading": "",
-        "size_heading_mobile": 80,
-        "size_heading": 80,
-        "icon_width_mobile": 24,
-        "icon_width_desktop": 28,
-        "icon_layout": "center",
-        "columns_desktop": "4",
-        "icon_layout_mobile": "grid",
-        "color_body_icon": "rgba(0,0,0,0)",
-        "color_background_icon": "rgba(0,0,0,0)",
-        "color_body_text": "rgba(0,0,0,0)",
+        "card_width": 280,
+        "gap": 24,
+        "card_radius": 12,
+        "blur_amount": 10,
+        "content_overlay": false,
+        "title_font_size": 2.4,
+        "description_font_size": 1.5,
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 24,
-        "margin-bottom": 24
-      }
-    },
-    "ss_tabs_2_djdxNW": {
-      "type": "ss-tabs-2",
-      "blocks": {
-        "caption_cxMG8F": {
-          "type": "caption",
-          "settings": {
-            "caption": "<p>HOW IT WORKS</p>",
-            "caption_custom": false,
-            "caption_font": "josefin_sans_n4",
-            "caption_size": 12,
-            "caption_size_mobile": 12,
-            "caption_advanced": false,
-            "caption_height": 150,
-            "caption_mt": 0,
-            "caption_mt_mobile": 0,
-            "caption_color": "#121212"
-          }
-        },
-        "heading_iCYN9E": {
-          "type": "heading",
-          "settings": {
-            "heading": "<h2>One daily scoop.</h2><h2>A lifetime of health.</h2>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_size": 36,
-            "heading_size_mobile": 36,
-            "heading_advanced": false,
-            "heading_height": 130,
-            "heading_mt": 12,
-            "heading_mt_mobile": 12,
-            "heading_color": "#121212"
-          }
-        },
-        "tab_czVdLD": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Gut & Digestions",
-            "tab_text": "<p>Because nobody likes runny poops or upset tummies! The Daily features our proprietary probiotic formula and pumpkin to help aid digestion, regulate bacteria, and support healthy bowel movements.</p>"
-          }
-        },
-        "tab_Kngxqp": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Skin health",
-            "tab_text": "<p>Probiotic and pumpkin help to support healthy skin from within. These power-packed ingredients let your pup shine with a glowing, healthy coat and soothe itchy, dry skin.</p>"
-          }
-        },
-        "tab_3cLbwz": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Allergies",
-            "tab_text": "<p>A powerful blend of DHA and zinc helps curb itching, sneezing, and wheezing throughout allergy season and beyond.</p>"
-          }
-        },
-        "tab_q4wJXN": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Mobility & Joints",
-            "tab_text": "<p>Active pups benefit from powerful ingredients, like glucosamine and chondroitin, that help support healthy joints, mobility, and flexibility.</p>"
-          }
-        },
-        "tab_wEiGdG": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Immunity",
-            "tab_text": "<p>Vitamin C and beta-carotene help to support your dog’s immune response, protecting from infections, illness, sickness, and harmful germs.</p>"
-          }
-        },
-        "tab_wVwh4X": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Heart health",
-            "tab_text": "<p>A healthy heart means more adventures and more years with your pup. DHA Gold, Taurine, and L-Carnitine support your dog’s cardiovascular system.</p>"
-          }
-        },
-        "tab_XQrgxz": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Cognitive function",
-            "tab_text": "<p>Powerful ingredients like DHA, vitamin C, and L-Carnitine support cognitive function, behavior, and brain health.</p>"
-          }
-        },
-        "tab_WfXWq9": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Bladder",
-            "tab_text": "<p>Cranberry extract helps support a healthy urinary tract with bacteria-fighting antioxidants.</p>"
-          }
-        },
-        "tab_3chVrR": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Energy utilisation",
-            "tab_text": "<p>Keep that puppy energy going way into their adult years with key ingredients like L-carnitine that boost metabolism and help support energy production.</p>"
-          }
-        },
-        "tab_UeE7aF": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Inflammatory response",
-            "tab_text": "<p>Inflammation can be a healthy response to illness and injury but for some dogs it can be painful and not normal. The Daily contains DHA, which helps regulate inflammation.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "caption_cxMG8F",
-        "heading_iCYN9E",
-        "tab_czVdLD",
-        "tab_Kngxqp",
-        "tab_3cLbwz",
-        "tab_q4wJXN",
-        "tab_wEiGdG",
-        "tab_wVwh4X",
-        "tab_XQrgxz",
-        "tab_WfXWq9",
-        "tab_3chVrR",
-        "tab_UeE7aF"
-      ],
-      "name": "SS - Tabs #2",
-      "settings": {
-        "media_type": "image",
-        "video_url": "",
-        "media_position": "left",
-        "media_position_mobile": "top",
-        "layout_advanced": false,
-        "content_gap": 80,
-        "content_gap_mobile": 40,
-        "media_radius": 0,
-        "media_border_thickness": 0,
-        "media_ratio": "square",
-        "media_ratio_mobile": "square",
-        "use_controls": true,
-        "use_custom_buttons": false,
-        "custom_play_icon_size": 40,
-        "custom_play_icon_size_mobile": 40,
-        "play_icon_size": 16,
-        "play_icon_size_mobile": 16,
-        "play_padding": 12,
-        "play_padding_mobile": 12,
-        "play_radius": 100,
-        "play_border_thickness": 0,
-        "tab_content_advanced": false,
-        "tab_content_padding_horizontal": 0,
-        "tab_content_padding_horizontal_mobile": 0,
-        "tab_content_padding_vertical": 0,
-        "tab_content_padding_vertical_mobile": 0,
-        "content_align": "left",
-        "content_align_mobile": "left",
-        "tabs_advanced": false,
-        "tabs_gap": 0,
-        "tabs_gap_mobile": 0,
-        "tabs_mt": 32,
-        "tabs_mt_mobile": 24,
-        "tab_advanced": false,
-        "tab_padding_horizontal": 0,
-        "tab_padding_horizontal_mobile": 0,
-        "tab_padding_vertical": 16,
-        "tab_padding_vertical_mobile": 16,
-        "tab_border_thickness": 1,
-        "autoclose": true,
-        "tab_title_custom": false,
-        "tab_title_font": "josefin_sans_n4",
-        "tab_title_size": 24,
-        "tab_title_size_mobile": 20,
-        "tab_title_advanced": false,
-        "tab_title_height": 130,
-        "use_checkmark": true,
-        "open_icon_size": 26,
-        "open_icon_size_mobile": 26,
-        "tab_text_custom": false,
-        "tab_text_font": "josefin_sans_n4",
-        "tab_text_size": 18,
-        "tab_text_size_mobile": 18,
-        "tab_text_advanced": false,
-        "tab_text_height": 150,
-        "tab_text_padding_top": 16,
-        "features_advanced": false,
-        "features_gap": 8,
-        "features_gap_mobile": 8,
-        "features_mt": 32,
-        "features_mt_mobile": 24,
-        "feature_advanced": false,
-        "feature_padding_horizontal": 12,
-        "feature_padding_horizontal_mobile": 12,
-        "feature_padding_vertical": 8,
-        "feature_padding_vertical_mobile": 8,
-        "feature_radius": 8,
-        "feature_border_thickness": 1,
-        "feature_title_custom": false,
-        "feature_title_font": "josefin_sans_n4",
-        "feature_title_size": 16,
-        "feature_title_size_mobile": 16,
-        "feature_title_advanced": false,
-        "feature_title_height": 130,
-        "feature_text_custom": false,
-        "feature_text_font": "josefin_sans_n4",
-        "feature_text_size": 10,
-        "feature_text_size_mobile": 10,
-        "feature_text_advanced": false,
-        "feature_text_height": 150,
-        "feature_icon_size": 40,
-        "feature_icon_size_mobile": 24,
-        "media_border_color": "#121212",
-        "play_color": "#121212",
-        "play_hover_color": "#121212",
-        "play_bg_color": "#ffffff",
-        "play_bg_hover_color": "#f3f3f3",
-        "play_border_color": "#121212",
-        "play_border_hover_color": "#121212",
-        "tab_title_color": "#121212",
-        "tab_text_color": "#121212",
-        "open_icon_color": "#121212",
-        "tab_border_color": "#e0e0e0",
-        "feature_title_color": "#121212",
-        "feature_text_color": "#121212",
-        "feature_icon_color": "#121212",
-        "feature_bg_color": "#ffffff",
-        "feature_border_color": "#121212",
-        "background_style": "solid",
-        "background_color": "#ffffff",
-        "background_gradient": "linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%)",
-        "border_color": "#121212",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "width": "page",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true
-      }
-    },
-    "rich_text_with_image_fPiLLX": {
-      "type": "rich-text-with-image",
-      "blocks": {
-        "text_TDgxty": {
-          "type": "text",
-          "settings": {
-            "text": "Type PICTURE1 to insert the first icon – place it where you want a visual cue. Insert PICTURE2 by typing it where a second visual element is needed. Use PICTURE3 for adding a third icon – ensure it has its own space.",
-            "font_uppercase": "none",
-            "disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100,
-            "line_height": 1.5,
-            "button_link1": "",
-            "button_link2": "",
-            "button_link3": ""
-          }
-        }
-      },
-      "block_order": [
-        "text_TDgxty"
-      ],
-      "name": "t:sections.rich-text-with-image.presets.name",
-      "settings": {
-        "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
-      }
-    },
-    "image_with_text_GqeJWM": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_9TCPM6": {
-          "type": "subheading",
-          "disabled": true,
-          "settings": {
-            "subheading": "Tell you story",
-            "subheading_disable_on_mobile": false
-          }
-        },
-        "heading_3r3AGj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Daily use for optimal results",
-            "disable_on_mobile": false,
-            "size_heading": 100,
-            "size_heading_mobile": 100
-          }
-        },
-        "text_qYF83x": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body",
-            "disable_on_mobile": false
-          }
-        },
-        "button_i7McTA": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_select": "primary",
-            "button_label": "Button label",
-            "button_link": "/",
-            "disable_on_mobile": false
-          }
-        }
-      },
-      "block_order": [
-        "subheading_9TCPM6",
-        "heading_3r3AGj",
-        "text_qYF83x",
-        "button_i7McTA"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "title": "",
-        "layout": "text_first",
-        "desktop-percentage-image-width": 50,
-        "full-width-enabled": false,
-        "slide_height": "fixed_height",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 460,
-        "section-color-body-text": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "center",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 20,
-        "margin-bottom": 20
+        "arrow_color": "#333333",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "ss_scrolling_features_4_HzTWpe": {
@@ -1060,10 +761,7 @@
   "order": [
     "breadcrumbs",
     "main",
-    "features_banner_wiKkaQ",
-    "ss_tabs_2_djdxNW",
-    "rich_text_with_image_fPiLLX",
-    "image_with_text_GqeJWM",
+    "card_carousel_z4hRDR",
     "ss_scrolling_features_4_HzTWpe",
     "scrolling_text_banner_wcVbRd",
     "separator_y6xcTk",
