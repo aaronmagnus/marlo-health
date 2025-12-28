@@ -1,0 +1,506 @@
+{%- comment -%}
+  Two Column Content Section
+  - Desktop: Content left, image right (side-by-side)
+  - Mobile: Image on top, content below (stacked)
+  - Content includes headline, subheading, checklist with ticks, CTA button
+{%- endcomment -%}
+
+{%- assign section_bg_rgb = section.settings.background_color | color_to_rgb -%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --two-col-bg: {{ section.settings.background_color }};
+    {% else %}
+      --two-col-bg: #f5f5f0;
+    {% endif %}
+    --two-col-text: {{ section.settings.text_color }};
+    --two-col-btn-bg: {{ section.settings.button_background }};
+    --two-col-btn-text: {{ section.settings.button_text_color }};
+    --two-col-check-color: {{ section.settings.checkmark_color }};
+    --two-col-padding-top: {{ section.settings.padding_top }}px;
+    --two-col-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  [data-section-id="{{ section.id }}"].two-col-content {
+    background-color: var(--two-col-bg);
+    color: var(--two-col-text);
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Image column - appears first on mobile */
+  [data-section-id="{{ section.id }}"] .two-col-content__image-col {
+    width: 100%;
+    order: -1;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Content column */
+  [data-section-id="{{ section.id }}"] .two-col-content__content-col {
+    width: 100%;
+    padding: var(--two-col-padding-top) 1.5rem var(--two-col-padding-bottom);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__headline {
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0;
+    text-align: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__subheading {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+    opacity: 0.9;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__check {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    color: var(--two-col-check-color);
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.6rem 2.4rem;
+    background-color: var(--two-col-btn-bg);
+    color: var(--two-col-btn-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.6rem;
+    border-radius: 50px;
+    transition: opacity 0.2s ease;
+    margin-top: 1.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__cta:hover {
+    opacity: 0.85;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__cta-arrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__cta-arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-50%);
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__cta-arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    border-color: currentColor;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* Desktop layout */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .two-col-content__inner {
+      flex-direction: row;
+      min-height: 600px;
+      max-width: var(--site-max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__image-col {
+      width: 50%;
+      order: 1;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__content-col {
+      width: 50%;
+      padding: var(--two-col-padding-top) 4rem var(--two-col-padding-bottom);
+      justify-content: center;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__headline {
+      font-size: 4rem;
+      text-align: left;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__subheading {
+      font-size: 1.8rem;
+      text-align: left;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__cta {
+      width: 100%;
+    }
+  }
+
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .two-col-content__content-col {
+      padding: var(--two-col-padding-top) 6rem var(--two-col-padding-bottom);
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__headline {
+      font-size: 4.4rem;
+    }
+  }
+</style>
+
+<section data-section-id="{{ section.id }}" class="two-col-content">
+  <div class="two-col-content__inner">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'content' -%}
+          <div class="two-col-content__content-col" {{ block.shopify_attributes }}>
+            {%- if block.settings.headline != blank -%}
+              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+            {%- endif -%}
+
+            {%- if block.settings.subheading != blank -%}
+              <p class="two-col-content__subheading">{{ block.settings.subheading }}</p>
+            {%- endif -%}
+
+            {%- assign has_list_items = false -%}
+            {%- if block.settings.list_item_1 != blank or block.settings.list_item_2 != blank or block.settings.list_item_3 != blank or block.settings.list_item_4 != blank or block.settings.list_item_5 != blank or block.settings.list_item_6 != blank -%}
+              {%- assign has_list_items = true -%}
+            {%- endif -%}
+
+            {%- if has_list_items -%}
+              <ul class="two-col-content__list">
+                {%- if block.settings.list_item_1 != blank -%}
+                  <li class="two-col-content__list-item">
+                    <svg class="two-col-content__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{{ block.settings.list_item_1 }}</span>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.list_item_2 != blank -%}
+                  <li class="two-col-content__list-item">
+                    <svg class="two-col-content__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{{ block.settings.list_item_2 }}</span>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.list_item_3 != blank -%}
+                  <li class="two-col-content__list-item">
+                    <svg class="two-col-content__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{{ block.settings.list_item_3 }}</span>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.list_item_4 != blank -%}
+                  <li class="two-col-content__list-item">
+                    <svg class="two-col-content__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{{ block.settings.list_item_4 }}</span>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.list_item_5 != blank -%}
+                  <li class="two-col-content__list-item">
+                    <svg class="two-col-content__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{{ block.settings.list_item_5 }}</span>
+                  </li>
+                {%- endif -%}
+                {%- if block.settings.list_item_6 != blank -%}
+                  <li class="two-col-content__list-item">
+                    <svg class="two-col-content__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>{{ block.settings.list_item_6 }}</span>
+                  </li>
+                {%- endif -%}
+              </ul>
+            {%- endif -%}
+
+            {%- if block.settings.button_text != blank -%}
+              <a
+                class="two-col-content__cta"
+                {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
+              >
+                {{ block.settings.button_text }}
+                <span class="two-col-content__cta-arrow"></span>
+              </a>
+            {%- endif -%}
+          </div>
+
+        {%- when 'image' -%}
+          <div class="two-col-content__image-col" {{ block.shopify_attributes }}>
+            <div class="two-col-content__image-wrapper">
+              {%- if block.settings.image != blank -%}
+                <img
+                  class="two-col-content__image"
+                  src="{{ block.settings.image | image_url: width: 1200 }}"
+                  srcset="
+                    {{ block.settings.image | image_url: width: 600 }} 600w,
+                    {{ block.settings.image | image_url: width: 900 }} 900w,
+                    {{ block.settings.image | image_url: width: 1200 }} 1200w
+                  "
+                  sizes="(max-width: 899px) 100vw, 50vw"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              {%- else -%}
+                {{ 'lifestyle-2' | placeholder_svg_tag: 'two-col-content__image placeholder-svg' }}
+              {%- endif -%}
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+
+    {%- if section.blocks.size == 0 -%}
+      <div class="two-col-content__content-col" style="padding: 4rem; text-align: center; color: #666;">
+        Add content and image blocks using the theme editor
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MH Two Column Content",
+  "tag": "section",
+  "class": "two-col-content-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#1e3a2f"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Designed to Support Your Busy Lifestyle"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "We formulated our product to support your health with advanced nutrition in every scoop.* It's a match if you:"
+        },
+        {
+          "type": "header",
+          "content": "List items"
+        },
+        {
+          "type": "text",
+          "id": "list_item_1",
+          "label": "List item 1",
+          "default": "Want an easy way to support your daily nutrition"
+        },
+        {
+          "type": "text",
+          "id": "list_item_2",
+          "label": "List item 2",
+          "default": "Are juggling a busy life and need nutrition that keeps up"
+        },
+        {
+          "type": "text",
+          "id": "list_item_3",
+          "label": "List item 3",
+          "default": "Care about improving gut health and digestion"
+        },
+        {
+          "type": "text",
+          "id": "list_item_4",
+          "label": "List item 4",
+          "default": "Are getting back into fitness and want to support your energy levels"
+        },
+        {
+          "type": "text",
+          "id": "list_item_5",
+          "label": "List item 5",
+          "default": "Want additional nutritional support"
+        },
+        {
+          "type": "text",
+          "id": "list_item_6",
+          "label": "List item 6"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Get Started"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH Two Column Content",
+      "blocks": [
+        {
+          "type": "content",
+          "settings": {
+            "headline": "Designed to Support Your Busy Lifestyle",
+            "subheading": "We formulated our product to support your health with advanced nutrition in every scoop.* It's a match if you:",
+            "list_item_1": "Want an easy way to support your daily nutrition",
+            "list_item_2": "Are juggling a busy life and need nutrition that keeps up",
+            "list_item_3": "Care about improving gut health and digestion",
+            "list_item_4": "Are getting back into fitness and want to support your energy levels",
+            "list_item_5": "Want additional nutritional support",
+            "button_text": "Get Started"
+          }
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -119,10 +119,13 @@
 
   [data-section-id="{{ section.id }}"] .card-carousel__nav {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 1rem;
     margin-top: 1.5rem;
     padding: 0 1.5rem;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   [data-section-id="{{ section.id }}"] .card-carousel__nav-btn {
@@ -177,6 +180,86 @@
     margin-right: 0;
   }
 
+  /* Section header styles */
+  [data-section-id="{{ section.id }}"] .card-carousel__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  [data-section-id="{{ section.id }}"] .card-carousel__section-title {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0;
+    color: {{ section.settings.title_color }};
+    max-width: 600px;
+  }
+
+  [data-section-id="{{ section.id }}"] .card-carousel__header-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .card-carousel__header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.4rem 2.4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    border: 2px solid {{ section.settings.button_color }};
+    background-color: transparent;
+    color: {{ section.settings.button_color }};
+  }
+
+  [data-section-id="{{ section.id }}"] .card-carousel__header-btn:hover {
+    opacity: 0.8;
+  }
+
+  [data-section-id="{{ section.id }}"] .card-carousel__header-btn--filled {
+    background-color: {{ section.settings.button_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  /* Desktop header layout */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .card-carousel__header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .card-carousel__section-title {
+      font-size: 4rem;
+      flex: 1;
+    }
+
+    [data-section-id="{{ section.id }}"] .card-carousel__header-buttons {
+      flex-shrink: 0;
+    }
+  }
+
+  /* Large desktop - align header and nav with max-width */
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .card-carousel__header,
+    [data-section-id="{{ section.id }}"] .card-carousel__nav {
+      padding-left: max(1.5rem, calc((100vw - var(--site-max-width)) / 2 + 1.5rem));
+      padding-right: max(1.5rem, calc((100vw - var(--site-max-width)) / 2 + 1.5rem));
+    }
+  }
+
   /* Block-level styles for content */
   {% for block in section.blocks %}
     {% case block.type %}
@@ -199,6 +282,34 @@
 
 <div data-section-id="{{ section.id }}" class="card-carousel">
   <div class="card-carousel__inner">
+    {% if section.settings.section_title != blank or section.settings.button_1_text != blank or section.settings.button_2_text != blank %}
+      <div class="card-carousel__header">
+        {% if section.settings.section_title != blank %}
+          <h2 class="card-carousel__section-title">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.button_1_text != blank or section.settings.button_2_text != blank %}
+          <div class="card-carousel__header-buttons">
+            {% if section.settings.button_1_text != blank %}
+              <a
+                class="card-carousel__header-btn"
+                {% if section.settings.button_1_link != blank %}href="{{ section.settings.button_1_link }}"{% endif %}
+              >
+                {{ section.settings.button_1_text }}
+              </a>
+            {% endif %}
+            {% if section.settings.button_2_text != blank %}
+              <a
+                class="card-carousel__header-btn card-carousel__header-btn--filled"
+                {% if section.settings.button_2_link != blank %}href="{{ section.settings.button_2_link }}"{% endif %}
+              >
+                {{ section.settings.button_2_text }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
     {% if section.blocks.size == 0 %}
       <p style="text-align: center; padding: 2rem; color: #666;">Add card blocks using the theme editor</p>
     {% else %}
@@ -285,6 +396,54 @@
   "tag": "section",
   "class": "card-carousel-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 text"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 text"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 link"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button 2 text color",
+      "default": "#1a1a1a",
+      "info": "Only applies to filled button (Button 2)"
+    },
     {
       "type": "header",
       "content": "Layout"

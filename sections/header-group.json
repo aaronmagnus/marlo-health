@@ -17,7 +17,7 @@
         "announcement_DKVb4L": {
           "type": "announcement",
           "settings": {
-            "text": "First 100 customers get 10% for life + Premium MH1 Welcome Kit",
+            "text": "First 100 customers get 10% for life",
             "link": ""
           }
         }
@@ -26,7 +26,7 @@
         "announcement_DKVb4L"
       ],
       "settings": {
-        "marquee": false,
+        "marquee": true,
         "animation_speed": "150",
         "checkbox_close_announcement": true,
         "color-body-text": "#ffffff",
@@ -38,6 +38,7 @@
       "blocks": {
         "column_yVYQQ3": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "title": "shop",
             "promo_section_width": 6,
@@ -70,8 +71,8 @@
       "custom_css": [],
       "settings": {
         "layout": "option_5",
-        "sticky_header": false,
-        "sticky_header_always": false,
+        "sticky_header": true,
+        "sticky_header_always": true,
         "header_bg_opacity": 100,
         "header_bg_blur": 30,
         "header_always_blurred": true,

@@ -126,7 +126,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .hero-carousel__title {
-    font-size: 1.75rem;
+    font-size: 3.2rem;
     font-weight: 600;
     line-height: 1.1;
     margin: 0;
@@ -138,13 +138,6 @@
     line-height: 1.5;
     margin: 0;
     opacity: 0.85;
-  }
-
-  /* Tablet */
-  @media (min-width: 600px) {
-    [data-section-id="{{ section.id }}"] .hero-carousel__title {
-      font-size: 2.25rem;
-    }
   }
 
   [data-section-id="{{ section.id }}"] .hero-carousel__cta {
@@ -171,12 +164,33 @@
 
   [data-section-id="{{ section.id }}"] .hero-carousel__cta-arrow {
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .hero-carousel__cta-arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-50%);
+  }
+
+  [data-section-id="{{ section.id }}"] .hero-carousel__cta-arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 8px;
+    height: 8px;
     border-style: solid;
     border-width: 0 2px 2px 0;
     border-color: currentColor;
-    transform: rotate(-45deg);
+    transform: translateY(-50%) rotate(-45deg);
   }
 
   /* Navigation arrows - edge-pinned style */
@@ -357,10 +371,6 @@
       gap: 1rem;
     }
 
-    [data-section-id="{{ section.id }}"] .hero-carousel__title {
-      font-size: 2.75rem;
-    }
-
     [data-section-id="{{ section.id }}"] .hero-carousel__nav {
       display: block;
     }
@@ -374,18 +384,15 @@
 
     [data-section-id="{{ section.id }}"] .hero-carousel__cta {
       width: fit-content;
-      justify-content: flex-start;
+      min-width: 280px;
+      justify-content: center;
     }
   }
 
   /* Large desktop */
   @media (min-width: 1200px) {
     [data-section-id="{{ section.id }}"] .hero-carousel__content {
-      padding-left: 6rem;
-    }
-
-    [data-section-id="{{ section.id }}"] .hero-carousel__title {
-      font-size: 3rem;
+      padding-left: max(6rem, calc((100vw - var(--site-max-width)) / 2 + 6rem));
     }
   }
 

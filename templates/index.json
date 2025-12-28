@@ -9,24 +9,6 @@
  */
 {
   "sections": {
-    "separator_aVXGVH": {
-      "type": "separator",
-      "disabled": true,
-      "settings": {
-        "advanced_heading": false,
-        "heading": "",
-        "heading_richtext": "<h2>Separator</h2>",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "show-separator-line": true,
-        "full-width-line": true,
-        "color-background": "#000000",
-        "color-body-text": "rgba(0,0,0,0)",
-        "color-section-background": "#ffffff",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "background_video_ybJhVR": {
       "type": "background-video",
       "blocks": {
@@ -73,6 +55,7 @@
         "text_dN3Fxp",
         "button_8B8RNE"
       ],
+      "disabled": true,
       "name": "t:sections.background-video.presets.name",
       "settings": {
         "heading": "",
@@ -96,6 +79,147 @@
         "mobile_text_horizontal_position": "left",
         "margin-top": 0,
         "margin-bottom": 0
+      }
+    },
+    "hero_carousel_ELjxRL": {
+      "type": "hero-carousel",
+      "blocks": {
+        "slide_PhWip9": {
+          "type": "slide",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/1d9c65aab309703bc5f2e07316d64658b286340f-2880x1208.webp",
+            "mobile_image": "shopify://shop_images/ee2dc0af073cef10dec68230cdd990aad5b29266-1125x1797.webp",
+            "title": "Science-backed daily nutrition for dogs.",
+            "description": "17 vet-selected ingredients for healthier digestion, stronger joints, and daily vitality.",
+            "cta_text": "Get Started",
+            "cta_link": "",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0,
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_PhWip9"
+      ],
+      "name": "MH Hero Carousel",
+      "settings": {
+        "min_height": 600,
+        "heading_font": "Inter",
+        "body_font": "Inter",
+        "button_font": "Inter",
+        "text_color": "#161513",
+        "cta_background": "#161513",
+        "cta_text_color": "#fdfdfb",
+        "autoplay": true,
+        "autoplay_speed": 10,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "features_banner_NnieLp": {
+      "type": "features-banner",
+      "blocks": {
+        "image_CXxCtc": {
+          "type": "image",
+          "settings": {
+            "select_icon": "user",
+            "heading": "Developed with vets",
+            "text": "",
+            "link": ""
+          }
+        },
+        "image_VEEg6U": {
+          "type": "image",
+          "settings": {
+            "select_icon": "plus",
+            "heading": "17 active ingredients",
+            "text": "",
+            "link": ""
+          }
+        },
+        "image_Fqpw8b": {
+          "type": "image",
+          "settings": {
+            "select_icon": "close",
+            "heading": "Zero fillers",
+            "text": "",
+            "link": ""
+          }
+        },
+        "image_EXxLBW": {
+          "type": "image",
+          "settings": {
+            "select_icon": "check",
+            "heading": "Made in the UK",
+            "text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_CXxCtc",
+        "image_VEEg6U",
+        "image_Fqpw8b",
+        "image_EXxLBW"
+      ],
+      "name": "t:sections.features-banner.settings.presets.name",
+      "settings": {
+        "heading": "",
+        "size_heading_mobile": 60,
+        "size_heading": 60,
+        "icon_width_mobile": 24,
+        "icon_width_desktop": 28,
+        "icon_layout": "left",
+        "columns_desktop": "4",
+        "icon_layout_mobile": "grid",
+        "color_body_icon": "rgba(0,0,0,0)",
+        "color_background_icon": "rgba(0,0,0,0)",
+        "color_body_text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 20,
+        "margin-bottom": 20
+      }
+    },
+    "two_column_content_xcxCGJ": {
+      "type": "two-column-content",
+      "blocks": {
+        "content_FaJEQw": {
+          "type": "content",
+          "settings": {
+            "headline": "We built MD1 to support your dog's daily nutrition.",
+            "subheading": "You've tried the supplements. The powders they won't touch. The chews that are mostly filler. The vet bills that keep coming.",
+            "list_item_1": "Sensitive stomachs that never seem to settle",
+            "list_item_2": "Joint stiffness that's slowing them down",
+            "list_item_3": "Supplements they spit out or ignore",
+            "list_item_4": "",
+            "list_item_5": "",
+            "list_item_6": "",
+            "button_text": "Get Started",
+            "button_link": ""
+          }
+        },
+        "image_96FYjm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png"
+          }
+        }
+      },
+      "block_order": [
+        "content_FaJEQw",
+        "image_96FYjm"
+      ],
+      "name": "MH Two Column Content",
+      "settings": {
+        "background_color": "#fdfdfb",
+        "text_color": "#1a1a1a",
+        "checkmark_color": "#666666",
+        "button_background": "#161513",
+        "button_text_color": "#ffffff",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "rich_text_with_image_d9iPb9": {
@@ -125,8 +249,8 @@
         "desktop_text_horizontal_position": "center",
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
-        "margin-top": 0,
-        "margin-bottom": 0
+        "margin-top": 32,
+        "margin-bottom": 24
       }
     },
     "card_carousel_PwkVdN": {
@@ -214,6 +338,14 @@
       ],
       "name": "MH - Card Carousel",
       "settings": {
+        "section_title": "",
+        "title_color": "#ffffff",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_color": "#ffffff",
+        "button_text_color": "#1a1a1a",
         "card_width": 280,
         "gap": 24,
         "card_radius": 12,
@@ -223,8 +355,8 @@
         "description_font_size": 1.5,
         "background_color": "rgba(0,0,0,0)",
         "arrow_color": "#333333",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "card_carousel_3LyVBy": {
@@ -234,9 +366,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_k76oh5k76oh5k76o.png",
-            "title": "Quote",
-            "description": "Lovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quote",
-            "content_background": "#161513",
+            "title": "",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
             "text_color": "#fdfdfb"
           }
         },
@@ -244,9 +376,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_dstb8kdstb8kdstb.png",
-            "title": "Quote",
-            "description": "Lovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quote",
-            "content_background": "#161513",
+            "title": "",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
             "text_color": "#fdfdfb"
           }
         },
@@ -254,9 +386,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_vfdqoavfdqoavfdq.png",
-            "title": "Quote",
-            "description": "Lovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quoteLovely quote",
-            "content_background": "#161513",
+            "title": "",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
             "text_color": "#fdfdfb"
           }
         }
@@ -268,6 +400,14 @@
       ],
       "name": "MH - Card Carousel",
       "settings": {
+        "section_title": "Trusted by the world’s leading vets",
+        "title_color": "#ffffff",
+        "button_1_text": "Read more reviews",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_color": "#ffffff",
+        "button_text_color": "#1a1a1a",
         "card_width": 400,
         "gap": 24,
         "card_radius": 12,
@@ -275,10 +415,10 @@
         "content_overlay": true,
         "title_font_size": 2.4,
         "description_font_size": 1.5,
-        "background_color": "#fdfdfb",
-        "arrow_color": "#161513",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "background_color": "#161513",
+        "arrow_color": "#fdfdfb",
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "multicolumn_zyhX9M": {
@@ -344,10 +484,10 @@
         "column_alignment": "left",
         "size_heading": 100,
         "size_heading_mobile": 100,
-        "color-body-text": "transparent",
-        "background_color": "transparent",
-        "margin-top": 20,
-        "margin-bottom": 20
+        "color-body-text": "rgba(0,0,0,0)",
+        "background_color": "rgba(0,0,0,0)",
+        "margin-top": 32,
+        "margin-bottom": 32
       }
     },
     "image_with_text_BNnxzt": {
@@ -417,8 +557,10 @@
     }
   },
   "order": [
-    "separator_aVXGVH",
     "background_video_ybJhVR",
+    "hero_carousel_ELjxRL",
+    "features_banner_NnieLp",
+    "two_column_content_xcxCGJ",
     "rich_text_with_image_d9iPb9",
     "card_carousel_PwkVdN",
     "card_carousel_3LyVBy",
