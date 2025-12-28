@@ -129,11 +129,13 @@
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     z-index: 1;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
   }
 
   [data-section-id="{{ section.id }}"] .card-carousel__nav {
@@ -295,6 +297,7 @@
         }
         [data-block-id="{{ block.id }}"] .card-carousel__subheading {
           color: {{ block.settings.subheading_color }};
+          background-color: {{ block.settings.subheading_background }};
         }
     {% endcase %}
   {% endfor %}
@@ -615,8 +618,14 @@
         {
           "type": "color",
           "id": "subheading_color",
-          "label": "Subheading color",
+          "label": "Subheading text color",
           "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "subheading_background",
+          "label": "Subheading background",
+          "default": "rgba(0, 0, 0, 0.5)"
         },
         {
           "type": "text",

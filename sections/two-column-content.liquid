@@ -96,6 +96,29 @@
     opacity: 0.9;
   }
 
+  [data-section-id="{{ section.id }}"] .two-col-content__body {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__body p {
+    margin: 0 0 1rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__body a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__body a:hover {
+    opacity: 0.7;
+  }
+
   [data-section-id="{{ section.id }}"] .two-col-content__list {
     list-style: none;
     padding: 0;
@@ -432,6 +455,11 @@
       text-align: left;
     }
 
+    [data-section-id="{{ section.id }}"] .two-col-content__body {
+      font-size: 1.8rem;
+      text-align: left;
+    }
+
     [data-section-id="{{ section.id }}"] .two-col-content__cta {
       width: 100%;
     }
@@ -453,7 +481,7 @@
   <div class="two-col-content__inner">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
-        {%- when 'content' -%}
+        {%- when 'list' -%}
           <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
             {%- if block.settings.headline != blank -%}
               <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
@@ -519,6 +547,31 @@
                   </li>
                 {%- endif -%}
               </ul>
+            {%- endif -%}
+
+            {%- if block.settings.button_text != blank -%}
+              <a
+                class="two-col-content__cta"
+                {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
+              >
+                {{ block.settings.button_text }}
+                <span class="two-col-content__cta-arrow"></span>
+              </a>
+            {%- endif -%}
+          </div>
+
+        {%- when 'content' -%}
+          <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.headline != blank -%}
+              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+            {%- endif -%}
+
+            {%- if block.settings.subheading != blank -%}
+              <p class="two-col-content__subheading">{{ block.settings.subheading }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.body != blank -%}
+              <div class="two-col-content__body">{{ block.settings.body }}</div>
             {%- endif -%}
 
             {%- if block.settings.button_text != blank -%}
@@ -904,8 +957,8 @@
   ],
   "blocks": [
     {
-      "type": "content",
-      "name": "Content",
+      "type": "list",
+      "name": "List",
       "limit": 1,
       "settings": [
         {
@@ -964,6 +1017,51 @@
           "type": "text",
           "id": "list_item_6",
           "label": "List item 6"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Get Started"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Your Headline Here"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Body text",
+          "default": "<p>Add your content here. This supports rich text formatting including links and basic styling.</p>"
         },
         {
           "type": "header",
@@ -1433,7 +1531,7 @@
       "name": "MH 2 Column Content",
       "blocks": [
         {
-          "type": "content",
+          "type": "list",
           "settings": {
             "headline": "Designed to Support Your Busy Lifestyle",
             "subheading": "We formulated our product to support your health with advanced nutrition in every scoop.* It's a match if you:",
