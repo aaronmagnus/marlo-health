@@ -1,0 +1,435 @@
+{%- comment -%}
+  How It Works Section
+  - Header row with title and CTA button
+  - Three-column grid of steps with image, heading, text
+  - Mobile: columns stack vertically
+{%- endcomment -%}
+
+{%- assign section_bg_rgb = section.settings.background_color | color_to_rgb -%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --hiw-bg: {{ section.settings.background_color }};
+    {% else %}
+      --hiw-bg: #ffffff;
+    {% endif %}
+    --hiw-text: {{ section.settings.text_color }};
+    --hiw-heading: {{ section.settings.heading_color }};
+    --hiw-btn-bg: {{ section.settings.button_background }};
+    --hiw-btn-text: {{ section.settings.button_text_color }};
+    --hiw-btn-border: {{ section.settings.button_border_color }};
+    --hiw-padding-top: {{ section.settings.padding_top }}px;
+    --hiw-padding-bottom: {{ section.settings.padding_bottom }}px;
+    {% case section.settings.image_ratio %}
+      {% when 'portrait' %}
+        --hiw-image-ratio: 3 / 4;
+      {% when 'square' %}
+        --hiw-image-ratio: 1 / 1;
+      {% when 'landscape' %}
+        --hiw-image-ratio: 4 / 3;
+    {% endcase %}
+  }
+
+  [data-section-id="{{ section.id }}"].how-it-works {
+    background-color: var(--hiw-bg);
+    color: var(--hiw-text);
+    padding-top: var(--hiw-padding-top);
+    padding-bottom: var(--hiw-padding-bottom);
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  [data-section-id="{{ section.id }}"] .how-it-works__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__title {
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--hiw-heading);
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.2rem 2rem;
+    background-color: var(--hiw-btn-bg);
+    color: var(--hiw-btn-text);
+    border: 1px solid var(--hiw-btn-border);
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: var(--font-button);
+    font-weight: var(--font-button-weight, 500);
+    transition: opacity 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__cta:hover {
+    opacity: 0.85;
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__cta-arrow {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Grid */
+  [data-section-id="{{ section.id }}"] .how-it-works__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* Column/Step */
+  [data-section-id="{{ section.id }}"] .how-it-works__step {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--hiw-image-ratio);
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__step-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--hiw-heading);
+  }
+
+  [data-section-id="{{ section.id }}"] .how-it-works__step-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .how-it-works__header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__title {
+      font-size: 3.6rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__grid {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__step {
+      flex: 1;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__step-heading {
+      font-size: 2rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__step-text {
+      font-size: 1.6rem;
+    }
+  }
+
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .how-it-works__inner {
+      padding: 0 4rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__title {
+      font-size: 4rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .how-it-works__grid {
+      gap: 2.5rem;
+    }
+  }
+</style>
+
+<section data-section-id="{{ section.id }}" class="how-it-works">
+  <div class="how-it-works__inner">
+    {%- if section.settings.heading != blank or section.settings.show_button -%}
+      <div class="how-it-works__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="how-it-works__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.show_button and section.settings.button_label != blank -%}
+          <a
+            class="how-it-works__cta"
+            {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% endif %}
+          >
+            {{ section.settings.button_label }}
+            <svg class="how-it-works__cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="how-it-works__grid">
+      {%- for block in section.blocks -%}
+        <div
+          class="how-it-works__step"
+          {{ block.shopify_attributes }}
+          {% if settings.animations %}
+            data-cascade
+            style="--animation-order: {{ forloop.index }};"
+          {% endif %}
+        >
+          <div class="how-it-works__image-wrapper">
+            {%- if block.settings.image != blank -%}
+              <img
+                class="how-it-works__image"
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                srcset="
+                  {{ block.settings.image | image_url: width: 400 }} 400w,
+                  {{ block.settings.image | image_url: width: 600 }} 600w,
+                  {{ block.settings.image | image_url: width: 800 }} 800w
+                "
+                sizes="(max-width: 899px) 100vw, 33vw"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+              >
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'how-it-works__image placeholder-svg' }}
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.heading != blank -%}
+            <h3 class="how-it-works__step-heading">{{ block.settings.heading }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <p class="how-it-works__step-text">{{ block.settings.text }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+
+      {%- if section.blocks.size == 0 -%}
+        <div style="padding: 4rem; text-align: center; color: #666; width: 100%;">
+          Add step blocks using the theme editor
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MH 3 Column Grid",
+  "tag": "section",
+  "class": "how-it-works-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How it works"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        {
+          "value": "portrait",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape (4:3)"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button border color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Step 1: Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Add a description for this step here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH 3 Column Grid",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "heading": "Step 1: Mix",
+            "text": "Add one scoop to cold water. Blend or shake until smooth. Daily nutrient support, ready in seconds."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "heading": "Step 2: Drink",
+            "text": "Sip and enjoy every day. A balanced flavor makes it easy to stay consistent."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "heading": "Step 3: Thrive",
+            "text": "Feel the difference. Energy support, improved digestion, and everyday nutritional support all in one simple daily ritual.*"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

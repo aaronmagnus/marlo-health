@@ -1,7 +1,7 @@
 {%- comment -%}
   Two Column Content Section
-  - Desktop: Content left, image right (side-by-side)
-  - Mobile: Image on top, content below (stacked)
+  - Desktop: Side-by-side layout (order determined by block order in editor)
+  - Mobile: Stacked layout (order determined by block order in editor)
   - Content includes headline, subheading, checklist with ticks, CTA button
 {%- endcomment -%}
 
@@ -34,10 +34,25 @@
     flex-direction: column;
   }
 
-  /* Image column - appears first on mobile */
+  /* Hide on mobile */
+  [data-section-id="{{ section.id }}"] .two-col-content__hide-mobile {
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .two-col-content__hide-mobile {
+      display: block;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__image-col.two-col-content__hide-mobile,
+    [data-section-id="{{ section.id }}"] .two-col-content__content-col.two-col-content__hide-mobile {
+      display: flex;
+    }
+  }
+
+  /* Image column */
   [data-section-id="{{ section.id }}"] .two-col-content__image-col {
     width: 100%;
-    order: -1;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper {
@@ -45,6 +60,7 @@
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    border-radius: 12px;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__image {
@@ -52,7 +68,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: var(--two-col-image-fit, contain);
   }
 
   /* Content column */
@@ -157,6 +173,230 @@
     transform: translateY(-50%) rotate(-45deg);
   }
 
+  /* Comparison Table */
+  [data-section-id="{{ section.id }}"] .two-col-content__table {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-header {
+    display: grid;
+    grid-template-columns: 1fr 70px 90px;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid currentColor;
+    font-size: 1.4rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-header-cell {
+    text-align: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-header-cell:first-child {
+    text-align: left;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-row {
+    display: grid;
+    grid-template-columns: 1fr 70px 90px;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    align-items: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-cell {
+    font-size: 1.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-cell:not(:first-child) {
+    text-align: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-cell--name {
+    font-weight: 600;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--two-col-table-check-color, #22c55e);
+    border-radius: 50%;
+    color: white;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-check svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-total {
+    display: grid;
+    grid-template-columns: 1fr 70px 90px;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-top: 2px solid currentColor;
+    margin-top: -1px;
+    align-items: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-total-label {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-total-value {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-total-value--highlight {
+    font-weight: 700;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__table-disclaimer {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 1.5rem;
+    line-height: 1.5;
+  }
+
+  /* Offer Block */
+  [data-section-id="{{ section.id }}"] .two-col-content__offer {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-product-info {
+    flex: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-product-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-product-desc {
+    font-size: 1.4rem;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-price-current {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-price-compare {
+    font-size: 1.4rem;
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-extras-header {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 1.5rem 0 1rem;
+    opacity: 0.6;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-extra-info {
+    flex: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-extra-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-extra-desc {
+    font-size: 1.3rem;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-top: 2px solid currentColor;
+    margin-top: -1px;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-total-label {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-total-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-disclaimer {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.6;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__offer-badge-check {
+    width: 16px;
+    height: 16px;
+    color: var(--two-col-check-color);
+    flex-shrink: 0;
+  }
+
   /* Desktop layout */
   @media (min-width: 900px) {
     [data-section-id="{{ section.id }}"] .two-col-content__inner {
@@ -169,7 +409,6 @@
 
     [data-section-id="{{ section.id }}"] .two-col-content__image-col {
       width: 50%;
-      order: 1;
     }
 
     [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper {
@@ -215,7 +454,7 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'content' -%}
-          <div class="two-col-content__content-col" {{ block.shopify_attributes }}>
+          <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
             {%- if block.settings.headline != blank -%}
               <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
             {%- endif -%}
@@ -294,7 +533,7 @@
           </div>
 
         {%- when 'image' -%}
-          <div class="two-col-content__image-col" {{ block.shopify_attributes }}>
+          <div class="two-col-content__image-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" style="--two-col-image-fit: {{ block.settings.image_fit }};" {{ block.shopify_attributes }}>
             <div class="two-col-content__image-wrapper">
               {%- if block.settings.image != blank -%}
                 <img
@@ -316,6 +555,277 @@
               {%- endif -%}
             </div>
           </div>
+
+        {%- when 'comparison' -%}
+          <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.headline != blank -%}
+              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+            {%- endif -%}
+
+            {%- if block.settings.subheading != blank -%}
+              <p class="two-col-content__subheading">{{ block.settings.subheading }}</p>
+            {%- endif -%}
+
+            <div class="two-col-content__table" style="--two-col-table-check-color: {{ block.settings.checkmark_color }};">
+              {%- comment -%} Table Header {%- endcomment -%}
+              <div class="two-col-content__table-header">
+                <div class="two-col-content__table-header-cell"></div>
+                <div class="two-col-content__table-header-cell">{{ block.settings.column_1_label }}</div>
+                <div class="two-col-content__table-header-cell">{{ block.settings.column_2_label }}</div>
+              </div>
+
+              {%- comment -%} Table Rows {%- endcomment -%}
+              {%- if block.settings.row_1_name != blank -%}
+                <div class="two-col-content__table-row">
+                  <div class="two-col-content__table-cell two-col-content__table-cell--name">{{ block.settings.row_1_name }}</div>
+                  <div class="two-col-content__table-cell">
+                    <span class="two-col-content__table-check">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="two-col-content__table-cell">{{ block.settings.row_1_cost }}</div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.row_2_name != blank -%}
+                <div class="two-col-content__table-row">
+                  <div class="two-col-content__table-cell two-col-content__table-cell--name">{{ block.settings.row_2_name }}</div>
+                  <div class="two-col-content__table-cell">
+                    <span class="two-col-content__table-check">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="two-col-content__table-cell">{{ block.settings.row_2_cost }}</div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.row_3_name != blank -%}
+                <div class="two-col-content__table-row">
+                  <div class="two-col-content__table-cell two-col-content__table-cell--name">{{ block.settings.row_3_name }}</div>
+                  <div class="two-col-content__table-cell">
+                    <span class="two-col-content__table-check">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="two-col-content__table-cell">{{ block.settings.row_3_cost }}</div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.row_4_name != blank -%}
+                <div class="two-col-content__table-row">
+                  <div class="two-col-content__table-cell two-col-content__table-cell--name">{{ block.settings.row_4_name }}</div>
+                  <div class="two-col-content__table-cell">
+                    <span class="two-col-content__table-check">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="two-col-content__table-cell">{{ block.settings.row_4_cost }}</div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.row_5_name != blank -%}
+                <div class="two-col-content__table-row">
+                  <div class="two-col-content__table-cell two-col-content__table-cell--name">{{ block.settings.row_5_name }}</div>
+                  <div class="two-col-content__table-cell">
+                    <span class="two-col-content__table-check">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="two-col-content__table-cell">{{ block.settings.row_5_cost }}</div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.row_6_name != blank -%}
+                <div class="two-col-content__table-row">
+                  <div class="two-col-content__table-cell two-col-content__table-cell--name">{{ block.settings.row_6_name }}</div>
+                  <div class="two-col-content__table-cell">
+                    <span class="two-col-content__table-check">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="two-col-content__table-cell">{{ block.settings.row_6_cost }}</div>
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Total Row {%- endcomment -%}
+              {%- if block.settings.total_label != blank -%}
+                <div class="two-col-content__table-total">
+                  <div class="two-col-content__table-total-label">{{ block.settings.total_label }}</div>
+                  <div class="two-col-content__table-total-value two-col-content__table-total-value--highlight">{{ block.settings.total_md1 }}</div>
+                  <div class="two-col-content__table-total-value">{{ block.settings.total_other }}</div>
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.disclaimer != blank -%}
+              <p class="two-col-content__table-disclaimer">{{ block.settings.disclaimer }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.button_text != blank -%}
+              <a
+                class="two-col-content__cta"
+                {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
+              >
+                {{ block.settings.button_text }}
+                <span class="two-col-content__cta-arrow"></span>
+              </a>
+            {%- endif -%}
+          </div>
+
+        {%- when 'offer' -%}
+          <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.headline != blank -%}
+              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+            {%- endif -%}
+
+            <div class="two-col-content__offer">
+              {%- comment -%} Product Row {%- endcomment -%}
+              {%- if block.settings.product_name != blank -%}
+                <div class="two-col-content__offer-product">
+                  <div class="two-col-content__offer-product-info">
+                    <p class="two-col-content__offer-product-name">{{ block.settings.product_name }}</p>
+                    {%- if block.settings.product_description != blank -%}
+                      <p class="two-col-content__offer-product-desc">{{ block.settings.product_description }}</p>
+                    {%- endif -%}
+                  </div>
+                  <div class="two-col-content__offer-price">
+                    <span class="two-col-content__offer-price-current">{{ block.settings.product_price }}</span>
+                    {%- if block.settings.product_compare_price != blank -%}
+                      <span class="two-col-content__offer-price-compare">{{ block.settings.product_compare_price }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Extras Section {%- endcomment -%}
+              {%- if block.settings.extras_header != blank -%}
+                <p class="two-col-content__offer-extras-header">{{ block.settings.extras_header }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.extra_1_name != blank -%}
+                <div class="two-col-content__offer-extra">
+                  <div class="two-col-content__offer-extra-info">
+                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_1_name }}</p>
+                    {%- if block.settings.extra_1_description != blank -%}
+                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_1_description }}</p>
+                    {%- endif -%}
+                  </div>
+                  <div class="two-col-content__offer-price">
+                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_1_price }}</span>
+                    {%- if block.settings.extra_1_compare_price != blank -%}
+                      <span class="two-col-content__offer-price-compare">{{ block.settings.extra_1_compare_price }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.extra_2_name != blank -%}
+                <div class="two-col-content__offer-extra">
+                  <div class="two-col-content__offer-extra-info">
+                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_2_name }}</p>
+                    {%- if block.settings.extra_2_description != blank -%}
+                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_2_description }}</p>
+                    {%- endif -%}
+                  </div>
+                  <div class="two-col-content__offer-price">
+                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_2_price }}</span>
+                    {%- if block.settings.extra_2_compare_price != blank -%}
+                      <span class="two-col-content__offer-price-compare">{{ block.settings.extra_2_compare_price }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.extra_3_name != blank -%}
+                <div class="two-col-content__offer-extra">
+                  <div class="two-col-content__offer-extra-info">
+                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_3_name }}</p>
+                    {%- if block.settings.extra_3_description != blank -%}
+                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_3_description }}</p>
+                    {%- endif -%}
+                  </div>
+                  <div class="two-col-content__offer-price">
+                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_3_price }}</span>
+                    {%- if block.settings.extra_3_compare_price != blank -%}
+                      <span class="two-col-content__offer-price-compare">{{ block.settings.extra_3_compare_price }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.extra_4_name != blank -%}
+                <div class="two-col-content__offer-extra">
+                  <div class="two-col-content__offer-extra-info">
+                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_4_name }}</p>
+                    {%- if block.settings.extra_4_description != blank -%}
+                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_4_description }}</p>
+                    {%- endif -%}
+                  </div>
+                  <div class="two-col-content__offer-price">
+                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_4_price }}</span>
+                    {%- if block.settings.extra_4_compare_price != blank -%}
+                      <span class="two-col-content__offer-price-compare">{{ block.settings.extra_4_compare_price }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              {%- comment -%} Total Row {%- endcomment -%}
+              {%- if block.settings.total_label != blank -%}
+                <div class="two-col-content__offer-total">
+                  <span class="two-col-content__offer-total-label">{{ block.settings.total_label }}</span>
+                  <span class="two-col-content__offer-total-price">{{ block.settings.total_price }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.disclaimer != blank -%}
+              <p class="two-col-content__offer-disclaimer">{{ block.settings.disclaimer }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.button_text != blank -%}
+              <a
+                class="two-col-content__cta"
+                {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
+              >
+                {{ block.settings.button_text }}
+                <span class="two-col-content__cta-arrow"></span>
+              </a>
+            {%- endif -%}
+
+            {%- if block.settings.badge_1 != blank or block.settings.badge_2 != blank -%}
+              <div class="two-col-content__offer-badges">
+                {%- if block.settings.badge_1 != blank -%}
+                  <span class="two-col-content__offer-badge">
+                    <svg class="two-col-content__offer-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {{ block.settings.badge_1 }}
+                  </span>
+                {%- endif -%}
+                {%- if block.settings.badge_2 != blank -%}
+                  <span class="two-col-content__offer-badge">
+                    <svg class="two-col-content__offer-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {{ block.settings.badge_2 }}
+                  </span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
       {%- endcase -%}
     {%- endfor -%}
 
@@ -329,7 +839,7 @@
 
 {% schema %}
 {
-  "name": "MH Two Column Content",
+  "name": "MH 2 Column Content",
   "tag": "section",
   "class": "two-col-content-section",
   "settings": [
@@ -398,6 +908,12 @@
       "name": "Content",
       "limit": 1,
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
         {
           "type": "text",
           "id": "headline",
@@ -472,16 +988,449 @@
       "limit": 1,
       "settings": [
         {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_fit",
+          "label": "Image fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            }
+          ],
+          "default": "contain"
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "name": "Comparison Table",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "The Smarter Way to Invest in Your Health"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "One scoop a day covers your bases at a fraction of the cost of buying supplements separately."
+        },
+        {
+          "type": "header",
+          "content": "Table settings"
+        },
+        {
+          "type": "color",
+          "id": "checkmark_color",
+          "label": "Checkmark color",
+          "default": "#22c55e"
+        },
+        {
+          "type": "text",
+          "id": "column_1_label",
+          "label": "Column 1 label",
+          "default": "MD1"
+        },
+        {
+          "type": "text",
+          "id": "column_2_label",
+          "label": "Column 2 label",
+          "default": "Cost per month†"
+        },
+        {
+          "type": "header",
+          "content": "Row 1"
+        },
+        {
+          "type": "text",
+          "id": "row_1_name",
+          "label": "Supplement name",
+          "default": "Multivitamin & mineral"
+        },
+        {
+          "type": "text",
+          "id": "row_1_cost",
+          "label": "Cost",
+          "default": "$45 USD"
+        },
+        {
+          "type": "header",
+          "content": "Row 2"
+        },
+        {
+          "type": "text",
+          "id": "row_2_name",
+          "label": "Supplement name",
+          "default": "Pre & Probiotic"
+        },
+        {
+          "type": "text",
+          "id": "row_2_cost",
+          "label": "Cost",
+          "default": "$30 USD"
+        },
+        {
+          "type": "header",
+          "content": "Row 3"
+        },
+        {
+          "type": "text",
+          "id": "row_3_name",
+          "label": "Supplement name",
+          "default": "Greens Superfood"
+        },
+        {
+          "type": "text",
+          "id": "row_3_cost",
+          "label": "Cost",
+          "default": "$50 USD"
+        },
+        {
+          "type": "header",
+          "content": "Row 4"
+        },
+        {
+          "type": "text",
+          "id": "row_4_name",
+          "label": "Supplement name",
+          "default": "Stress Adaptogen"
+        },
+        {
+          "type": "text",
+          "id": "row_4_cost",
+          "label": "Cost",
+          "default": "$30 USD"
+        },
+        {
+          "type": "header",
+          "content": "Row 5"
+        },
+        {
+          "type": "text",
+          "id": "row_5_name",
+          "label": "Supplement name",
+          "default": "Immune Support"
+        },
+        {
+          "type": "text",
+          "id": "row_5_cost",
+          "label": "Cost",
+          "default": "$40 USD"
+        },
+        {
+          "type": "header",
+          "content": "Row 6"
+        },
+        {
+          "type": "text",
+          "id": "row_6_name",
+          "label": "Supplement name",
+          "default": "Cognitive Support"
+        },
+        {
+          "type": "text",
+          "id": "row_6_cost",
+          "label": "Cost",
+          "default": "$30 USD"
+        },
+        {
+          "type": "header",
+          "content": "Total row"
+        },
+        {
+          "type": "text",
+          "id": "total_label",
+          "label": "Total label",
+          "default": "Total per month"
+        },
+        {
+          "type": "text",
+          "id": "total_md1",
+          "label": "MD1 total",
+          "default": "$79 USD"
+        },
+        {
+          "type": "text",
+          "id": "total_other",
+          "label": "Competitor total",
+          "default": "$225 USD"
+        },
+        {
+          "type": "header",
+          "content": "Disclaimer"
+        },
+        {
+          "type": "textarea",
+          "id": "disclaimer",
+          "label": "Disclaimer text",
+          "default": "†Based on current available data for average industry prices of premium supplements"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Get Started"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "offer",
+      "name": "Offer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Start Your Journey with MD1"
+        },
+        {
+          "type": "header",
+          "content": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product name",
+          "default": "MD1: Pouch"
+        },
+        {
+          "type": "text",
+          "id": "product_description",
+          "label": "Product description",
+          "default": "30 day supply per pouch, ships every 30 days"
+        },
+        {
+          "type": "text",
+          "id": "product_price",
+          "label": "Price",
+          "default": "$79/mo USD"
+        },
+        {
+          "type": "text",
+          "id": "product_compare_price",
+          "label": "Compare at price",
+          "default": "$99†"
+        },
+        {
+          "type": "header",
+          "content": "Extras"
+        },
+        {
+          "type": "text",
+          "id": "extras_header",
+          "label": "Extras section header",
+          "default": "FIRST TIME SUBSCRIPTION INCLUDES:"
+        },
+        {
+          "type": "header",
+          "content": "Extra 1"
+        },
+        {
+          "type": "text",
+          "id": "extra_1_name",
+          "label": "Name",
+          "default": "Canister, Scoop & Shaker"
+        },
+        {
+          "type": "text",
+          "id": "extra_1_description",
+          "label": "Description",
+          "default": "Get the most out of your daily routine"
+        },
+        {
+          "type": "text",
+          "id": "extra_1_price",
+          "label": "Price",
+          "default": "Free"
+        },
+        {
+          "type": "text",
+          "id": "extra_1_compare_price",
+          "label": "Compare at price",
+          "default": "$28"
+        },
+        {
+          "type": "header",
+          "content": "Extra 2"
+        },
+        {
+          "type": "text",
+          "id": "extra_2_name",
+          "label": "Name",
+          "default": "Flavor Sample Pack (3 ct)"
+        },
+        {
+          "type": "text",
+          "id": "extra_2_description",
+          "label": "Description",
+          "default": "3 travel-ready servings of our flavors"
+        },
+        {
+          "type": "text",
+          "id": "extra_2_price",
+          "label": "Price",
+          "default": "Free"
+        },
+        {
+          "type": "text",
+          "id": "extra_2_compare_price",
+          "label": "Compare at price",
+          "default": "$19"
+        },
+        {
+          "type": "header",
+          "content": "Extra 3"
+        },
+        {
+          "type": "text",
+          "id": "extra_3_name",
+          "label": "Name",
+          "default": "Members-Only Perks"
+        },
+        {
+          "type": "text",
+          "id": "extra_3_description",
+          "label": "Description",
+          "default": "Discounts, invites, exclusive perks"
+        },
+        {
+          "type": "text",
+          "id": "extra_3_price",
+          "label": "Price",
+          "default": "Included"
+        },
+        {
+          "type": "text",
+          "id": "extra_3_compare_price",
+          "label": "Compare at price"
+        },
+        {
+          "type": "header",
+          "content": "Extra 4"
+        },
+        {
+          "type": "text",
+          "id": "extra_4_name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "extra_4_description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "extra_4_price",
+          "label": "Price"
+        },
+        {
+          "type": "text",
+          "id": "extra_4_compare_price",
+          "label": "Compare at price"
+        },
+        {
+          "type": "header",
+          "content": "Total"
+        },
+        {
+          "type": "text",
+          "id": "total_label",
+          "label": "Total label",
+          "default": "Total"
+        },
+        {
+          "type": "text",
+          "id": "total_price",
+          "label": "Total price",
+          "default": "$79/mo USD"
+        },
+        {
+          "type": "header",
+          "content": "Disclaimer"
+        },
+        {
+          "type": "textarea",
+          "id": "disclaimer",
+          "label": "Disclaimer text",
+          "default": "† Value of one-time purchase"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Upgrade My Health"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "header",
+          "content": "Trust badges"
+        },
+        {
+          "type": "text",
+          "id": "badge_1",
+          "label": "Badge 1",
+          "default": "90-day money back guarantee"
+        },
+        {
+          "type": "text",
+          "id": "badge_2",
+          "label": "Badge 2",
+          "default": "Update or cancel anytime"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "MH Two Column Content",
+      "name": "MH 2 Column Content",
       "blocks": [
         {
           "type": "content",

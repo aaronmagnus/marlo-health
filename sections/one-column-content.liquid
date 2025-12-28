@@ -1,0 +1,280 @@
+{%- comment -%}
+  One Column Content Section
+  - Centered layout with eyebrow, headline, body text, and CTA
+  - Full-width background with max-width content container
+{%- endcomment -%}
+
+{%- assign section_bg_rgb = section.settings.background_color | color_to_rgb -%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --one-col-bg: {{ section.settings.background_color }};
+    {% else %}
+      --one-col-bg: #e8e4dc;
+    {% endif %}
+    --one-col-text: {{ section.settings.text_color }};
+    --one-col-btn-bg: {{ section.settings.button_background }};
+    --one-col-btn-text: {{ section.settings.button_text_color }};
+    --one-col-padding-top: {{ section.settings.padding_top }}px;
+    --one-col-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --one-col-max-width: {{ section.settings.max_width }}px;
+  }
+
+  [data-section-id="{{ section.id }}"].one-col-content {
+    background-color: var(--one-col-bg);
+    color: var(--one-col-text);
+    padding-top: var(--one-col-padding-top);
+    padding-bottom: var(--one-col-padding-bottom);
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__inner {
+    max-width: var(--one-col-max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__eyebrow {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0 0 1.5rem;
+    opacity: 0.8;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__headline {
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 1.5rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__body {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin: 0 0 2rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__body a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__body a:hover {
+    opacity: 0.7;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.6rem 2.4rem;
+    background-color: var(--one-col-btn-bg);
+    color: var(--one-col-btn-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.6rem;
+    border-radius: 50px;
+    transition: opacity 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__cta:hover {
+    opacity: 0.85;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__cta-arrow {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__cta-arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-50%);
+  }
+
+  [data-section-id="{{ section.id }}"] .one-col-content__cta-arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    border-color: currentColor;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* Desktop */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .one-col-content__eyebrow {
+      font-size: 1.3rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .one-col-content__headline {
+      font-size: 4.8rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .one-col-content__body {
+      font-size: 1.8rem;
+    }
+  }
+
+  /* Large desktop */
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .one-col-content__headline {
+      font-size: 5.6rem;
+    }
+  }
+</style>
+
+<section data-section-id="{{ section.id }}" class="one-col-content">
+  <div class="one-col-content__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="one-col-content__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.headline != blank -%}
+      <h2 class="one-col-content__headline">{{ section.settings.headline }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.body != blank -%}
+      <div class="one-col-content__body">{{ section.settings.body }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.button_text != blank -%}
+      <a
+        class="one-col-content__cta"
+        {% if section.settings.button_link != blank %}href="{{ section.settings.button_link }}"{% endif %}
+      >
+        {{ section.settings.button_text }}
+        <span class="one-col-content__cta-arrow"></span>
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MH 1 Column Content",
+  "tag": "section",
+  "class": "one-col-content-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "TRY MD1 RISK-FREE FOR THE NEXT 90 DAYS"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Feel the Difference or It's On Us"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body text",
+      "default": "<p>Worried about taste? Not sure if it will work for you? We've got you covered. We invite you to experience your first order of MD1 risk-free for 90 days. Taste it. Feel the difference. Decide. If for some reason it's not for you, simply contact our friendly Customer Happiness Team at <a href=\"mailto:support@example.com\">support@example.com</a> and we'll make it right.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e8e4dc"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#1e3a2f"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content max width",
+      "min": 600,
+      "max": 1200,
+      "step": 50,
+      "default": 900,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH 1 Column Content"
+    }
+  ]
+}
+{% endschema %}

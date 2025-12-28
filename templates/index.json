@@ -90,7 +90,7 @@
             "media_type": "image",
             "image": "shopify://shop_images/1d9c65aab309703bc5f2e07316d64658b286340f-2880x1208.webp",
             "mobile_image": "shopify://shop_images/ee2dc0af073cef10dec68230cdd990aad5b29266-1125x1797.webp",
-            "title": "Science-backed daily nutrition for dogs.",
+            "title": "Science-backed daily nutrition for your dog.",
             "description": "17 vet-selected ingredients for healthier digestion, stronger joints, and daily vitality.",
             "cta_text": "Get Started",
             "cta_link": "",
@@ -124,6 +124,7 @@
         "image_CXxCtc": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/stethoscope.png",
             "select_icon": "user",
             "heading": "Developed with vets",
             "text": "",
@@ -133,6 +134,7 @@
         "image_VEEg6U": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/dog.png",
             "select_icon": "plus",
             "heading": "17 active ingredients",
             "text": "",
@@ -142,6 +144,7 @@
         "image_Fqpw8b": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/x.png",
             "select_icon": "close",
             "heading": "Zero fillers",
             "text": "",
@@ -151,6 +154,7 @@
         "image_EXxLBW": {
           "type": "image",
           "settings": {
+            "desktop_image": "shopify://shop_images/check.png",
             "select_icon": "check",
             "heading": "Made in the UK",
             "text": "",
@@ -188,7 +192,8 @@
         "content_FaJEQw": {
           "type": "content",
           "settings": {
-            "headline": "We built MD1 to support your dog's daily nutrition.",
+            "hide_on_mobile": false,
+            "headline": "We designed MD1 to support your dog's daily nutrition.",
             "subheading": "You've tried the supplements. The powders they won't touch. The chews that are mostly filler. The vet bills that keep coming.",
             "list_item_1": "Sensitive stomachs that never seem to settle",
             "list_item_2": "Joint stiffness that's slowing them down",
@@ -203,7 +208,9 @@
         "image_96FYjm": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png"
+            "hide_on_mobile": false,
+            "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
+            "image_fit": "cover"
           }
         }
       },
@@ -228,7 +235,7 @@
         "text_yXHg9h": {
           "type": "text",
           "settings": {
-            "text": "MH1 supports your dog's daily nutrition PICTURE1 each scoop combines 17 vet-selected ingredients PICTURE2  to keep your dog happy and healthy",
+            "text": "MH1 supports your dog's daily nutrition PICTURE1 each scoop combines 17 active ingredients PICTURE2  to keep your dog happy and healthy",
             "font_uppercase": "none",
             "disable_on_mobile": false,
             "size_heading": 160,
@@ -250,7 +257,7 @@
         "color-body-text": "rgba(0,0,0,0)",
         "background_color": "rgba(0,0,0,0)",
         "margin-top": 32,
-        "margin-bottom": 24
+        "margin-bottom": 32
       }
     },
     "card_carousel_PwkVdN": {
@@ -260,6 +267,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_meap8cmeap8cmeap.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "Healthier digestion",
             "description": "Two clinically-backed prebiotic fibres and dual-strain probiotics working in sync. Because good health starts in the gut.",
             "content_background": "#161513",
@@ -270,6 +279,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "Stronger joints",
             "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel at doses that actually work. For walks that go the distance.",
             "content_background": "#161513",
@@ -280,6 +291,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_xmc1bvxmc1bvxmc1.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "Balanced energy",
             "description": "MCT powder from coconuts and L-Carnitine to fuel steady, sustained energy throughout the day. No spikes. No crashes.",
             "content_background": "#161513",
@@ -290,6 +303,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_jfm0v4jfm0v4jfm0.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "Ongoing vitality",
             "description": "Astaxanthin, blueberry, and spirulina—nature's most potent antioxidants—to support long-term wellness from the inside out.",
             "content_background": "#161513",
@@ -300,6 +315,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "Heart support",
             "description": "Taurine at every dose. The amino acid vets recommend most for breeds prone to cardiac concerns.",
             "content_background": "#161513",
@@ -310,6 +327,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "Daily nutrition",
             "description": "17 ingredients. One scoop. The gaps in your dog's diet, filled.",
             "content_background": "#161513",
@@ -320,7 +339,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
-            "title": "One Scoop, Two Formats",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "title": "Scoop or broth",
             "description": "Sprinkle or stir. As a powder or a warm collagen broth. Built to fit your routine, not the other way around.",
             "content_background": "#161513",
             "text_color": "#fdfdfb"
@@ -346,17 +367,68 @@
         "button_2_link": "",
         "button_color": "#ffffff",
         "button_text_color": "#1a1a1a",
-        "card_width": 280,
+        "image_aspect_ratio": "portrait",
+        "card_width": 360,
         "gap": 24,
         "card_radius": 12,
         "blur_amount": 0,
         "content_overlay": false,
         "title_font_size": 2.4,
         "description_font_size": 1.5,
-        "background_color": "rgba(0,0,0,0)",
+        "background_color": "#eeebe7",
         "arrow_color": "#333333",
         "padding_top": 32,
         "padding_bottom": 32
+      }
+    },
+    "how_it_works_UBxgiD": {
+      "type": "how-it-works",
+      "blocks": {
+        "step_ACzNd3": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
+            "heading": "Step 1: Scoop",
+            "text": "Take the right number of scoops based on your dogs weight and our feeding guide."
+          }
+        },
+        "step_ex7hDh": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
+            "heading": "Step 2: Topper or broth",
+            "text": "Sprinkle over food as a topper, or mix with a small amount of warm water to create a delicious collagen broth."
+          }
+        },
+        "step_WPMDRC": {
+          "type": "step",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
+            "heading": "Step 3: Enjoy",
+            "text": "Experience the difference in your dogs health, energy and digestion within 30 days."
+          }
+        }
+      },
+      "block_order": [
+        "step_ACzNd3",
+        "step_ex7hDh",
+        "step_WPMDRC"
+      ],
+      "name": "MH How It Works",
+      "settings": {
+        "heading": "How it works",
+        "show_button": true,
+        "button_label": "Get Started",
+        "button_link": "shopify://products/daily",
+        "image_ratio": "square",
+        "background_color": "#fdfdfb",
+        "text_color": "#161513",
+        "heading_color": "#161513",
+        "button_background": "#fdfdfb",
+        "button_text_color": "#161513",
+        "button_border_color": "#1a1a1a",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "card_carousel_3LyVBy": {
@@ -366,6 +438,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_k76oh5k76oh5k76o.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "",
             "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
             "content_background": "#403d3b",
@@ -376,6 +450,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_dstb8kdstb8kdstb.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "",
             "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
             "content_background": "#403d3b",
@@ -386,6 +462,8 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_vfdqoavfdqoavfdq.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
             "title": "",
             "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
             "content_background": "#403d3b",
@@ -400,7 +478,7 @@
       ],
       "name": "MH - Card Carousel",
       "settings": {
-        "section_title": "Trusted by the world’s leading vets",
+        "section_title": "Trusted by leading vets and loving pet owners everywhere",
         "title_color": "#ffffff",
         "button_1_text": "Read more reviews",
         "button_1_link": "",
@@ -408,6 +486,7 @@
         "button_2_link": "",
         "button_color": "#ffffff",
         "button_text_color": "#1a1a1a",
+        "image_aspect_ratio": "square",
         "card_width": 400,
         "gap": 24,
         "card_radius": 12,
@@ -421,138 +500,140 @@
         "padding_bottom": 32
       }
     },
-    "multicolumn_zyhX9M": {
-      "type": "multicolumn",
+    "two_column_content_am4wgh": {
+      "type": "two-column-content",
       "blocks": {
-        "column_8EziCn": {
-          "type": "column",
+        "comparison_3iHhVW": {
+          "type": "comparison",
           "settings": {
-            "heading": "Step 1: Scoop",
-            "heading_disable_on_mobile": false,
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_disable_on_mobile": false,
-            "button_select": "primary",
-            "button_label": "",
-            "button_disable_on_mobile": false,
-            "button_link": "",
-            "button_link_in_new_window": false,
-            "desktop_image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png"
+            "hide_on_mobile": false,
+            "headline": "The Smarter Way to Invest in Your Health",
+            "subheading": "One serving a day covers your dog's health foundation at a fraction of the cost of buying supplements separately.",
+            "checkmark_color": "#fb6b23",
+            "column_1_label": "MD1",
+            "column_2_label": "Cost per month†",
+            "row_1_name": "Multivitamin",
+            "row_1_cost": "£26 GBP",
+            "row_2_name": "Gut & Digestion",
+            "row_2_cost": "£32 GBP",
+            "row_3_name": "Joints",
+            "row_3_cost": "£32 GBP",
+            "row_4_name": "Skin & Coat",
+            "row_4_cost": "£32 GBP",
+            "row_5_name": "Longevity & Immune Support",
+            "row_5_cost": "£32 GBP",
+            "row_6_name": "Brain",
+            "row_6_cost": "£32 GBP",
+            "total_label": "Total per month",
+            "total_md1": "£38 GBP",
+            "total_other": "£186 GBP",
+            "disclaimer": "†Based on current available data for average industry prices of premium supplements vs. one scoop per day of MD1",
+            "button_text": "Get Started",
+            "button_link": "shopify://products/daily"
           }
         },
-        "column_dw8EM9": {
-          "type": "column",
+        "image_pDkz8b": {
+          "type": "image",
           "settings": {
-            "heading": "Step 2: Topper or broth",
-            "heading_disable_on_mobile": false,
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_disable_on_mobile": false,
-            "button_select": "primary",
-            "button_label": "",
-            "button_disable_on_mobile": false,
-            "button_link": "",
-            "button_link_in_new_window": false,
-            "desktop_image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png"
-          }
-        },
-        "column_E4ey8w": {
-          "type": "column",
-          "settings": {
-            "heading": "Step 3: Thrive",
-            "heading_disable_on_mobile": false,
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_disable_on_mobile": false,
-            "button_select": "primary",
-            "button_label": "",
-            "button_disable_on_mobile": false,
-            "button_link": "",
-            "button_link_in_new_window": false,
-            "desktop_image": "shopify://shop_images/IMG_4805_copy.heic"
+            "hide_on_mobile": false,
+            "image": "shopify://shop_images/34d9e18439be0718d266333c54f7f405600e8807-1404x1755.webp",
+            "image_fit": "contain"
           }
         }
       },
       "block_order": [
-        "column_8EziCn",
-        "column_dw8EM9",
-        "column_E4ey8w"
+        "comparison_3iHhVW",
+        "image_pDkz8b"
       ],
-      "name": "t:sections.multicolumn.presets.name",
+      "name": "MH 2 Column Content",
       "settings": {
-        "heading": "How it works",
-        "swipe_on_mobile": true,
-        "full-width-enabled": false,
-        "image_ratio": "square",
-        "column_alignment": "left",
-        "size_heading": 100,
-        "size_heading_mobile": 100,
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 32,
-        "margin-bottom": 32
+        "background_color": "#fdfdfb",
+        "text_color": "#1a1a1a",
+        "checkmark_color": "#fb6b23",
+        "button_background": "#161513",
+        "button_text_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
-    "image_with_text_BNnxzt": {
-      "type": "image-with-text",
+    "two_column_content_eFAnzJ": {
+      "type": "two-column-content",
       "blocks": {
-        "subheading_3aVmpN": {
-          "type": "subheading",
+        "image_FyVALy": {
+          "type": "image",
           "settings": {
-            "subheading": "Coming Spring 2026",
-            "subheading_disable_on_mobile": false
+            "hide_on_mobile": true,
+            "image": "shopify://shop_images/bc47d6e8d1ce576a6a00b2aef94e4c5e3f3e8029-1800x1200.webp",
+            "image_fit": "contain"
           }
         },
-        "heading_hQwmXw": {
-          "type": "heading",
+        "offer_rxdbnT": {
+          "type": "offer",
           "settings": {
-            "heading": "Founders Bundle",
-            "disable_on_mobile": false,
-            "size_heading": 280,
-            "size_heading_mobile": 160
-          }
-        },
-        "text_qwc3Pd": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We have worked tirelessly, refining countless formulations, processes, and tests to ensure that each supplement and mint we create fulfills our promise of helping you achieve the right state of mind at the perfect moment.</p>",
-            "text_style": "body",
-            "disable_on_mobile": false
-          }
-        },
-        "button_Ypx3ee": {
-          "type": "button",
-          "settings": {
-            "button_select": "link",
-            "button_label": "Preorder now",
+            "hide_on_mobile": false,
+            "headline": "Begin the journey with the MD1 Founder Pack",
+            "product_name": "MD1: Pouch",
+            "product_description": "60 scoops per pack, ships every 30 days",
+            "product_price": "£38/mo GBP",
+            "product_compare_price": "£56†",
+            "extras_header": "FOUNDING MEMBER PERKS INCLUDE:",
+            "extra_1_name": "Forever tin",
+            "extra_1_description": "Get the most out of your daily routine",
+            "extra_1_price": "Free",
+            "extra_1_compare_price": "£12",
+            "extra_2_name": "Lifetime 10% discount",
+            "extra_2_description": "\"Founder\" account status",
+            "extra_2_price": "Free",
+            "extra_2_compare_price": "£4.80",
+            "extra_3_name": "Members-Only Perks",
+            "extra_3_description": "Discounts, invites, exclusive perks",
+            "extra_3_price": "Included",
+            "extra_3_compare_price": "",
+            "extra_4_name": "",
+            "extra_4_description": "",
+            "extra_4_price": "",
+            "extra_4_compare_price": "",
+            "total_label": "Total",
+            "total_price": "£38/mo GBP",
+            "disclaimer": "† Value of one-time purchase",
+            "button_text": "Upgrade Your Dogs Health",
             "button_link": "shopify://products/daily",
-            "disable_on_mobile": false
+            "badge_1": "30-day money back guarantee",
+            "badge_2": "Update or cancel anytime"
           }
         }
       },
       "block_order": [
-        "subheading_3aVmpN",
-        "heading_hQwmXw",
-        "text_qwc3Pd",
-        "button_Ypx3ee"
+        "image_FyVALy",
+        "offer_rxdbnT"
       ],
+      "name": "MH 2 Column Content",
       "settings": {
-        "title": "",
-        "layout": "text_first",
-        "desktop-percentage-image-width": 40,
-        "full-width-enabled": true,
-        "slide_height": "adapt_to_first_image",
-        "desktop_fixed_height": 320,
-        "mobile_fixed_height": 460,
-        "section-color-body-text": "rgba(0,0,0,0)",
-        "section-color-overlay": "rgba(0,0,0,0)",
-        "section-color-overlay-opacity": 100,
-        "color-body-text": "#161513",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "desktop_image": "shopify://shop_images/3d4b65d77183a5a8c4f32662741ebbcd5824f95d-3240x3240.avif",
-        "desktop_text_vertical_position": "center",
-        "desktop_text_horizontal_position": "left",
-        "mobile_text_horizontal_position": "center",
-        "margin-top": 0,
-        "margin-bottom": 0
+        "background_color": "#fdfdfb",
+        "text_color": "#1a1a1a",
+        "checkmark_color": "#fb6b23",
+        "button_background": "#161513",
+        "button_text_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "one_column_content_p6y7Wm": {
+      "type": "one-column-content",
+      "name": "MH 1 Column Content",
+      "settings": {
+        "eyebrow": "TRY MD1 RISK-FREE FOR THE NEXT 30 DAYS",
+        "headline": "Experience the Difference, Risk-Free",
+        "body": "<p>Not sure if your dog will like the taste? What if you don't see a change? No problem. We encourage you to experience your first order of MD1 risk-free for 30 days. Let your dog try it. See the difference. Decide. If for some reason it's not for you, simply contact our friendly Customer Happiness Team at <a href=\"mailto:support@example.com\">support@example.com</a> and we'll make it right.</p>",
+        "button_text": "Get Started",
+        "button_link": "shopify://products/daily",
+        "background_color": "#fb6b23",
+        "text_color": "#fdfdfb",
+        "button_background": "#fdfdfb",
+        "button_text_color": "#161513",
+        "max_width": 900,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
@@ -563,8 +644,10 @@
     "two_column_content_xcxCGJ",
     "rich_text_with_image_d9iPb9",
     "card_carousel_PwkVdN",
+    "how_it_works_UBxgiD",
     "card_carousel_3LyVBy",
-    "multicolumn_zyhX9M",
-    "image_with_text_BNnxzt"
+    "two_column_content_am4wgh",
+    "two_column_content_eFAnzJ",
+    "one_column_content_p6y7Wm"
   ]
 }
