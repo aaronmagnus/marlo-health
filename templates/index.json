@@ -9,78 +9,6 @@
  */
 {
   "sections": {
-    "background_video_ybJhVR": {
-      "type": "background-video",
-      "blocks": {
-        "subheading_8q7kHq": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "Meet MH1. Coming Spring 2026",
-            "subheading_disable_on_mobile": false
-          }
-        },
-        "heading_WmWUfj": {
-          "type": "heading",
-          "settings": {
-            "heading": "Clean, human-grade, science-backed supplements for dogs with sensitive digestion",
-            "disable_on_mobile": false,
-            "size_heading": 240,
-            "size_heading_mobile": 240
-          }
-        },
-        "text_dN3Fxp": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Developed with vets. Made in the UK.</p>",
-            "disable_on_mobile": false
-          }
-        },
-        "button_8B8RNE": {
-          "type": "button",
-          "settings": {
-            "button_select": "primary",
-            "button_label": "Preorder now",
-            "disable_on_mobile": false,
-            "button_link": "shopify://products/daily",
-            "second_button_select": "primary",
-            "second_button_label": "Button label",
-            "second_disable_on_mobile": false,
-            "second_button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_8q7kHq",
-        "heading_WmWUfj",
-        "text_dN3Fxp",
-        "button_8B8RNE"
-      ],
-      "disabled": true,
-      "name": "t:sections.background-video.presets.name",
-      "settings": {
-        "heading": "",
-        "full-width-enabled": true,
-        "video_hosted": "shopify://files/videos/Video_Revision_For_Text_Legibility.mp4",
-        "autoplay": true,
-        "video_controls": false,
-        "video_custom_play_controls": false,
-        "video_custom_mute_controls": false,
-        "video_url": "",
-        "original_ratio": "fixed_height",
-        "desktop_fixed_height": 640,
-        "mobile_fixed_height": 460,
-        "color-body-heading": "#fbfaf6",
-        "color-overlay": "rgba(0,0,0,0)",
-        "color-overlay-opacity": 100,
-        "color-body-text": "#fbfaf6",
-        "desktop_text_vertical_position": "bottom",
-        "desktop_text_horizontal_position": "left",
-        "mobile_text_vertical_position": "bottom",
-        "mobile_text_horizontal_position": "left",
-        "margin-top": 0,
-        "margin-bottom": 0
-      }
-    },
     "hero_carousel_ELjxRL": {
       "type": "hero-carousel",
       "blocks": {
@@ -88,12 +16,14 @@
           "type": "slide",
           "settings": {
             "media_type": "image",
-            "image": "shopify://shop_images/1d9c65aab309703bc5f2e07316d64658b286340f-2880x1208.webp",
+            "image": "shopify://shop_images/Gemini_Generated_Image_6oqydt6oqydt6oqy.png",
             "mobile_image": "shopify://shop_images/ee2dc0af073cef10dec68230cdd990aad5b29266-1125x1797.webp",
-            "title": "Science-backed daily nutrition for your dog.",
-            "description": "17 vet-selected ingredients for healthier digestion, stronger joints, and daily vitality.",
-            "cta_text": "Get Started",
-            "cta_link": "",
+            "title": "Science-backed daily nutrition for dogs",
+            "description": "Daily topper. 17 clinically-studied ingredients. Designed with vets to support long-term health.",
+            "cta_text": "Pre-order MD1",
+            "cta_link": "shopify://products/daily",
+            "cta_secondary_text": "Read the Science",
+            "cta_secondary_link": "shopify://products/daily",
             "overlay_color": "rgba(0,0,0,0)",
             "overlay_opacity": 0,
             "text_color": ""
@@ -106,103 +36,80 @@
       "name": "MH Hero Carousel",
       "settings": {
         "min_height": 600,
-        "heading_font": "Inter",
+        "heading_font": "Canela",
         "body_font": "Inter",
         "button_font": "Inter",
+        "heading_font_size": 6.4,
+        "body_font_size": 1.8,
+        "button_font_size": 1.6,
         "text_color": "#161513",
         "cta_background": "#161513",
-        "cta_text_color": "#fdfdfb",
+        "cta_text_color": "#fdfcfc",
         "autoplay": true,
         "autoplay_speed": 10,
         "padding_top": 60,
         "padding_bottom": 60
       }
     },
-    "features_banner_NnieLp": {
-      "type": "features-banner",
+    "icon_features_xCDqrN": {
+      "type": "icon-features",
       "blocks": {
-        "image_CXxCtc": {
-          "type": "image",
+        "feature_ireT4Q": {
+          "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/stethoscope.png",
-            "select_icon": "user",
-            "heading": "Developed with vets",
-            "text": "",
-            "link": ""
+            "icon": "shopify://shop_images/mh-science.svg",
+            "title": "Clinically-studied ingredients"
           }
         },
-        "image_VEEg6U": {
-          "type": "image",
+        "feature_JW6UYm": {
+          "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/dog.png",
-            "select_icon": "plus",
-            "heading": "17 active ingredients",
-            "text": "",
-            "link": ""
+            "icon": "shopify://shop_images/mh-formula.svg",
+            "title": "Vet-formulated"
           }
         },
-        "image_Fqpw8b": {
-          "type": "image",
+        "feature_CgTjFK": {
+          "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/x.png",
-            "select_icon": "close",
-            "heading": "Zero fillers",
-            "text": "",
-            "link": ""
+            "icon": "shopify://shop_images/mh-dog.svg",
+            "title": "Zero fillers"
           }
         },
-        "image_EXxLBW": {
-          "type": "image",
+        "feature_8MHFjK": {
+          "type": "feature",
           "settings": {
-            "desktop_image": "shopify://shop_images/check.png",
-            "select_icon": "check",
-            "heading": "Made in the UK",
-            "text": "",
-            "link": ""
+            "icon": "shopify://shop_images/mh-love.svg",
+            "title": "Made in the UK"
           }
         }
       },
       "block_order": [
-        "image_CXxCtc",
-        "image_VEEg6U",
-        "image_Fqpw8b",
-        "image_EXxLBW"
+        "feature_ireT4Q",
+        "feature_JW6UYm",
+        "feature_CgTjFK",
+        "feature_8MHFjK"
       ],
-      "name": "t:sections.features-banner.settings.presets.name",
+      "name": "MH Icon Features",
       "settings": {
-        "heading": "",
-        "size_heading_mobile": 60,
-        "size_heading": 60,
-        "icon_width_mobile": 24,
-        "icon_width_desktop": 28,
-        "icon_layout": "left",
-        "columns_desktop": "4",
-        "icon_layout_mobile": "grid",
-        "color_body_icon": "rgba(0,0,0,0)",
-        "color_background_icon": "rgba(0,0,0,0)",
-        "color_body_text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
-        "margin-top": 20,
-        "margin-bottom": 20
+        "section_title": "",
+        "title_color": "#9c948b",
+        "background_color": "#efedeb",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "two_column_content_xcxCGJ": {
       "type": "two-column-content",
       "blocks": {
-        "content_FaJEQw": {
+        "content_bdnKLx": {
           "type": "content",
           "settings": {
             "hide_on_mobile": false,
-            "headline": "We designed MD1 to support your dog's daily nutrition.",
-            "subheading": "You've tried the supplements. The powders they won't touch. The chews that are mostly filler. The vet bills that keep coming.",
-            "list_item_1": "Sensitive stomachs that never seem to settle",
-            "list_item_2": "Joint stiffness that's slowing them down",
-            "list_item_3": "Supplements they spit out or ignore",
-            "list_item_4": "",
-            "list_item_5": "",
-            "list_item_6": "",
-            "button_text": "Get Started",
-            "button_link": ""
+            "headline": "Designed to support your dog’s every day nutrition",
+            "subheading": "",
+            "body": "<p>You’ve tried the powders they won’t touch. The chews packed with fillers. The short-term fixes that don’t make a lasting difference.</p><p>MD1 was designed as a simple, daily foundation – supporting your dog’s nutritional needs without adding complexity to your routine.</p><p>Built for daily use, not occasional fixes.</p><p>Supports gut health, mobility, and overall wellbeing.</p><p>A tasty topper for the food your dog already eats.</p>",
+            "button_text": "Pre-order MD1",
+            "button_link": "shopify://products/daily"
           }
         },
         "image_96FYjm": {
@@ -215,7 +122,7 @@
         }
       },
       "block_order": [
-        "content_FaJEQw",
+        "content_bdnKLx",
         "image_96FYjm"
       ],
       "name": "MH Two Column Content",
@@ -235,7 +142,7 @@
         "text_yXHg9h": {
           "type": "text",
           "settings": {
-            "text": "MH1 supports your dog's daily nutrition PICTURE1 each scoop combines 17 active ingredients PICTURE2  to keep your dog happy and healthy",
+            "text": "MD1 supports your dog’s daily nutrition.  Each scoop combines 17 active ingredients to support long-term health.",
             "font_uppercase": "none",
             "disable_on_mobile": false,
             "size_heading": 160,
@@ -254,8 +161,8 @@
       ],
       "settings": {
         "desktop_text_horizontal_position": "center",
-        "color-body-text": "rgba(0,0,0,0)",
-        "background_color": "rgba(0,0,0,0)",
+        "color-body-text": "#161413",
+        "background_color": "#f8f7f7",
         "margin-top": 32,
         "margin-bottom": 32
       }
@@ -269,6 +176,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_meap8cmeap8cmeap.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Healthier digestion",
             "description": "Two clinically-backed prebiotic fibres and dual-strain probiotics working in sync. Because good health starts in the gut.",
             "content_background": "#161513",
@@ -281,6 +189,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Stronger joints",
             "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel at doses that actually work. For walks that go the distance.",
             "content_background": "#161513",
@@ -293,6 +202,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_xmc1bvxmc1bvxmc1.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Balanced energy",
             "description": "MCT powder from coconuts and L-Carnitine to fuel steady, sustained energy throughout the day. No spikes. No crashes.",
             "content_background": "#161513",
@@ -305,6 +215,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_jfm0v4jfm0v4jfm0.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Ongoing vitality",
             "description": "Astaxanthin, blueberry, and spirulina—nature's most potent antioxidants—to support long-term wellness from the inside out.",
             "content_background": "#161513",
@@ -317,6 +228,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Heart support",
             "description": "Taurine at every dose. The amino acid vets recommend most for breeds prone to cardiac concerns.",
             "content_background": "#161513",
@@ -329,6 +241,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Daily nutrition",
             "description": "17 ingredients. One scoop. The gaps in your dog's diet, filled.",
             "content_background": "#161513",
@@ -341,6 +254,7 @@
             "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
             "subheading": "",
             "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
             "title": "Scoop or broth",
             "description": "Sprinkle or stir. As a powder or a warm collagen broth. Built to fit your routine, not the other way around.",
             "content_background": "#161513",
@@ -434,37 +348,40 @@
     "card_carousel_3LyVBy": {
       "type": "card-carousel",
       "blocks": {
+        "card_JFgkEy": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
+            "subheading": "Joint & Skin",
+            "subheading_color": "#ffffff",
+            "subheading_background": "#161513",
+            "title": "Pumpkin powder",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
+            "text_color": "#fdfdfb"
+          }
+        },
         "card_yQDjdf": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_k76oh5k76oh5k76o.png",
-            "subheading": "",
-            "subheading_color": "#ffffff",
-            "title": "",
+            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
+            "subheading": "Joint & Skin",
+            "subheading_color": "#fdfdfb",
+            "subheading_background": "#161513",
+            "title": "Collagen bone broth powder",
             "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
             "content_background": "#403d3b",
             "text_color": "#fdfdfb"
           }
         },
-        "card_hBWBH6": {
+        "card_ytCGkn": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_dstb8kdstb8kdstb.png",
-            "subheading": "",
+            "image": "shopify://shop_images/3f50475e5101da46a5f7b5514d189cd53f26e2c4-800x1120.webp",
+            "subheading": "Joint & Skin",
             "subheading_color": "#ffffff",
-            "title": "",
-            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
-            "content_background": "#403d3b",
-            "text_color": "#fdfdfb"
-          }
-        },
-        "card_GF9nTG": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_vfdqoavfdqoavfdq.png",
-            "subheading": "",
-            "subheading_color": "#ffffff",
-            "title": "",
+            "subheading_background": "#161513",
+            "title": "Partially hydrolyzed guar gum",
             "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
             "content_background": "#403d3b",
             "text_color": "#fdfdfb"
@@ -472,21 +389,21 @@
         }
       },
       "block_order": [
+        "card_JFgkEy",
         "card_yQDjdf",
-        "card_hBWBH6",
-        "card_GF9nTG"
+        "card_ytCGkn"
       ],
       "name": "MH - Card Carousel",
       "settings": {
-        "section_title": "Trusted by leading vets and loving pet owners everywhere",
+        "section_title": "17 active ingredients carefully selected for impact",
         "title_color": "#ffffff",
-        "button_1_text": "Read more reviews",
+        "button_1_text": "View All Ingredients",
         "button_1_link": "",
         "button_2_text": "",
         "button_2_link": "",
         "button_color": "#ffffff",
         "button_text_color": "#1a1a1a",
-        "image_aspect_ratio": "square",
+        "image_aspect_ratio": "portrait",
         "card_width": 400,
         "gap": 24,
         "card_radius": 12,
@@ -528,7 +445,7 @@
             "total_md1": "£38 GBP",
             "total_other": "£186 GBP",
             "disclaimer": "†Based on current available data for average industry prices of premium supplements vs. one scoop per day of MD1",
-            "button_text": "Get Started",
+            "button_text": "Pre-order MD1",
             "button_link": "shopify://products/daily"
           }
         },
@@ -554,6 +471,78 @@
         "button_text_color": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "card_carousel_waBWLQ": {
+      "type": "card-carousel",
+      "blocks": {
+        "card_dU3MrH": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_k76oh5k76oh5k76o.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
+            "title": "",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_HPRxfj": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_dstb8kdstb8kdstb.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
+            "title": "",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
+            "text_color": "#fdfdfb"
+          }
+        },
+        "card_wYHWzE": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_vfdqoavfdqoavfdq.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "subheading_background": "#00000080",
+            "title": "",
+            "description": "Nutrition can profoundly impact your dog’s quality of life. That’s why I’ve chosen the most potent, clinically proven ingredients to create the only daily supplement your dog will ever need.",
+            "content_background": "#403d3b",
+            "text_color": "#fdfdfb"
+          }
+        }
+      },
+      "block_order": [
+        "card_dU3MrH",
+        "card_HPRxfj",
+        "card_wYHWzE"
+      ],
+      "name": "MH - Card Carousel",
+      "settings": {
+        "section_title": "Trusted by leading vets and loving pet owners everywhere",
+        "title_color": "#ffffff",
+        "button_1_text": "Read more reviews",
+        "button_1_link": "",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_color": "#ffffff",
+        "button_text_color": "#1a1a1a",
+        "image_aspect_ratio": "square",
+        "card_width": 400,
+        "gap": 24,
+        "card_radius": 12,
+        "blur_amount": 10,
+        "content_overlay": true,
+        "title_font_size": 2.4,
+        "description_font_size": 1.5,
+        "background_color": "#161513",
+        "arrow_color": "#fdfdfb",
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "two_column_content_eFAnzJ": {
@@ -635,19 +624,116 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "two_column_content_iCiHqM": {
+      "type": "two-column-content",
+      "blocks": {
+        "content_cfbU4E": {
+          "type": "content",
+          "settings": {
+            "hide_on_mobile": false,
+            "headline": "A note from the founders",
+            "subheading": "",
+            "body": "<p>We're Aaron & Lara Magnus-Moore, and this is our good boy Marlo. He's a three-year old working line Golden Retriever. Full of energy, very active, but with a sensitive digestive system that gets thrown out of sync all too easily.<br/><br/>We want the best for Marlo, and we'd tried the soft chews that were full of filler, flours and binders. We'd tried the pills that he'd spit as soon as he heard the rustling. We'd tried the toppers that he'd smell once and turn away.</p><p>We wanted something better. So we partnered with some of the UK's leading pet nutritionists and vets, and brought their ideas together with Vetio, the world's most reknowned and scientifically rigorous pet supplement manufacturer. </p><p>Grounded in research, we created MD1, the world's first daily nutritional supplement that powers your dogs complete system, from their gut and joints, to skin, longevity and brain.</p><p>We built this out of love for Marlo, and we're sharing the benefits with you.</p>",
+            "button_text": "Get Started",
+            "button_link": "shopify://products/daily"
+          }
+        },
+        "image_6kCw9h": {
+          "type": "image",
+          "settings": {
+            "hide_on_mobile": false,
+            "image": "shopify://shop_images/IMG_4805_copy.heic",
+            "image_fit": "cover"
+          }
+        }
+      },
+      "block_order": [
+        "content_cfbU4E",
+        "image_6kCw9h"
+      ],
+      "name": "MH 2 Column Content",
+      "settings": {
+        "background_color": "#fdfdfb",
+        "text_color": "#161513",
+        "checkmark_color": "#666666",
+        "button_background": "#161513",
+        "button_text_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "faq_cQiaGz": {
+      "type": "faq",
+      "blocks": {
+        "question_zcXCtz": {
+          "type": "question",
+          "settings": {
+            "question": "Why should I try MD1?",
+            "answer": "<p>MD1 is clinically shown to close common nutrient gaps and support gut health. It's the once-a-day formula that delivers a range of multi-vitamins, superfoods, pre- and probiotics, phytonutrients, antioxidants, and more.</p>"
+          }
+        },
+        "question_WMmDbN": {
+          "type": "question",
+          "settings": {
+            "question": "Is this another greens powder?",
+            "answer": "<p>MD1 is much more than a greens powder. It's a comprehensive daily supplement that combines vitamins, minerals, probiotics, adaptogens, and whole food ingredients in one convenient serving.</p>"
+          }
+        },
+        "question_XEzwrV": {
+          "type": "question",
+          "settings": {
+            "question": "How soon will I get the benefits of MD1?",
+            "answer": "<p>Many people notice improvements in energy and digestion within the first few weeks. For optimal results, we recommend consistent daily use for at least 90 days.</p>"
+          }
+        },
+        "question_LiM7CB": {
+          "type": "question",
+          "settings": {
+            "question": "What if I don't like the taste?",
+            "answer": "<p>We're confident you'll enjoy MD1, but if for any reason you're not satisfied, simply contact our Customer Happiness Team within 90 days for a full refund.</p>"
+          }
+        },
+        "question_GPRHke": {
+          "type": "question",
+          "settings": {
+            "question": "How does the money-back guarantee work?",
+            "answer": "<p>Try MD1 risk-free for 90 days. If you're not completely satisfied, contact us and we'll refund your purchase - no questions asked.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_zcXCtz",
+        "question_WMmDbN",
+        "question_XEzwrV",
+        "question_LiM7CB",
+        "question_GPRHke"
+      ],
+      "name": "MH FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "open_first": true,
+        "background_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "max_width": 800,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
-    "background_video_ybJhVR",
     "hero_carousel_ELjxRL",
-    "features_banner_NnieLp",
+    "icon_features_xCDqrN",
     "two_column_content_xcxCGJ",
     "rich_text_with_image_d9iPb9",
     "card_carousel_PwkVdN",
     "how_it_works_UBxgiD",
     "card_carousel_3LyVBy",
     "two_column_content_am4wgh",
+    "card_carousel_waBWLQ",
     "two_column_content_eFAnzJ",
-    "one_column_content_p6y7Wm"
+    "one_column_content_p6y7Wm",
+    "two_column_content_iCiHqM",
+    "faq_cQiaGz"
   ]
 }

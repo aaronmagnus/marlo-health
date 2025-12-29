@@ -22,7 +22,7 @@
       const announcementCount = Number({{ section.blocks.size }}) ;
 
       if ((!isHidden || new Date().getTime() > Number(isHidden)) && announcementCount > 0) {
-        document.querySelector('.wt-announcement-bar').style.display = 'block';
+        document.querySelector('.wt-announcement-bar').style.display = 'flex';
       }
     })();
   </script>

@@ -39,6 +39,34 @@
     {% endif %}
   }
   {% endfor %}
+
+  /* Header CTA Button */
+  .wt-header__panel {
+    align-items: center;
+  }
+
+  .wt-header__cta--desktop-only {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .wt-header__cta--desktop-only {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .wt-header__cta-button {
+    background-color: {{ section.settings.header_cta_bg_color }};
+    border-color: {{ section.settings.header_cta_bg_color }};
+    color: {{ section.settings.header_cta_text_color }};
+  }
+
+  .wt-header__cta-button:hover {
+    background-color: {{ section.settings.header_cta_bg_color_hover }};
+    border-color: {{ section.settings.header_cta_bg_color_hover }};
+    color: {{ section.settings.header_cta_text_color_hover }};
+  }
 </style>
 
 {% assign layout_options = 'option_3,option_4' | split: ',' %}
@@ -498,6 +526,13 @@
     </div>
 
     <ul class="wt-header__panel wt-header__panel--no-labels">
+      {%- if section.settings.show_header_cta -%}
+        <li class="wt-header__panel__item wt-header__panel__item--cta wt-header__cta--desktop-only">
+          <a href="{{ section.settings.header_cta_link }}" class="mh-button--primary wt-header__cta-button">
+            {{- section.settings.header_cta_text -}}
+          </a>
+        </li>
+      {%- endif -%}
       {%- if shop.customer_accounts_enabled -%}
         <li class="wt-header__panel__item wt-header__panel__item--account">
           <a href="{{ routes.account_url }}" class="wt-header__panel__link wt-icon">
@@ -889,6 +924,51 @@
       "default": "main-menu",
       "label": "t:sections.header.settings.suggestions_menu.label",
       "info": "t:sections.header.settings.suggestions_menu.info"
+    },
+    {
+      "type": "header",
+      "content": "Header CTA Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header_cta",
+      "default": false,
+      "label": "Show header CTA button"
+    },
+    {
+      "type": "text",
+      "id": "header_cta_text",
+      "default": "Shop Now",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "header_cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "header_cta_bg_color",
+      "default": "#F47825",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "header_cta_text_color",
+      "default": "#FDFCFC",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "header_cta_bg_color_hover",
+      "default": "#DC5E09",
+      "label": "Background color (hover)"
+    },
+    {
+      "type": "color",
+      "id": "header_cta_text_color_hover",
+      "default": "#FDFCFC",
+      "label": "Text color (hover)"
     }
   ],
   "blocks": [

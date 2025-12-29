@@ -2970,6 +2970,33 @@ body.menu-drawer-overlay-on .page-header {
   width: 1.2rem;
 }
 
+/* Mobile announcement bar - flexbox layout for text + close button */
+@media (max-width: 899px) {
+  .wt-announcement announcement-bar {
+    align-items: center;
+    padding: 12px;
+  }
+  .wt-announcement__container {
+    flex: 1;
+    width: auto;
+    padding: 0;
+  }
+  .wt-announcement__body {
+    width: auto;
+  }
+  .wt-announcement__text {
+    width: auto;
+  }
+  .wt-announcement__close {
+    position: static;
+    flex-shrink: 0;
+  }
+  [dir=rtl] .wt-announcement__close {
+    left: auto;
+    right: auto;
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(100%);

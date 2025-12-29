@@ -1,0 +1,210 @@
+{%- comment -%}
+  Section: Icon Features
+  Description: Displays a row of icon features with optional section title
+  Usage: Add via Theme Editor
+{%- endcomment -%}
+
+<style>
+  [data-section-id="{{ section.id }}"].mh-icon-features {
+    --icon-features-bg: {{ section.settings.background_color }};
+    --icon-features-title-color: {{ section.settings.title_color }};
+    --icon-features-padding-top: {{ section.settings.padding_top }}px;
+    --icon-features-padding-bottom: {{ section.settings.padding_bottom }}px;
+
+    background-color: var(--icon-features-bg);
+    padding-top: var(--icon-features-padding-top);
+    padding-bottom: var(--icon-features-padding-bottom);
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__inner {
+    max-width: var(--layout-width, 1400px);
+    margin: 0 auto;
+    padding: 0 1.6rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 165%;
+    color: var(--icon-features-title-color);
+    text-align: center;
+    margin: 0 0 2.4rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__icon {
+    flex-shrink: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__icon img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-icon-features__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 160%;
+    color: #2B2926;
+  }
+
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .mh-icon-features__items {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4.8rem;
+    }
+  }
+</style>
+
+<section
+  id="section-{{ section.id }}"
+  class="mh-icon-features"
+  data-section-id="{{ section.id }}"
+>
+  <div class="mh-icon-features__inner">
+    {%- if section.settings.section_title != blank -%}
+      <p class="mh-icon-features__title">{{ section.settings.section_title }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="mh-icon-features__items">
+        {%- for block in section.blocks -%}
+          <div class="mh-icon-features__item" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              <div class="mh-icon-features__icon">
+                {{ block.settings.icon | image_url: width: 48 | image_tag: loading: 'lazy' }}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <span class="mh-icon-features__label">{{ block.settings.title }}</span>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "MH Icon Features",
+  "tag": "section",
+  "class": "section-icon-features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#9C948B"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#EFEDEB"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH Icon Features",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Clinically-studied ingredients"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Vet-formulated"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Zero fillers"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Made in the UK"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

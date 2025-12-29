@@ -99,7 +99,7 @@
   [data-section-id="{{ section.id }}"] .two-col-content__body {
     font-size: 1.6rem;
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 2.4rem;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__body p {
@@ -122,7 +122,7 @@
   [data-section-id="{{ section.id }}"] .two-col-content__list {
     list-style: none;
     padding: 0;
-    margin: 1rem 0 0.5rem;
+    margin: 1rem 0 2.4rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -144,56 +144,8 @@
     color: var(--two-col-check-color);
   }
 
-  [data-section-id="{{ section.id }}"] .two-col-content__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
-    padding: 1.6rem 2.4rem;
-    background-color: var(--two-col-btn-bg);
-    color: var(--two-col-btn-text);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.6rem;
-    border-radius: 50px;
-    transition: opacity 0.2s ease;
-    margin-top: 1.5rem;
-  }
-
-  [data-section-id="{{ section.id }}"] .two-col-content__cta:hover {
-    opacity: 0.85;
-  }
-
-  [data-section-id="{{ section.id }}"] .two-col-content__cta-arrow {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    position: relative;
-  }
-
-  [data-section-id="{{ section.id }}"] .two-col-content__cta-arrow::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 14px;
-    height: 2px;
-    background: currentColor;
-    transform: translateY(-50%);
-  }
-
-  [data-section-id="{{ section.id }}"] .two-col-content__cta-arrow::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 8px;
-    height: 8px;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    border-color: currentColor;
-    transform: translateY(-50%) rotate(-45deg);
+  [data-section-id="{{ section.id }}"] .mh-button--primary {
+    align-self: flex-start;
   }
 
   /* Comparison Table */
@@ -459,10 +411,6 @@
       font-size: 1.8rem;
       text-align: left;
     }
-
-    [data-section-id="{{ section.id }}"] .two-col-content__cta {
-      width: 100%;
-    }
   }
 
   /* Large desktop */
@@ -551,11 +499,10 @@
 
             {%- if block.settings.button_text != blank -%}
               <a
-                class="two-col-content__cta"
+                class="mh-button--primary"
                 {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
               >
                 {{ block.settings.button_text }}
-                <span class="two-col-content__cta-arrow"></span>
               </a>
             {%- endif -%}
           </div>
@@ -576,11 +523,10 @@
 
             {%- if block.settings.button_text != blank -%}
               <a
-                class="two-col-content__cta"
+                class="mh-button--primary"
                 {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
               >
                 {{ block.settings.button_text }}
-                <span class="two-col-content__cta-arrow"></span>
               </a>
             {%- endif -%}
           </div>
@@ -728,11 +674,10 @@
 
             {%- if block.settings.button_text != blank -%}
               <a
-                class="two-col-content__cta"
+                class="mh-button--primary"
                 {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
               >
                 {{ block.settings.button_text }}
-                <span class="two-col-content__cta-arrow"></span>
               </a>
             {%- endif -%}
           </div>
@@ -850,11 +795,10 @@
 
             {%- if block.settings.button_text != blank -%}
               <a
-                class="two-col-content__cta"
+                class="mh-button--primary"
                 {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
               >
                 {{ block.settings.button_text }}
-                <span class="two-col-content__cta-arrow"></span>
               </a>
             {%- endif -%}
 
