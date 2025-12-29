@@ -19,9 +19,12 @@
     --hero-carousel-heading-font: {{ section.settings.heading_font }}, sans-serif;
     --hero-carousel-body-font: {{ section.settings.body_font }}, sans-serif;
     --hero-carousel-button-font: {{ section.settings.button_font }}, sans-serif;
+    --hero-carousel-heading-font-size: {{ section.settings.heading_font_size }}rem;
+    --hero-carousel-body-font-size: {{ section.settings.body_font_size }}rem;
+    --hero-carousel-button-font-size: {{ section.settings.button_font_size }}rem;
     --hero-carousel-arrow-width: 48px;
     --hero-carousel-arrow-clearance: 60px;
-    --hero-carousel-content-max-width: 444px;
+    --hero-carousel-content-max-width: 536px;
     --hero-carousel-autoplay-speed: {{ section.settings.autoplay_speed }}s;
   }
 
@@ -125,72 +128,44 @@
     font-family: var(--hero-carousel-body-font);
   }
 
+  /* Title uses .mh-hero-heading base styles from custom.css */
+  /* These overrides apply when section settings differ from defaults */
   [data-section-id="{{ section.id }}"] .hero-carousel__title {
-    font-size: 3.2rem;
-    font-weight: 600;
-    line-height: 1.1;
-    margin: 0;
     font-family: var(--hero-carousel-heading-font);
+    font-size: var(--hero-carousel-heading-font-size);
+    color: var(--hero-carousel-text-color);
+    margin-bottom: 1.6rem;
+  }
+
+  @media (max-width: 899px) {
+    [data-section-id="{{ section.id }}"] .hero-carousel__title {
+      font-size: 3.6rem;
+    }
   }
 
   [data-section-id="{{ section.id }}"] .hero-carousel__description {
-    font-size: 1.6rem;
+    font-size: var(--hero-carousel-body-font-size);
     line-height: 1.5;
     margin: 0;
     opacity: 0.85;
   }
 
-  [data-section-id="{{ section.id }}"] .hero-carousel__cta {
-    display: inline-flex;
+  /* Button container for primary + secondary CTAs */
+  [data-section-id="{{ section.id }}"] .hero-carousel__cta-container {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    padding: 1.6rem;
-    background-color: var(--hero-carousel-cta-bg);
-    color: var(--hero-carousel-cta-text);
-    text-decoration: none;
-    font-weight: 500;
-    font-family: var(--hero-carousel-button-font);
-    font-size: 1.6rem;
-    border-radius: 50px;
-    transition: opacity 0.2s ease;
-    width: calc(100% - 3rem);
-    margin-top: 0.5rem;
+    gap: 2.4rem;
+    margin-top: 2.4rem;
   }
 
-  [data-section-id="{{ section.id }}"] .hero-carousel__cta:hover {
-    opacity: 0.85;
+  /* Button uses .mh-button--primary base styles from custom.css */
+  [data-section-id="{{ section.id }}"] .hero-carousel__cta {
+    font-size: var(--hero-carousel-button-font-size);
   }
 
-  [data-section-id="{{ section.id }}"] .hero-carousel__cta-arrow {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    position: relative;
-  }
-
-  [data-section-id="{{ section.id }}"] .hero-carousel__cta-arrow::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 14px;
-    height: 2px;
-    background: currentColor;
-    transform: translateY(-50%);
-  }
-
-  [data-section-id="{{ section.id }}"] .hero-carousel__cta-arrow::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 8px;
-    height: 8px;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    border-color: currentColor;
-    transform: translateY(-50%) rotate(-45deg);
+  [data-section-id="{{ section.id }}"] .hero-carousel__cta-secondary {
+    font-size: var(--hero-carousel-button-font-size);
   }
 
   /* Navigation arrows - edge-pinned style */
@@ -381,12 +356,6 @@
       bottom: 1.5rem !important;
       z-index: 10;
     }
-
-    [data-section-id="{{ section.id }}"] .hero-carousel__cta {
-      width: fit-content;
-      min-width: 280px;
-      justify-content: center;
-    }
   }
 
   /* Large desktop */
@@ -492,19 +461,30 @@
                   </div>
                   <div class="hero-carousel__content">
                     {% if block.settings.title != blank %}
-                      <h2 class="hero-carousel__title">{{ block.settings.title }}</h2>
+                      <h2 class="mh-hero-heading hero-carousel__title">{{ block.settings.title }}</h2>
                     {% endif %}
                     {% if block.settings.description != blank %}
                       <p class="hero-carousel__description">{{ block.settings.description }}</p>
                     {% endif %}
-                    {% if block.settings.cta_text != blank %}
-                      <a
-                        class="hero-carousel__cta"
-                        {% if block.settings.cta_link != blank %}href="{{ block.settings.cta_link }}"{% endif %}
-                      >
-                        {{ block.settings.cta_text }}
-                        <span class="hero-carousel__cta-arrow"></span>
-                      </a>
+                    {% if block.settings.cta_text != blank or block.settings.cta_secondary_text != blank %}
+                      <div class="hero-carousel__cta-container">
+                        {% if block.settings.cta_text != blank %}
+                          <a
+                            class="mh-button--primary hero-carousel__cta"
+                            {% if block.settings.cta_link != blank %}href="{{ block.settings.cta_link }}"{% endif %}
+                          >
+                            {{ block.settings.cta_text }}
+                          </a>
+                        {% endif %}
+                        {% if block.settings.cta_secondary_text != blank %}
+                          <a
+                            class="mh-button--tertiary hero-carousel__cta-secondary"
+                            {% if block.settings.cta_secondary_link != blank %}href="{{ block.settings.cta_secondary_link }}"{% endif %}
+                          >
+                            {{ block.settings.cta_secondary_text }}
+                          </a>
+                        {% endif %}
+                      </div>
                     {% endif %}
                   </div>
                 </div>
@@ -611,6 +591,7 @@
       "id": "heading_font",
       "label": "Heading font",
       "options": [
+        { "value": "Canela", "label": "Canela" },
         { "value": "Inter", "label": "Inter" },
         { "value": "system-ui", "label": "System Default" },
         { "value": "Georgia, serif", "label": "Georgia (Serif)" },
@@ -618,7 +599,7 @@
         { "value": "Merriweather", "label": "Merriweather" },
         { "value": "Lora", "label": "Lora" }
       ],
-      "default": "Inter"
+      "default": "Canela"
     },
     {
       "type": "select",
@@ -649,6 +630,36 @@
       "default": "Inter"
     },
     {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading font size",
+      "min": 2,
+      "max": 8,
+      "step": 0.1,
+      "default": 6.4,
+      "unit": "rem"
+    },
+    {
+      "type": "range",
+      "id": "body_font_size",
+      "label": "Body font size",
+      "min": 0.8,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.6,
+      "unit": "rem"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button font size",
+      "min": 0.8,
+      "max": 2,
+      "step": 0.1,
+      "default": 1,
+      "unit": "rem"
+    },
+    {
       "type": "header",
       "content": "Colors"
     },
@@ -656,7 +667,7 @@
       "type": "color",
       "id": "text_color",
       "label": "Text color",
-      "default": "#000000"
+      "default": "#161413"
     },
     {
       "type": "color",
@@ -782,6 +793,16 @@
           "type": "url",
           "id": "cta_link",
           "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "cta_secondary_text",
+          "label": "Secondary button text"
+        },
+        {
+          "type": "url",
+          "id": "cta_secondary_link",
+          "label": "Secondary button link"
         },
         {
           "type": "header",

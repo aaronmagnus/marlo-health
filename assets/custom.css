@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Marlo Health Custom Styles
+   ========================================================================== */
+
+/* Primary Button
+   ========================================================================== */
+
+.mh-button--primary {
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #F47825;
+  border: 1px solid #F47825;
+  border-radius: 12px;
+  color: #FDFCFC;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.mh-button--primary:hover {
+  background-color: #DC5E09;
+  border-color: #DC5E09;
+  color: #FDFCFC;
+}
+
+.mh-button--primary:focus {
+  background-color: #AE4804;
+  border-color: #AE4804;
+  color: #FDFCFC;
+  outline: none;
+}
+
+.mh-button--primary:disabled,
+.mh-button--primary.is-disabled {
+  background-color: #DFDBD8;
+  border-color: #DFDBD8;
+  color: #9C948B;
+  cursor: not-allowed;
+}
+
+/* Tertiary Button
+   ========================================================================== */
+
+.mh-button--tertiary {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #F47825;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 200ms ease, text-decoration 200ms ease;
+}
+
+.mh-button--tertiary:hover {
+  color: #F47825;
+  text-decoration: underline;
+  text-decoration-color: #F47825;
+  text-underline-offset: 3px;
+}
+
+.mh-button--tertiary:active {
+  color: #AE4804;
+  text-decoration: none;
+}
+
+.mh-button--tertiary:focus {
+  color: #AE4804;
+  text-decoration: none;
+  outline: none;
+}
+
+.mh-button--tertiary:disabled,
+.mh-button--tertiary.is-disabled {
+  color: #9C948B;
+  cursor: not-allowed;
+}
+
+/* Hero Heading
+   ========================================================================== */
+
+.mh-hero-heading {
+  font-family: 'Canela', serif;
+  font-weight: 400;
+  font-size: 6.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #161413;
+  margin: 0;
+}
+
+@media (max-width: 899px) {
+  .mh-hero-heading {
+    font-size: 3.6rem;
+  }
+}
