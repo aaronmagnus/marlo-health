@@ -114,11 +114,12 @@
         },
         "image_96FYjm": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "hide_on_mobile": false,
             "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
-            "image_fit": "cover"
+            "image_fit": "cover",
+            "aspect_ratio": "square",
+            "caption": ""
           }
         }
       },
@@ -128,11 +129,11 @@
       ],
       "name": "MH Two Column Content",
       "settings": {
-        "background_color": "#fdfdfb",
+        "background_color": "#fdfcfc",
         "text_color": "#1a1a1a",
         "checkmark_color": "#666666",
         "button_background": "#161513",
-        "button_text_color": "#ffffff",
+        "button_text_color": "#fdfcfc",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -387,52 +388,133 @@
         "padding_bottom": 32
       }
     },
-    "how_it_works_UBxgiD": {
-      "type": "how-it-works",
+    "mh_3_column_grid_v2_rYqBnb": {
+      "type": "mh-3-column-grid-v2",
       "blocks": {
-        "step_ACzNd3": {
-          "type": "step",
+        "card_h7BAT8": {
+          "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_yqifwhyqifwhyqif.png",
-            "heading": "Step 1: Scoop",
-            "text": "Take the right number of scoops based on your dogs weight and our feeding guide."
+            "icon_width": 48,
+            "subheading": "Step one",
+            "heading": "Measure",
+            "description": "Use the feeding guide to measure the right number of scoops based on your dog's weight"
           }
         },
-        "step_ex7hDh": {
-          "type": "step",
+        "card_dWtP4L": {
+          "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_8hbnd28hbnd28hbn.png",
-            "heading": "Step 2: Topper or broth",
-            "text": "Sprinkle over food as a topper, or mix with a small amount of warm water to create a delicious collagen broth."
+            "icon_width": 48,
+            "subheading": "Step two",
+            "heading": "Topper or broth",
+            "description": "Sprinkle over food as a daily topper, or mix with a small amount of warm water to create a collagen broth"
           }
         },
-        "step_WPMDRC": {
-          "type": "step",
+        "card_cHwrVK": {
+          "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_9gepnk9gepnk9gep.png",
-            "heading": "Step 3: Enjoy",
-            "text": "Experience the difference in your dogs health, energy and digestion within 30 days."
+            "icon_width": 48,
+            "subheading": "Step three",
+            "heading": "Use daily",
+            "description": "See noticeable improvements in digestion, energy, and overall health for most dogs with consistent use"
           }
         }
       },
       "block_order": [
-        "step_ACzNd3",
-        "step_ex7hDh",
-        "step_WPMDRC"
+        "card_h7BAT8",
+        "card_dWtP4L",
+        "card_cHwrVK"
       ],
-      "name": "MH How It Works",
+      "name": "MH 3 Column Grid V2",
       "settings": {
-        "heading": "How it works",
-        "show_button": true,
-        "button_label": "Get Started",
-        "button_link": "shopify://products/daily",
-        "image_ratio": "square",
-        "background_color": "#fdfdfb",
-        "text_color": "#161513",
-        "heading_color": "#161513",
-        "button_background": "#fdfdfb",
-        "button_text_color": "#161513",
-        "button_border_color": "#1a1a1a",
+        "heading": "How to use MD1",
+        "description": "A simple daily routine designed to fit into how you already feed your dog",
+        "cta_text": "Pre-order MD1",
+        "cta_url": "shopify://products/daily",
+        "card_radius": 16,
+        "background_color": "#f8f7f7",
+        "subheading_color": "#9c948b",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "two_column_content_ezJKKA": {
+      "type": "two-column-content",
+      "blocks": {
+        "content_aitWL3": {
+          "type": "content",
+          "settings": {
+            "hide_on_mobile": false,
+            "headline": "A daily ritual your dog actually enjoys",
+            "subheading": "Designed for daily use",
+            "body": "<p>Many supplements fail because dogs won’t eat them consistently.</p><p>MD1 was designed to be flexible by format – sprinkled as a topper when you’re in a hurry, or mixed with warm water to create a simple collagen broth. A daily moment your dog looks forward to, without changing how you feed them.</p>",
+            "button_text": "Pre-order MD1",
+            "button_link": "shopify://products/daily"
+          }
+        },
+        "image_G3UDF3": {
+          "type": "image",
+          "settings": {
+            "hide_on_mobile": false,
+            "image": "shopify://shop_images/lazmags_Editorial_science-forward_still_life_of_a_dog_nutriti_7077ac93-44db-4aa4-8659-f68ee41271fe_0.png",
+            "image_fit": "cover",
+            "aspect_ratio": "square",
+            "caption": "Suitable for dry, wet or fresh food",
+            "video": "shopify://files/videos/lazmags_Editorial_science-forward_still_life_of_a_dog_nutriti_5f2b5f63-9aa8-412b-b1e0-cf3c393ad2d6_1.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "content_aitWL3",
+        "image_G3UDF3"
+      ],
+      "name": "MH Two Column Content",
+      "settings": {
+        "background_color": "#fdfcfc",
+        "text_color": "#1a1a1a",
+        "checkmark_color": "#666666",
+        "button_background": "#161513",
+        "button_text_color": "#fdfcfc",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "mh_social_carousel_wkQMCH": {
+      "type": "mh-social-carousel",
+      "blocks": {
+        "card_YrpFUN": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_dstb8kdstb8kdstb.png",
+            "video": "shopify://files/videos/test-video.mp4"
+          }
+        },
+        "card_BPG3RU": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_vfdqoavfdqoavfdq.png"
+          }
+        },
+        "card_JzFyi8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_k76oh5k76oh5k76o.png"
+          }
+        }
+      },
+      "block_order": [
+        "card_YrpFUN",
+        "card_BPG3RU",
+        "card_JzFyi8"
+      ],
+      "name": "MH Social Carousel",
+      "settings": {
+        "heading": "Stories from vets, nutritionists, and dog owners like you",
+        "aspect_ratio": "portrait",
+        "card_width": 280,
+        "gap": 24,
+        "card_radius": 16,
+        "background_color": "#EFEDEB",
+        "arrow_color": "#161413",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -546,7 +628,9 @@
           "settings": {
             "hide_on_mobile": false,
             "image": "shopify://shop_images/34d9e18439be0718d266333c54f7f405600e8807-1404x1755.webp",
-            "image_fit": "contain"
+            "image_fit": "contain",
+            "aspect_ratio": "square",
+            "caption": ""
           }
         }
       },
@@ -645,7 +729,9 @@
           "settings": {
             "hide_on_mobile": true,
             "image": "shopify://shop_images/bc47d6e8d1ce576a6a00b2aef94e4c5e3f3e8029-1800x1200.webp",
-            "image_fit": "contain"
+            "image_fit": "contain",
+            "aspect_ratio": "square",
+            "caption": ""
           }
         },
         "offer_rxdbnT": {
@@ -736,7 +822,9 @@
           "settings": {
             "hide_on_mobile": false,
             "image": "shopify://shop_images/IMG_4805_copy.heic",
-            "image_fit": "cover"
+            "image_fit": "cover",
+            "aspect_ratio": "square",
+            "caption": ""
           }
         }
       },
@@ -820,7 +908,9 @@
     "rich_text_with_image_d9iPb9",
     "mh_card_carousel_2_ixpCzQ",
     "card_carousel_PwkVdN",
-    "how_it_works_UBxgiD",
+    "mh_3_column_grid_v2_rYqBnb",
+    "two_column_content_ezJKKA",
+    "mh_social_carousel_wkQMCH",
     "card_carousel_3LyVBy",
     "two_column_content_am4wgh",
     "card_carousel_waBWLQ",

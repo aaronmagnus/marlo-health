@@ -122,6 +122,32 @@
   }
 }
 
+/* Heading 3
+   ========================================================================== */
+
+.mh-heading-3 {
+  font-family: 'Canela', serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #161413;
+  margin: 0;
+}
+
+/* Subheading
+   ========================================================================== */
+
+.mh-subheading {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #9C948B;
+  margin: 0 0 0.5rem 0;
+}
+
 /* Body Large
    ========================================================================== */
 
@@ -144,4 +170,14 @@
   letter-spacing: -0.01em;
   color: #161413;
   margin: 0;
+}
+
+/* Header Overrides
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  .wt-header__body {
+    padding-left: 6.4rem;
+    padding-right: 6.4rem;
+  }
 }

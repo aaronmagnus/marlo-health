@@ -1,0 +1,567 @@
+{%- comment -%}
+  MH Social Carousel Section
+  - Horizontal scrolling cards with image/video content
+  - Apple glass-style play/pause buttons
+  - Hover scale animation on video cards
+  - Video plays on click, stops at end (no loop)
+{%- endcomment -%}
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+{%- assign section_bg_rgb = section.settings.background_color | color_to_rgb -%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --mh-social-bg: {{ section.settings.background_color }};
+    {% else %}
+      --mh-social-bg: transparent;
+    {% endif %}
+    --mh-social-padding-top: {{ section.settings.padding_top }}px;
+    --mh-social-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mh-social-radius: {{ section.settings.card_radius }}px;
+    --mh-social-gap: {{ section.settings.gap }}px;
+    {% case section.settings.aspect_ratio %}
+      {% when 'portrait' %}
+        --mh-social-aspect-ratio: 3 / 4;
+      {% when 'stories' %}
+        --mh-social-aspect-ratio: 9 / 16;
+      {% else %}
+        --mh-social-aspect-ratio: 1 / 1;
+    {% endcase %}
+  }
+
+  [data-section-id="{{ section.id }}"].mh-social {
+    background-color: var(--mh-social-bg);
+    padding-top: var(--mh-social-padding-top);
+    padding-bottom: var(--mh-social-padding-bottom);
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__inner {
+    max-width: none;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper {
+    overflow: visible;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-wrapper {
+    align-items: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-slide {
+    width: {{ section.settings.card_width }}px;
+    height: auto;
+    overflow: visible;
+    transition: width 0.3s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-slide:has(.mh-social__card--has-video:hover) {
+    width: {{ section.settings.card_width | plus: 40 }}px;
+  }
+
+  /* Card structure */
+  [data-section-id="{{ section.id }}"] .mh-social__card {
+    display: block;
+    border-radius: var(--mh-social-radius);
+    height: 100%;
+    position: relative;
+    background-color: #FDFCFC;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Hover scale animation - video cards only */
+  [data-section-id="{{ section.id }}"] .mh-social__card--has-video {
+    cursor: pointer;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__card--has-video:hover {
+    z-index: 5;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__media-wrapper {
+    position: relative;
+    aspect-ratio: var(--mh-social-aspect-ratio);
+    overflow: hidden;
+    border-radius: var(--mh-social-radius);
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show video when playing */
+  [data-section-id="{{ section.id }}"] .mh-social__card.video-playing .mh-social__video {
+    opacity: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__card.video-playing .mh-social__image {
+    opacity: 0;
+  }
+
+  /* Apple Glass Play/Pause Button */
+  [data-section-id="{{ section.id }}"] .mh-social__play-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 16px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Apple glass effect */
+    background: rgba(60, 60, 60, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__play-btn:hover {
+    background: rgba(60, 60, 60, 0.6);
+  }
+
+  /* Play/pause icons */
+  [data-section-id="{{ section.id }}"] .mh-social__play-icon,
+  [data-section-id="{{ section.id }}"] .mh-social__pause-icon {
+    width: 18px;
+    height: 18px;
+    fill: rgba(255, 255, 255, 0.9);
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__play-icon {
+    margin-left: 3px;
+  }
+
+  /* Navigation */
+  [data-section-id="{{ section.id }}"] .mh-social__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 0 1.5rem;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__nav-btn {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: {{ section.settings.arrow_color }};
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__nav-btn:hover {
+    opacity: 0.7;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__nav-btn.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__nav-btn::after {
+    display: none;
+  }
+
+  /* CSS-only arrow icons */
+  [data-section-id="{{ section.id }}"] .mh-social__arrow {
+    display: grid;
+    place-items: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__arrow::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    border-color: currentColor;
+    transform: rotate(-45deg);
+    margin-left: -4px;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-social__nav-prev .mh-social__arrow::before {
+    border-width: 3px 0 0 3px;
+    margin-left: 4px;
+    margin-right: 0;
+  }
+
+  /* Section header styles */
+  [data-section-id="{{ section.id }}"] .mh-social__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Desktop header layout */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .mh-social__header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .mh-social__header .mh-heading-2 {
+      flex: 1;
+    }
+  }
+
+  /* Slider mobile padding */
+  [data-section-id="{{ section.id }}"] .swiper {
+    padding-left: 1.5rem;
+  }
+
+  /* Large desktop - align carousel with max-width content */
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .mh-social__header {
+      padding: 0 6.4rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .mh-social__slider {
+      margin-left: calc((100vw - var(--site-max-width)) / 2);
+    }
+
+    [data-section-id="{{ section.id }}"] .swiper {
+      padding-left: 6.4rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .mh-social__nav {
+      padding: 0 6.4rem;
+    }
+  }
+</style>
+
+<script type="module" src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
+
+<div data-section-id="{{ section.id }}" class="mh-social">
+  <div class="mh-social__inner">
+    {% if section.settings.heading != blank %}
+      <div class="mh-social__header">
+        <h2 class="mh-heading-2">{{ section.settings.heading }}</h2>
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size == 0 %}
+      <p style="text-align: center; padding: 2rem; color: #666;">Add card blocks using the theme editor</p>
+    {% else %}
+      <slideshow-section class="mh-social__slider">
+        <div data-swiper class="swiper">
+          <div data-swiper-container class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'card' %}
+                  <div
+                    data-swiper-slide
+                    class="swiper-slide"
+                    data-block-id="{{ block.id }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div class="mh-social__card {% if block.settings.video != blank %}mh-social__card--has-video{% endif %}" data-social-card>
+                      <div class="mh-social__media-wrapper">
+                        {% if block.settings.image != blank %}
+                          <img
+                            class="mh-social__image"
+                            src="{{ block.settings.image | image_url: width: 600 }}"
+                            srcset="
+                              {{ block.settings.image | image_url: width: 400 }} 400w,
+                              {{ block.settings.image | image_url: width: 600 }} 600w,
+                              {{ block.settings.image | image_url: width: 800 }} 800w
+                            "
+                            sizes="(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
+                            alt="{{ block.settings.image.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.image.width }}"
+                            height="{{ block.settings.image.height }}"
+                          >
+                        {% else %}
+                          {{ 'image' | placeholder_svg_tag: 'mh-social__image placeholder-svg' }}
+                        {% endif %}
+
+                        {% if block.settings.video != blank %}
+                          {{ block.settings.video | video_tag: autoplay: false, loop: false, muted: true, controls: false, class: 'mh-social__video', playsinline: true }}
+
+                          <button class="mh-social__play-btn" aria-label="Play video" data-play-btn>
+                            <svg class="mh-social__play-icon" viewBox="0 0 24 24" data-play-icon>
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="mh-social__pause-icon" viewBox="0 0 24 24" style="display: none;" data-pause-icon>
+                              <rect x="6" y="4" width="4" height="16"/>
+                              <rect x="14" y="4" width="4" height="16"/>
+                            </svg>
+                          </button>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="mh-social__nav">
+          <button class="mh-social__nav-btn mh-social__nav-prev swiper-button-prev" aria-label="Previous slide">
+            <span class="mh-social__arrow"></span>
+          </button>
+          <button class="mh-social__nav-btn mh-social__nav-next swiper-button-next" aria-label="Next slide">
+            <span class="mh-social__arrow"></span>
+          </button>
+        </div>
+
+        <script data-swiper-configuration type="text/json">
+          {
+            "slidesPerView": "auto",
+            "spaceBetween": {{ section.settings.gap }},
+            "grabCursor": true,
+            "enableOnMedia": "(min-width: 0px)",
+            {% if section.blocks.size > 1 %}
+              "loop": true,
+            {% endif %}
+            "navigation": {
+              "nextEl": ".mh-social__nav-next",
+              "prevEl": ".mh-social__nav-prev"
+            }
+          }
+        </script>
+      </slideshow-section>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  // Video functionality: click to play/pause, no loop, stops at end
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('[data-section-id="{{ section.id }}"]');
+    if (!section) return;
+
+    const cards = section.querySelectorAll('[data-social-card]');
+
+    cards.forEach(card => {
+      const video = card.querySelector('.mh-social__video');
+      const playBtn = card.querySelector('[data-play-btn]');
+      const playIcon = card.querySelector('[data-play-icon]');
+      const pauseIcon = card.querySelector('[data-pause-icon]');
+
+      if (!video || !playBtn) return;
+
+      // Toggle play/pause on button click
+      playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleVideo();
+      });
+
+      // Also toggle on card click for video cards
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('[data-play-btn]')) return;
+        toggleVideo();
+      });
+
+      function toggleVideo() {
+        if (video.paused) {
+          // Pause any other playing videos in this section
+          section.querySelectorAll('.mh-social__video').forEach(v => {
+            if (v !== video && !v.paused) {
+              v.pause();
+              v.closest('[data-social-card]').classList.remove('video-playing');
+              const otherPlayIcon = v.closest('[data-social-card]').querySelector('[data-play-icon]');
+              const otherPauseIcon = v.closest('[data-social-card]').querySelector('[data-pause-icon]');
+              if (otherPlayIcon) otherPlayIcon.style.display = 'block';
+              if (otherPauseIcon) otherPauseIcon.style.display = 'none';
+            }
+          });
+
+          video.play().then(() => {
+            card.classList.add('video-playing');
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+          }).catch(() => {});
+        } else {
+          video.pause();
+          card.classList.remove('video-playing');
+          playIcon.style.display = 'block';
+          pauseIcon.style.display = 'none';
+        }
+      }
+
+      // When video ends, show play icon and keep video on last frame
+      video.addEventListener('ended', function() {
+        card.classList.remove('video-playing');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MH Social Carousel",
+  "tag": "section",
+  "class": "mh-social-carousel-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stories from our community"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Card aspect ratio",
+      "options": [
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "stories", "label": "Stories (9:16)" },
+        { "value": "square", "label": "Square (1:1)" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "Card width",
+      "min": 200,
+      "max": 400,
+      "step": 10,
+      "default": 280,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between cards",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#EFEDEB"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#161413"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (optional)",
+          "info": "Video plays on click. No autoloop - stops at end."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH Social Carousel",
+      "settings": {
+        "heading": "Stories from our community"
+      },
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

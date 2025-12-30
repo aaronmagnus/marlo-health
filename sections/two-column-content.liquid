@@ -53,14 +53,43 @@
   /* Image column */
   [data-section-id="{{ section.id }}"] .two-col-content__image-col {
     width: 100%;
+    padding: var(--two-col-padding-top) 1.5rem var(--two-col-padding-bottom);
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: var(--two-col-image-aspect, 1 / 1);
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 16px;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper--landscape {
+    --two-col-image-aspect: 4 / 3;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper--square {
+    --two-col-image-aspect: 1 / 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper--portrait {
+    --two-col-image-aspect: 3 / 4;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__caption {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: #FDFCFC;
+    background: rgba(253, 252, 252, 0.08);
+    border: 1px solid rgba(253, 252, 252, 0.16);
+    border-radius: 999px;
+    padding: 8px 16px;
+    z-index: 1;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__image {
@@ -69,6 +98,25 @@
     width: 100%;
     height: 100%;
     object-fit: var(--two-col-image-fit, contain);
+    transition: opacity 0.3s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper.video-visible .two-col-content__video {
+    opacity: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper.video-visible .two-col-content__image {
+    opacity: 0;
   }
 
   /* Content column */
@@ -153,11 +201,12 @@
 
   [data-section-id="{{ section.id }}"] .two-col-content__table-header {
     display: grid;
-    grid-template-columns: 1fr 70px 90px;
+    grid-template-columns: 1fr 70px 110px;
     gap: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid currentColor;
     font-size: 1.4rem;
+    align-items: end;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__table-header-cell {
@@ -170,7 +219,7 @@
 
   [data-section-id="{{ section.id }}"] .two-col-content__table-row {
     display: grid;
-    grid-template-columns: 1fr 70px 90px;
+    grid-template-columns: 1fr 70px 110px;
     gap: 1rem;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -186,7 +235,7 @@
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__table-cell--name {
-    font-weight: 600;
+    font-weight: 400;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__table-check {
@@ -207,7 +256,7 @@
 
   [data-section-id="{{ section.id }}"] .two-col-content__table-total {
     display: grid;
-    grid-template-columns: 1fr 70px 90px;
+    grid-template-columns: 1fr 70px 110px;
     gap: 1rem;
     padding: 1.25rem 0;
     border-top: 2px solid currentColor;
@@ -381,6 +430,11 @@
 
     [data-section-id="{{ section.id }}"] .two-col-content__image-col {
       width: 50%;
+      padding: 0;
+    }
+
+    [data-section-id="{{ section.id }}"] .two-col-content__image-col--cover {
+      padding: 6.4rem;
     }
 
     [data-section-id="{{ section.id }}"] .two-col-content__image-wrapper {
@@ -501,12 +555,12 @@
 
         {%- when 'content' -%}
           <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
-            {%- if block.settings.headline != blank -%}
-              <h2 class="two-col-content__headline mh-heading-2">{{ block.settings.headline }}</h2>
+            {%- if block.settings.subheading != blank -%}
+              <span class="mh-subheading">{{ block.settings.subheading }}</span>
             {%- endif -%}
 
-            {%- if block.settings.subheading != blank -%}
-              <p class="two-col-content__subheading">{{ block.settings.subheading }}</p>
+            {%- if block.settings.headline != blank -%}
+              <h2 class="two-col-content__headline mh-heading-2">{{ block.settings.headline }}</h2>
             {%- endif -%}
 
             {%- if block.settings.body != blank -%}
@@ -524,8 +578,11 @@
           </div>
 
         {%- when 'image' -%}
-          <div class="two-col-content__image-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" style="--two-col-image-fit: {{ block.settings.image_fit }};" {{ block.shopify_attributes }}>
-            <div class="two-col-content__image-wrapper">
+          <div class="two-col-content__image-col{% if block.settings.image_fit == 'cover' %} two-col-content__image-col--cover{% endif %}{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" style="--two-col-image-fit: {{ block.settings.image_fit }};" {{ block.shopify_attributes }}>
+            <div class="two-col-content__image-wrapper two-col-content__image-wrapper--{{ block.settings.aspect_ratio }}">
+              {%- if block.settings.caption != blank -%}
+                <span class="two-col-content__caption">{{ block.settings.caption }}</span>
+              {%- endif -%}
               {%- if block.settings.image != blank -%}
                 <img
                   class="two-col-content__image"
@@ -543,6 +600,9 @@
                 >
               {%- else -%}
                 {{ 'lifestyle-2' | placeholder_svg_tag: 'two-col-content__image placeholder-svg' }}
+              {%- endif -%}
+              {%- if block.settings.video != blank -%}
+                {{ block.settings.video | video_tag: autoplay: false, loop: false, muted: true, controls: false, class: 'two-col-content__video' }}
               {%- endif -%}
             </div>
           </div>
@@ -826,6 +886,32 @@
   </div>
 </section>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('[data-section-id="{{ section.id }}"]');
+    const imageWrapper = section ? section.querySelector('.two-col-content__image-wrapper') : null;
+    const video = imageWrapper ? imageWrapper.querySelector('.two-col-content__video') : null;
+
+    if (video && imageWrapper) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !imageWrapper.dataset.videoPlayed) {
+            imageWrapper.classList.add('video-visible');
+            video.play().catch(() => {});
+            imageWrapper.dataset.videoPlayed = 'true';
+          }
+        });
+      }, { threshold: 0.5 });
+
+      video.addEventListener('ended', () => {
+        imageWrapper.classList.remove('video-visible');
+      });
+
+      observer.observe(imageWrapper);
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "MH 2 Column Content",
@@ -877,7 +963,7 @@
       "min": 0,
       "max": 100,
       "step": 4,
-      "default": 60,
+      "default": 64,
       "unit": "px"
     },
     {
@@ -887,7 +973,7 @@
       "min": 0,
       "max": 100,
       "step": 4,
-      "default": 60,
+      "default": 64,
       "unit": "px"
     }
   ],
@@ -1047,6 +1133,37 @@
             }
           ],
           "default": "contain"
+        },
+        {
+          "type": "select",
+          "id": "aspect_ratio",
+          "label": "Aspect ratio",
+          "options": [
+            {
+              "value": "landscape",
+              "label": "Landscape (4:3)"
+            },
+            {
+              "value": "square",
+              "label": "Square (1:1)"
+            },
+            {
+              "value": "portrait",
+              "label": "Portrait (3:4)"
+            }
+          ],
+          "default": "square"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Video plays when scrolled into view"
         }
       ]
     },
