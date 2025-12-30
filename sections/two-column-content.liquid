@@ -81,11 +81,8 @@
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__headline {
-    font-size: 2.8rem;
-    font-weight: 400;
-    line-height: 1.15;
     margin: 0;
-    text-align: center;
+    text-align: left;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__subheading {
@@ -398,7 +395,6 @@
     }
 
     [data-section-id="{{ section.id }}"] .two-col-content__headline {
-      font-size: 4rem;
       text-align: left;
     }
 
@@ -416,11 +412,7 @@
   /* Large desktop */
   @media (min-width: 1200px) {
     [data-section-id="{{ section.id }}"] .two-col-content__content-col {
-      padding: var(--two-col-padding-top) 6rem var(--two-col-padding-bottom);
-    }
-
-    [data-section-id="{{ section.id }}"] .two-col-content__headline {
-      font-size: 4.4rem;
+      padding: var(--two-col-padding-top) 6.4rem var(--two-col-padding-bottom);
     }
   }
 </style>
@@ -432,7 +424,7 @@
         {%- when 'list' -%}
           <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
             {%- if block.settings.headline != blank -%}
-              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+              <h2 class="two-col-content__headline mh-heading-2">{{ block.settings.headline }}</h2>
             {%- endif -%}
 
             {%- if block.settings.subheading != blank -%}
@@ -510,7 +502,7 @@
         {%- when 'content' -%}
           <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
             {%- if block.settings.headline != blank -%}
-              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+              <h2 class="two-col-content__headline mh-heading-2">{{ block.settings.headline }}</h2>
             {%- endif -%}
 
             {%- if block.settings.subheading != blank -%}
@@ -558,7 +550,7 @@
         {%- when 'comparison' -%}
           <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
             {%- if block.settings.headline != blank -%}
-              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+              <h2 class="two-col-content__headline mh-heading-2">{{ block.settings.headline }}</h2>
             {%- endif -%}
 
             {%- if block.settings.subheading != blank -%}
@@ -685,7 +677,7 @@
         {%- when 'offer' -%}
           <div class="two-col-content__content-col{% if block.settings.hide_on_mobile %} two-col-content__hide-mobile{% endif %}" {{ block.shopify_attributes }}>
             {%- if block.settings.headline != blank -%}
-              <h2 class="two-col-content__headline">{{ block.settings.headline }}</h2>
+              <h2 class="two-col-content__headline mh-heading-2">{{ block.settings.headline }}</h2>
             {%- endif -%}
 
             <div class="two-col-content__offer">

@@ -114,6 +114,7 @@
         },
         "image_96FYjm": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "hide_on_mobile": false,
             "image": "shopify://shop_images/Gemini_Generated_Image_l3d9i1l3d9i1l3d9.png",
@@ -165,6 +166,96 @@
         "background_color": "#f8f7f7",
         "margin-top": 32,
         "margin-bottom": 32
+      }
+    },
+    "mh_card_carousel_2_ixpCzQ": {
+      "type": "mh-card-carousel-2",
+      "blocks": {
+        "card_7RJgUP": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/lazmags_Abstract_scientific-inspired_editorial_image_symbolis_197ede5a-a6c5-4792-8bee-fcb7aeb8708e_0.png",
+            "hover_video": "shopify://files/videos/lazmags_Abstract_scientific-inspired_editorial_image_symbolis_707e5308-6ec2-425c-804c-d99eccd3fc89_1.mp4",
+            "subheading": "DIGESTION",
+            "title": "Healthier digestion",
+            "description": "Two clinically studied prebiotic fibres and dual-strain probiotics selected to support the gut microbiome and everyday digestive function.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus",
+            "ingredient_4": "",
+            "ingredient_5": "",
+            "ingredient_6": ""
+          }
+        },
+        "card_by8UfP": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/lazmags_Editorial_science-forward_still_life_visualising_join_c4590aae-776b-4d8e-a410-1d84f78c5d23_1.png",
+            "hover_video": "shopify://files/videos/lazmags_Editorial_science-forward_still_life_visualising_join_7e3afd3c-736c-49c5-888f-422455367eac_3.mp4",
+            "subheading": "MOBILITY",
+            "title": "Stronger joints",
+            "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel included at clinically relevant doses to support joint structure, comfort, and everyday mobility.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus",
+            "ingredient_4": "",
+            "ingredient_5": "",
+            "ingredient_6": ""
+          }
+        },
+        "card_zFG8Hp": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/lazmags_Editorial_science-forward_still_life_visualising_ener_ad9a6723-abc9-46a4-b0d3-0e6308f87063_0.png",
+            "hover_video": "shopify://files/videos/lazmags_Editorial_science-forward_still_life_visualising_ener_00bd5629-fa0e-4fb3-adae-dcca34b8501f_3.mp4",
+            "subheading": "ENERGY",
+            "title": "Balanced energy",
+            "description": "MCT powder from coconuts and L-Carnitine selected to support steady, sustained energy throughout the day - without sharp spikes or sudden drops.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus",
+            "ingredient_4": "",
+            "ingredient_5": "",
+            "ingredient_6": ""
+          }
+        },
+        "card_WWNd8h": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/lazmags_Editorial_science-forward_still_life_visualising_whol_d9a9fc5b-95e7-4898-bc11-0954cd8d10dc_3.png",
+            "hover_video": "shopify://files/videos/lazmags_Editorial_science-forward_still_life_visualising_whol_8a7bb7eb-ce2c-4e01-9666-069ce1eeebc1_1.mp4",
+            "subheading": "WELLNESS",
+            "title": "Whole-body health",
+            "description": "Astaxanthin, blueberry, and spirulina provide antioxidant support to help protect against oxidative stress and support longevity from the inside out.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus",
+            "ingredient_4": "",
+            "ingredient_5": "",
+            "ingredient_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_7RJgUP",
+        "card_by8UfP",
+        "card_zFG8Hp",
+        "card_WWNd8h"
+      ],
+      "name": "MH - Card Carousel 2",
+      "settings": {
+        "section_title": "Whole body support, every day",
+        "cta_text": "Read the Science",
+        "cta_link": "shopify://products/daily",
+        "image_aspect_ratio": "landscape",
+        "card_width": 350,
+        "gap": 24,
+        "card_radius": 16,
+        "background_color": "#efedeb",
+        "subheading_color": "#9c948b",
+        "arrow_color": "#161413",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "card_carousel_PwkVdN": {
@@ -271,6 +362,7 @@
         "card_6EXmxB",
         "card_VMK7ef"
       ],
+      "disabled": true,
       "name": "MH - Card Carousel",
       "settings": {
         "section_title": "",
@@ -726,6 +818,7 @@
     "icon_features_xCDqrN",
     "two_column_content_xcxCGJ",
     "rich_text_with_image_d9iPb9",
+    "mh_card_carousel_2_ixpCzQ",
     "card_carousel_PwkVdN",
     "how_it_works_UBxgiD",
     "card_carousel_3LyVBy",

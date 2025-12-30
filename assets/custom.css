@@ -102,3 +102,46 @@
     font-size: 3.6rem;
   }
 }
+
+/* Heading 2
+   ========================================================================== */
+
+.mh-heading-2 {
+  font-family: 'Canela', serif;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: #161413;
+  margin: 0;
+}
+
+@media (max-width: 899px) {
+  .mh-heading-2 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Body Large
+   ========================================================================== */
+
+.mh-body-large {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #161413;
+  margin: 0;
+}
+
+/* Body Small
+   ========================================================================== */
+
+.mh-body-small {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: #161413;
+  margin: 0;
+}

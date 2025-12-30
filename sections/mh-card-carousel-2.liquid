@@ -1,0 +1,706 @@
+{%- comment -%}
+  MH Card Carousel 2 Section
+  - Horizontal scrolling cards with video hover functionality
+  - Cards with subheading, title, description, and ingredient pills
+  - Uses MH typography classes
+{%- endcomment -%}
+
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+
+{%- assign section_bg_rgb = section.settings.background_color | color_to_rgb -%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section_bg_rgb != 'rgba(0, 0, 0, 0.0)' %}
+      --mh-card-2-bg: {{ section.settings.background_color }};
+    {% else %}
+      --mh-card-2-bg: transparent;
+    {% endif %}
+    --mh-card-2-padding-top: {{ section.settings.padding_top }}px;
+    --mh-card-2-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mh-card-2-radius: {{ section.settings.card_radius }}px;
+    --mh-card-2-gap: {{ section.settings.gap }}px;
+    {% case section.settings.image_aspect_ratio %}
+      {% when 'square' %}
+        --mh-card-2-aspect-ratio: 1 / 1;
+      {% when 'landscape' %}
+        --mh-card-2-aspect-ratio: 4 / 3;
+      {% else %}
+        --mh-card-2-aspect-ratio: 3 / 4;
+    {% endcase %}
+  }
+
+  [data-section-id="{{ section.id }}"].mh-card-2 {
+    background-color: var(--mh-card-2-bg);
+    padding-top: var(--mh-card-2-padding-top);
+    padding-bottom: var(--mh-card-2-padding-bottom);
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__inner {
+    max-width: none;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  [data-section-id="{{ section.id }}"] .swiper-slide {
+    width: {{ section.settings.card_width }}px;
+    height: auto;
+  }
+
+  /* Card structure - content always below image */
+  [data-section-id="{{ section.id }}"] .mh-card-2__card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--mh-card-2-radius);
+    overflow: hidden;
+    background-color: #FDFCFC;
+    border: 1px solid #DFDBD8;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.04);
+    height: 100%;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__media-wrapper {
+    position: relative;
+    aspect-ratio: var(--mh-card-2-aspect-ratio);
+    overflow: hidden;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__card:hover .mh-card-2__video {
+    opacity: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__card:hover .mh-card-2__image {
+    opacity: 0;
+  }
+
+  /* Mobile scroll-triggered video visibility */
+  [data-section-id="{{ section.id }}"] .mh-card-2__card.video-visible .mh-card-2__video {
+    opacity: 1;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__card.video-visible .mh-card-2__image {
+    opacity: 0;
+  }
+
+  /* Content area */
+  [data-section-id="{{ section.id }}"] .mh-card-2__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  /* Subheading - below image */
+  [data-section-id="{{ section.id }}"] .mh-card-2__subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: {{ section.settings.subheading_color }};
+    margin: 0 0 0.25rem 0;
+  }
+
+  /* Title */
+  [data-section-id="{{ section.id }}"] .mh-card-2__title {
+    text-align: center;
+  }
+
+  /* Description */
+  [data-section-id="{{ section.id }}"] .mh-card-2__description {
+    text-align: center;
+  }
+
+  /* Ingredient pills */
+  [data-section-id="{{ section.id }}"] .mh-card-2__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__pill {
+    background: #FDFCFC;
+    border: 1px solid #EFEDEB;
+    color: #9C948B;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* Navigation */
+  [data-section-id="{{ section.id }}"] .mh-card-2__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 0 1.5rem;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__nav-btn {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: {{ section.settings.arrow_color }};
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__nav-btn:hover {
+    opacity: 0.7;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__nav-btn.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__nav-btn::after {
+    display: none;
+  }
+
+  /* CSS-only arrow icons */
+  [data-section-id="{{ section.id }}"] .mh-card-2__arrow {
+    display: grid;
+    place-items: center;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__arrow::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    border-color: currentColor;
+    transform: rotate(-45deg);
+    margin-left: -4px;
+  }
+
+  [data-section-id="{{ section.id }}"] .mh-card-2__nav-prev .mh-card-2__arrow::before {
+    border-width: 3px 0 0 3px;
+    margin-left: 4px;
+    margin-right: 0;
+  }
+
+  /* Section header styles */
+  [data-section-id="{{ section.id }}"] .mh-card-2__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Desktop header layout */
+  @media (min-width: 900px) {
+    [data-section-id="{{ section.id }}"] .mh-card-2__header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .mh-card-2__header .mh-heading-2 {
+      flex: 1;
+    }
+
+    [data-section-id="{{ section.id }}"] .mh-card-2__header-cta {
+      flex-shrink: 0;
+    }
+  }
+
+  /* Slider mobile padding */
+  [data-section-id="{{ section.id }}"] .swiper {
+    padding-left: 1.5rem;
+  }
+
+  /* Large desktop - align carousel with max-width content */
+  @media (min-width: 1200px) {
+    [data-section-id="{{ section.id }}"] .mh-card-2__header {
+      padding: 0 6.4rem;
+    }
+
+    [data-section-id="{{ section.id }}"] .mh-card-2__slider {
+      margin-left: calc((100vw - var(--site-max-width)) / 2);
+    }
+
+    [data-section-id="{{ section.id }}"] .swiper {
+      padding-left: 6.4rem;
+    }
+  }
+</style>
+
+<script type="module" src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
+
+<div data-section-id="{{ section.id }}" class="mh-card-2">
+  <div class="mh-card-2__inner">
+    {% if section.settings.section_title != blank or section.settings.cta_text != blank %}
+      <div class="mh-card-2__header">
+        {% if section.settings.section_title != blank %}
+          <h2 class="mh-heading-2">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.cta_text != blank %}
+          <a
+            class="mh-button--tertiary mh-card-2__header-cta"
+            {% if section.settings.cta_link != blank %}href="{{ section.settings.cta_link }}"{% endif %}
+          >
+            {{ section.settings.cta_text }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size == 0 %}
+      <p style="text-align: center; padding: 2rem; color: #666;">Add card blocks using the theme editor</p>
+    {% else %}
+      <slideshow-section class="mh-card-2__slider">
+        <div data-swiper class="swiper">
+          <div data-swiper-container class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'card' %}
+                  <div
+                    data-swiper-slide
+                    class="swiper-slide"
+                    data-block-id="{{ block.id }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div class="mh-card-2__card" data-card-hover>
+                      <div class="mh-card-2__media-wrapper">
+                        {% if block.settings.image != blank %}
+                          <img
+                            class="mh-card-2__image"
+                            src="{{ block.settings.image | image_url: width: 600 }}"
+                            srcset="
+                              {{ block.settings.image | image_url: width: 400 }} 400w,
+                              {{ block.settings.image | image_url: width: 600 }} 600w,
+                              {{ block.settings.image | image_url: width: 800 }} 800w
+                            "
+                            sizes="(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
+                            alt="{{ block.settings.image.alt | escape }}"
+                            loading="lazy"
+                            width="{{ block.settings.image.width }}"
+                            height="{{ block.settings.image.height }}"
+                          >
+                        {% else %}
+                          {{ 'image' | placeholder_svg_tag: 'mh-card-2__image placeholder-svg' }}
+                        {% endif %}
+                        {% if block.settings.hover_video != blank %}
+                          {{ block.settings.hover_video | video_tag: autoplay: false, loop: true, muted: true, controls: false, class: 'mh-card-2__video' }}
+                        {% endif %}
+                      </div>
+                      <div class="mh-card-2__content">
+                        {% if block.settings.subheading != blank %}
+                          <span class="mh-card-2__subheading">{{ block.settings.subheading }}</span>
+                        {% endif %}
+                        {% if block.settings.title != blank %}
+                          <h3 class="mh-body-large mh-card-2__title">{{ block.settings.title }}</h3>
+                        {% endif %}
+                        {% if block.settings.description != blank %}
+                          <p class="mh-body-small mh-card-2__description">{{ block.settings.description }}</p>
+                        {% endif %}
+                        {% assign has_ingredients = false %}
+                        {% if block.settings.ingredient_1 != blank or block.settings.ingredient_2 != blank or block.settings.ingredient_3 != blank or block.settings.ingredient_4 != blank or block.settings.ingredient_5 != blank or block.settings.ingredient_6 != blank %}
+                          {% assign has_ingredients = true %}
+                        {% endif %}
+                        {% if has_ingredients %}
+                          <div class="mh-card-2__pills">
+                            {% if block.settings.ingredient_1 != blank %}
+                              <span class="mh-card-2__pill">{{ block.settings.ingredient_1 }}</span>
+                            {% endif %}
+                            {% if block.settings.ingredient_2 != blank %}
+                              <span class="mh-card-2__pill">{{ block.settings.ingredient_2 }}</span>
+                            {% endif %}
+                            {% if block.settings.ingredient_3 != blank %}
+                              <span class="mh-card-2__pill">{{ block.settings.ingredient_3 }}</span>
+                            {% endif %}
+                            {% if block.settings.ingredient_4 != blank %}
+                              <span class="mh-card-2__pill">{{ block.settings.ingredient_4 }}</span>
+                            {% endif %}
+                            {% if block.settings.ingredient_5 != blank %}
+                              <span class="mh-card-2__pill">{{ block.settings.ingredient_5 }}</span>
+                            {% endif %}
+                            {% if block.settings.ingredient_6 != blank %}
+                              <span class="mh-card-2__pill">{{ block.settings.ingredient_6 }}</span>
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="mh-card-2__nav">
+          <button class="mh-card-2__nav-btn mh-card-2__nav-prev swiper-button-prev" aria-label="Previous slide">
+            <span class="mh-card-2__arrow"></span>
+          </button>
+          <button class="mh-card-2__nav-btn mh-card-2__nav-next swiper-button-next" aria-label="Next slide">
+            <span class="mh-card-2__arrow"></span>
+          </button>
+        </div>
+
+        <script data-swiper-configuration type="text/json">
+          {
+            "slidesPerView": "auto",
+            "spaceBetween": {{ section.settings.gap }},
+            "grabCursor": true,
+            "enableOnMedia": "(min-width: 0px)",
+            {% if section.blocks.size > 1 %}
+              "loop": true,
+            {% endif %}
+            "navigation": {
+              "nextEl": ".mh-card-2__nav-next",
+              "prevEl": ".mh-card-2__nav-prev"
+            }
+          }
+        </script>
+      </slideshow-section>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  // Video functionality: hover on desktop, scroll-triggered on mobile
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('[data-section-id="{{ section.id }}"]');
+    if (!section) return;
+
+    const cards = section.querySelectorAll('[data-card-hover]');
+    const isMobile = window.matchMedia('(max-width: 1199px)').matches;
+
+    cards.forEach(card => {
+      const video = card.querySelector('.mh-card-2__video');
+      if (!video) return;
+
+      if (isMobile) {
+        // Mobile: IntersectionObserver for scroll-triggered playback
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !card.dataset.videoPlayed) {
+              card.classList.add('video-visible');
+              video.play().catch(() => {});
+              card.dataset.videoPlayed = 'true';
+            }
+          });
+        }, { threshold: 0.5 });
+
+        // Remove loop attribute for mobile (play once only)
+        video.removeAttribute('loop');
+
+        // Fade back to image after video ends
+        video.addEventListener('ended', () => {
+          card.classList.remove('video-visible');
+        });
+
+        observer.observe(card);
+      } else {
+        // Desktop: existing hover behavior (autoloop)
+        card.addEventListener('mouseenter', function() {
+          video.play().catch(() => {});
+        });
+
+        card.addEventListener('mouseleave', function() {
+          video.pause();
+          video.currentTime = 0;
+        });
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MH Card Carousel 2",
+  "tag": "section",
+  "class": "mh-card-carousel-2-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "landscape", "label": "Landscape (4:3)" }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "Card width",
+      "min": 280,
+      "max": 450,
+      "step": 10,
+      "default": 320,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between cards",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card border radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#EFEDEB"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading color",
+      "default": "#9C948B"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#161413"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "hover_video",
+          "label": "Hover video",
+          "info": "Video plays on hover (no controls)"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "info": "Appears above the title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Card title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Add a short description for this card."
+        },
+        {
+          "type": "header",
+          "content": "Ingredients"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_1",
+          "label": "Ingredient 1"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_2",
+          "label": "Ingredient 2"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_3",
+          "label": "Ingredient 3"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_4",
+          "label": "Ingredient 4"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_5",
+          "label": "Ingredient 5"
+        },
+        {
+          "type": "text",
+          "id": "ingredient_6",
+          "label": "Ingredient 6"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH Card Carousel 2",
+      "settings": {
+        "section_title": "Whole body support, every day",
+        "cta_text": "Read the Science"
+      },
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "subheading": "DIGESTION",
+            "title": "Healthier digestion",
+            "description": "Two clinically studied prebiotic fibres and dual-strain probiotics selected to support the gut microbiome and everyday digestive function.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "subheading": "MOBILITY",
+            "title": "Stronger joints",
+            "description": "Glucosamine, chondroitin, UC-II, and green-lipped mussel included at clinically relevant doses to support joint structure, comfort, and everyday mobility.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "subheading": "ENERGY",
+            "title": "Balanced energy",
+            "description": "MCT powder from coconuts and L-Carnitine selected to support steady, sustained energy throughout the day - without sharp spikes or sudden drops.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "subheading": "WELLNESS",
+            "title": "Whole-body health",
+            "description": "Astaxanthin, blueberry, and spirulina provide antioxidant support to help protect against oxidative stress and support longevity from the inside out.",
+            "ingredient_1": "Inulin",
+            "ingredient_2": "FOS",
+            "ingredient_3": "Lactobacillus"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
