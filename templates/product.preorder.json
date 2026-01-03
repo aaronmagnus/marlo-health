@@ -164,16 +164,12 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": false,
             "show_qty_selector": false,
-            "text_color": "#ffffff",
-            "background_color": "#151515"
+            "text_color": "#fdfcfc",
+            "background_color": "#f47825"
           }
-        },
-        "dibs_lb_ordereasy_product_block_HKJF3T": {
-          "type": "shopify://apps/dibs/blocks/lb-ordereasy-product-block/7cc74442-1b61-4b87-afed-944e0def999c",
-          "settings": {}
         },
         "promo_wBVFy3": {
           "type": "promo",
@@ -312,7 +308,6 @@
         "separator_YTDia8",
         "appstle_bundles_appstle_volume_discount_bundle_UgAx96",
         "buy_buttons",
-        "dibs_lb_ordereasy_product_block_HKJF3T",
         "promo_wBVFy3",
         "collapsible_tab_Q7UFgL",
         "separator_gDwzxi",

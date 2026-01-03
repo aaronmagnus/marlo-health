@@ -283,6 +283,7 @@
     font-style: italic;
     opacity: 0.7;
     margin-top: 1.5rem;
+    margin-bottom: 1.6rem;
     line-height: 1.5;
   }
 
@@ -298,7 +299,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid #DFDBD8;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-product-info {
@@ -306,13 +307,10 @@
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-product-name {
-    font-size: 1.6rem;
-    font-weight: 600;
     margin: 0 0 0.25rem;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-product-desc {
-    font-size: 1.4rem;
     opacity: 0.7;
     margin: 0;
   }
@@ -325,8 +323,6 @@
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-price-current {
-    font-size: 1.6rem;
-    font-weight: 600;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-price-compare {
@@ -350,7 +346,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #DFDBD8;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-extra-info {
@@ -358,13 +354,10 @@
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-extra-name {
-    font-size: 1.5rem;
-    font-weight: 600;
     margin: 0 0 0.25rem;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-extra-desc {
-    font-size: 1.3rem;
     opacity: 0.7;
     margin: 0;
   }
@@ -374,32 +367,29 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 0;
-    border-top: 2px solid currentColor;
+    border-top: 2px solid #DFDBD8;
     margin-top: -1px;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-total-label {
-    font-size: 1.6rem;
-    font-weight: 600;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-total-price {
-    font-size: 1.6rem;
-    font-weight: 700;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-disclaimer {
     font-size: 1.2rem;
     font-style: italic;
     opacity: 0.6;
-    margin-top: 1rem;
-    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2.4rem;
+    text-align: left;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-badges {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
     margin-top: 1.5rem;
   }
@@ -408,13 +398,17 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 165%;
+    color: #3D3834;
   }
 
   [data-section-id="{{ section.id }}"] .two-col-content__offer-badge-check {
     width: 16px;
     height: 16px;
-    color: var(--two-col-check-color);
+    color: #3D3834;
     flex-shrink: 0;
   }
 
@@ -745,13 +739,13 @@
               {%- if block.settings.product_name != blank -%}
                 <div class="two-col-content__offer-product">
                   <div class="two-col-content__offer-product-info">
-                    <p class="two-col-content__offer-product-name">{{ block.settings.product_name }}</p>
+                    <p class="two-col-content__offer-product-name mh-body-large">{{ block.settings.product_name }}</p>
                     {%- if block.settings.product_description != blank -%}
-                      <p class="two-col-content__offer-product-desc">{{ block.settings.product_description }}</p>
+                      <p class="two-col-content__offer-product-desc mh-body-small">{{ block.settings.product_description }}</p>
                     {%- endif -%}
                   </div>
                   <div class="two-col-content__offer-price">
-                    <span class="two-col-content__offer-price-current">{{ block.settings.product_price }}</span>
+                    <span class="two-col-content__offer-price-current mh-body-large">{{ block.settings.product_price }}</span>
                     {%- if block.settings.product_compare_price != blank -%}
                       <span class="two-col-content__offer-price-compare">{{ block.settings.product_compare_price }}</span>
                     {%- endif -%}
@@ -767,13 +761,13 @@
               {%- if block.settings.extra_1_name != blank -%}
                 <div class="two-col-content__offer-extra">
                   <div class="two-col-content__offer-extra-info">
-                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_1_name }}</p>
+                    <p class="two-col-content__offer-extra-name mh-body-large">{{ block.settings.extra_1_name }}</p>
                     {%- if block.settings.extra_1_description != blank -%}
-                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_1_description }}</p>
+                      <p class="two-col-content__offer-extra-desc mh-body-small">{{ block.settings.extra_1_description }}</p>
                     {%- endif -%}
                   </div>
                   <div class="two-col-content__offer-price">
-                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_1_price }}</span>
+                    <span class="two-col-content__offer-price-current mh-body-large">{{ block.settings.extra_1_price }}</span>
                     {%- if block.settings.extra_1_compare_price != blank -%}
                       <span class="two-col-content__offer-price-compare">{{ block.settings.extra_1_compare_price }}</span>
                     {%- endif -%}
@@ -784,13 +778,13 @@
               {%- if block.settings.extra_2_name != blank -%}
                 <div class="two-col-content__offer-extra">
                   <div class="two-col-content__offer-extra-info">
-                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_2_name }}</p>
+                    <p class="two-col-content__offer-extra-name mh-body-large">{{ block.settings.extra_2_name }}</p>
                     {%- if block.settings.extra_2_description != blank -%}
-                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_2_description }}</p>
+                      <p class="two-col-content__offer-extra-desc mh-body-small">{{ block.settings.extra_2_description }}</p>
                     {%- endif -%}
                   </div>
                   <div class="two-col-content__offer-price">
-                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_2_price }}</span>
+                    <span class="two-col-content__offer-price-current mh-body-large">{{ block.settings.extra_2_price }}</span>
                     {%- if block.settings.extra_2_compare_price != blank -%}
                       <span class="two-col-content__offer-price-compare">{{ block.settings.extra_2_compare_price }}</span>
                     {%- endif -%}
@@ -801,13 +795,13 @@
               {%- if block.settings.extra_3_name != blank -%}
                 <div class="two-col-content__offer-extra">
                   <div class="two-col-content__offer-extra-info">
-                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_3_name }}</p>
+                    <p class="two-col-content__offer-extra-name mh-body-large">{{ block.settings.extra_3_name }}</p>
                     {%- if block.settings.extra_3_description != blank -%}
-                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_3_description }}</p>
+                      <p class="two-col-content__offer-extra-desc mh-body-small">{{ block.settings.extra_3_description }}</p>
                     {%- endif -%}
                   </div>
                   <div class="two-col-content__offer-price">
-                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_3_price }}</span>
+                    <span class="two-col-content__offer-price-current mh-body-large">{{ block.settings.extra_3_price }}</span>
                     {%- if block.settings.extra_3_compare_price != blank -%}
                       <span class="two-col-content__offer-price-compare">{{ block.settings.extra_3_compare_price }}</span>
                     {%- endif -%}
@@ -818,13 +812,13 @@
               {%- if block.settings.extra_4_name != blank -%}
                 <div class="two-col-content__offer-extra">
                   <div class="two-col-content__offer-extra-info">
-                    <p class="two-col-content__offer-extra-name">{{ block.settings.extra_4_name }}</p>
+                    <p class="two-col-content__offer-extra-name mh-body-large">{{ block.settings.extra_4_name }}</p>
                     {%- if block.settings.extra_4_description != blank -%}
-                      <p class="two-col-content__offer-extra-desc">{{ block.settings.extra_4_description }}</p>
+                      <p class="two-col-content__offer-extra-desc mh-body-small">{{ block.settings.extra_4_description }}</p>
                     {%- endif -%}
                   </div>
                   <div class="two-col-content__offer-price">
-                    <span class="two-col-content__offer-price-current">{{ block.settings.extra_4_price }}</span>
+                    <span class="two-col-content__offer-price-current mh-body-large">{{ block.settings.extra_4_price }}</span>
                     {%- if block.settings.extra_4_compare_price != blank -%}
                       <span class="two-col-content__offer-price-compare">{{ block.settings.extra_4_compare_price }}</span>
                     {%- endif -%}
@@ -835,15 +829,15 @@
               {%- comment -%} Total Row {%- endcomment -%}
               {%- if block.settings.total_label != blank -%}
                 <div class="two-col-content__offer-total">
-                  <span class="two-col-content__offer-total-label">{{ block.settings.total_label }}</span>
-                  <span class="two-col-content__offer-total-price">{{ block.settings.total_price }}</span>
+                  <span class="two-col-content__offer-total-label mh-body-large">{{ block.settings.total_label }}</span>
+                  <span class="two-col-content__offer-total-price mh-body-large">{{ block.settings.total_price }}</span>
                 </div>
               {%- endif -%}
-            </div>
 
-            {%- if block.settings.disclaimer != blank -%}
-              <p class="two-col-content__offer-disclaimer">{{ block.settings.disclaimer }}</p>
-            {%- endif -%}
+              {%- if block.settings.disclaimer != blank -%}
+                <p class="two-col-content__offer-disclaimer">{{ block.settings.disclaimer }}</p>
+              {%- endif -%}
+            </div>
 
             {%- if block.settings.button_text != blank -%}
               <a
@@ -858,7 +852,7 @@
               <div class="two-col-content__offer-badges">
                 {%- if block.settings.badge_1 != blank -%}
                   <span class="two-col-content__offer-badge">
-                    <svg class="two-col-content__offer-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg class="two-col-content__offer-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                     {{ block.settings.badge_1 }}
@@ -866,7 +860,7 @@
                 {%- endif -%}
                 {%- if block.settings.badge_2 != blank -%}
                   <span class="two-col-content__offer-badge">
-                    <svg class="two-col-content__offer-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg class="two-col-content__offer-badge-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                     {{ block.settings.badge_2 }}

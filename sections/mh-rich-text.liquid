@@ -1,0 +1,285 @@
+{%- liquid
+  assign has_features = false
+  if section.settings.enable_features
+    if section.settings.feature_1_label != blank or section.settings.feature_2_label != blank or section.settings.feature_3_label != blank
+      assign has_features = true
+    endif
+  endif
+-%}
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    --mh-rich-text-bg: {{ section.settings.background_color }};
+    --mh-rich-text-color: {{ section.settings.text_color }};
+    --mh-rich-text-align: {{ section.settings.text_alignment }};
+    --section-gap-top: {{ section.settings.margin_top }}px;
+    --section-gap-bottom: {{ section.settings.margin_bottom }}px;
+  }
+
+  .mh-rich-text {
+    padding: var(--section-gap-top, 40px) 0 var(--section-gap-bottom, 40px);
+    background-color: var(--mh-rich-text-bg, transparent);
+  }
+
+  .mh-rich-text__content {
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 0 var(--gap);
+    text-align: var(--mh-rich-text-align, center);
+  }
+
+  .mh-rich-text__heading {
+    color: var(--mh-rich-text-color, inherit);
+    margin: 0;
+  }
+
+  .mh-rich-text__features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    max-width: 128rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--gap);
+  }
+
+  .mh-rich-text__feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mh-rich-text__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: #3D3834;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mh-rich-text__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mh-rich-text__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mh-rich-text__label {
+    color: var(--mh-rich-text-color, inherit);
+  }
+
+  @media (max-width: 749px) {
+    .mh-rich-text__features {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+</style>
+
+<section
+  data-section-id="{{ section.id }}"
+  class="mh-rich-text {% if settings.animations %} scroll-trigger animate--slide-in {% endif %} {% if settings.disabled_animations_on_mobile %} disabled-on-mobile {% endif %}"
+>
+  {%- if section.settings.heading != blank -%}
+    <div class="mh-rich-text__content">
+      <h2 class="mh-rich-text__heading mh-heading-2">{{ section.settings.heading }}</h2>
+    </div>
+  {%- endif -%}
+
+  {%- if has_features -%}
+    <div class="mh-rich-text__features">
+      {%- if section.settings.feature_1_label != blank -%}
+        <div class="mh-rich-text__feature">
+          <span class="mh-rich-text__icon">
+            {%- if section.settings.feature_1_icon != blank -%}
+              <img
+                src="{{ section.settings.feature_1_icon | image_url: width: 48 }}"
+                alt=""
+                width="20"
+                height="20"
+                loading="lazy"
+              >
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            {%- endif -%}
+          </span>
+          <span class="mh-rich-text__label">{{ section.settings.feature_1_label }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.feature_2_label != blank -%}
+        <div class="mh-rich-text__feature">
+          <span class="mh-rich-text__icon">
+            {%- if section.settings.feature_2_icon != blank -%}
+              <img
+                src="{{ section.settings.feature_2_icon | image_url: width: 48 }}"
+                alt=""
+                width="20"
+                height="20"
+                loading="lazy"
+              >
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            {%- endif -%}
+          </span>
+          <span class="mh-rich-text__label">{{ section.settings.feature_2_label }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.feature_3_label != blank -%}
+        <div class="mh-rich-text__feature">
+          <span class="mh-rich-text__icon">
+            {%- if section.settings.feature_3_icon != blank -%}
+              <img
+                src="{{ section.settings.feature_3_icon | image_url: width: 48 }}"
+                alt=""
+                width="20"
+                height="20"
+                loading="lazy"
+              >
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            {%- endif -%}
+          </span>
+          <span class="mh-rich-text__label">{{ section.settings.feature_3_label }}</span>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "MH Rich Text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made to fit into real routines. If it's not right for your dog, you can cancel anytime – no pressure, no commitment."
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Feature items"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_features",
+      "label": "Enable feature items",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_1_icon",
+      "label": "Feature 1 icon",
+      "info": "Optional. Leave blank for default checkmark."
+    },
+    {
+      "type": "text",
+      "id": "feature_1_label",
+      "label": "Feature 1 label",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_2_icon",
+      "label": "Feature 2 icon",
+      "info": "Optional. Leave blank for default checkmark."
+    },
+    {
+      "type": "text",
+      "id": "feature_2_label",
+      "label": "Feature 2 label",
+      "default": "Update or cancel anytime"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_3_icon",
+      "label": "Feature 3 icon",
+      "info": "Optional. Leave blank for default checkmark."
+    },
+    {
+      "type": "text",
+      "id": "feature_3_label",
+      "label": "Feature 3 label",
+      "default": "UK-based customer support"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "transparent",
+      "info": "Leave transparent to inherit from theme"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Top margin",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Bottom margin",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MH Rich Text"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}
